@@ -11,5 +11,18 @@
     We are using node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
+
+    <div>
+
+      <script>
+
+window.addEventListener("gamepadconnected", function(event) {
+  document.write("<p>Gamepad: "+event.gamepad.index+"</p>");
+  console.log("Contrôleur n°%d connecté : %s. %d boutons, %d axes.",
+  e.gamepad.index, e.gamepad.id,
+  e.gamepad.buttons.length, e.gamepad.axes.length);
+});
+      </script>
+    </div>
   </body>
 </html>
