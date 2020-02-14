@@ -1,0 +1,1 @@
+# mugen-quick-versus-launcher
