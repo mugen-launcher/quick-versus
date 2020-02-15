@@ -9,6 +9,7 @@ module.exports = (env, { mode = "development" }) => {
   process.env.NODE_ENV = mode;
 
   return {
+    target: "electron-renderer",
     entry: "./src/index.jsx",
     mode,
     output: {

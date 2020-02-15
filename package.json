@@ -4,9 +4,7 @@
   "license": "MIT",
   "version": "1.0.0",
   "description": "Mugen launcher for Quick Versus",
-  "keywords": [
-    "mugen"
-  ],
+  "keywords": ["mugen", "electron", "launcher"],
   "scripts": {
     "start": "npm run build && electron .",
     "pack-windows": "npm run build && electron-builder --win --x64",

@@ -7,8 +7,10 @@ function createWindow() {
     frame: false,
     fullscreen: true,
     webPreferences: {
-      //nodeIntegration: true
-    }
+      nodeIntegration: true,
+      enableRemoteModule: true,
+    },
+    webSecurity: false
   });
 
   window.loadFile("build/index.html");
