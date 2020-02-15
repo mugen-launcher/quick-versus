@@ -1,11 +1,16 @@
 {
   "name": "mugen-quick-versus-launcher",
+  "author": "neolao",
+  "license": "MIT",
   "version": "1.0.0",
   "description": "Mugen launcher for Quick Versus",
-  "main": "index.js",
+  "keywords": [
+    "mugen"
+  ],
   "scripts": {
-    "start": "electron .",
+    "start": "npm run build && electron .",
     "pack-windows": "npm run build && electron-builder --win --x64",
+    "pack-windows:dev": "npm run build && electron-builder --dir --win --x64",
     "postinstall": "electron-builder install-app-deps",
     "lint": "eslint .",
     "lint:watch": "esw --watch --cache --clear .",
@@ -17,23 +22,27 @@
     "type": "git",
     "url": "git+https://github.com/neolao/mugen-quick-versus-launcher.git"
   },
-  "keywords": [
-    "mugen"
-  ],
-  "author": "neolao",
-  "license": "MIT",
   "engines": {
     "node": ">=13"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
     "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
     "electron": "^8.0.1",
     "electron-builder": "^22.3.2",
     "eslint": "^6.8.0",
     "eslint-plugin-solfegejs": "^1.0.17",
     "eslint-watch": "^6.0.1",
+    "file-loader": "^5.0.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
     "prettier": "^1.19.1",
     "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11"
   },
@@ -42,12 +51,15 @@
       "plugin:solfegejs/recommended"
     ]
   },
+  "main": "index.js",
   "build": {
     "appId": "com.neolao.mugen.quick-versus-launcher",
     "productName": "quick-versus",
-    "directories": {
-      "output": "dist/bin"
-    },
+    "files": [
+      "index.js",
+      "index.html",
+      "build"
+    ],
     "mac": {
       "category": "public.app-category.games"
     },

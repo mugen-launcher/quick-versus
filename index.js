@@ -1,16 +1,19 @@
 const { app, BrowserWindow } = require("electron");
+const path = require("path");
 
 function createWindow() {
   const window = new BrowserWindow({
-    BackgroundColor: "#333",
+    backgroundColor: "#333333",
     frame: false,
     fullscreen: true,
     webPreferences: {
-      nodeIntegration: true
+      //nodeIntegration: true
     }
   });
 
   window.loadFile("build/index.html");
+
+  window.webContents.openDevTools();
 }
 
 app.on("window-all-closed", () => {
