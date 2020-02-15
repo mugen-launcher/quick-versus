@@ -1,18 +1,19 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow } = require("electron");
 
-function createWindow () {
-  let win = new BrowserWindow({
-    width: 800,
-    height: 600,
+function createWindow() {
+  const window = new BrowserWindow({
+    BackgroundColor: "#333",
+    frame: false,
+    fullscreen: true,
     webPreferences: {
       nodeIntegration: true
     }
   });
 
-  win.loadFile('index.html')
+  window.loadFile("build/index.html");
 }
 
-app.on('window-all-closed', () => {
+app.on("window-all-closed", () => {
   app.quit();
 });
 

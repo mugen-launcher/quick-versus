@@ -5,9 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder",
-    "postinstall": "electron-builder install-app-deps"
+    "pack-windows": "npm run build && electron-builder --win --x64",
+    "postinstall": "electron-builder install-app-deps",
+    "lint": "eslint .",
+    "lint:watch": "esw --watch --cache --clear .",
+    "prettier": "prettier --write \"**/*.{js,html}\"",
+    "dev": "webpack --env dev-bundle --watch",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -18,12 +22,32 @@
   ],
   "author": "neolao",
   "license": "MIT",
+  "engines": {
+    "node": ">=13"
+  },
   "devDependencies": {
+    "copy-webpack-plugin": "^5.1.1",
     "electron": "^8.0.1",
-    "electron-builder": "^22.3.2"
+    "electron-builder": "^22.3.2",
+    "eslint": "^6.8.0",
+    "eslint-plugin-solfegejs": "^1.0.17",
+    "eslint-watch": "^6.0.1",
+    "prettier": "^1.19.1",
+    "react": "^16.12.0",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:solfegejs/recommended"
+    ]
   },
   "build": {
     "appId": "com.neolao.mugen.quick-versus-launcher",
+    "productName": "quick-versus",
+    "directories": {
+      "output": "dist/bin"
+    },
     "mac": {
       "category": "public.app-category.games"
     },
