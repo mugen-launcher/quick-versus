@@ -75,6 +75,20 @@
       "definitions": [
         "chars/SNK/Kyo/Kyo.def"
       ]
+    },
+    {
+      "name": "Nintendo",
+      "image": "chars/Nintendo/image.png",
+      "definitions": [
+        "chars/Nintedo/Mario/Mario.def"
+      ]
+    },
+    {
+      "name": "Sega",
+      "image": "chars/Sega/image.png",
+      "definitions": [
+        "chars/Sega/Sonic/Sonic.def"
+      ]
     }
   ],
   "stages": [

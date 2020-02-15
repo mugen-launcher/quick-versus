@@ -34,7 +34,27 @@ module.exports = (env, { mode = "development" }) => {
           use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
         },
         {
-          test: /\.(eot|svg|ttf|woff|woff2)$/,
+          test: /\.(jpg|png)$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                esModule: false,
+              },
+            },
+          ],
+        },
+        {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: '@svgr/webpack',
+
+            },
+          ],
+        },
+        {
+          test: /\.(eot|ttf|woff|woff2)$/,
           use: [
             {
               loader: "file-loader",

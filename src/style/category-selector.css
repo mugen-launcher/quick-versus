@@ -1,0 +1,13 @@
+.category-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 32vw;
+}
+.category-image {
+  width: 25vw;
+}
+.category-arrow-left, .category-arrow-right {
+  width: 2vw;
+  height: 2vw;
+}

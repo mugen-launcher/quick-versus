@@ -1,15 +1,15 @@
 .player-1 {
   &.category-selector {
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 10px;
+    top: 10px;
   }
 }
 
 .player-2 {
   &.category-selector {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 10px;
+    top: 10px;
   }
 }

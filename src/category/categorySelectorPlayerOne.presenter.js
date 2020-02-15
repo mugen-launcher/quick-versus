@@ -1,9 +1,10 @@
 const React = require("react");
 const { useState, useEffect } = React;
-const CategoryName = require("./categoryName.view");
+const CategorySelector = require("./categorySelector.view");
 const useCharacterCategories = require("../utils/useCharacterCategories.hook");
 const useKeyboard = require("../utils/useKeyboard.hook");
 const useGamepad = require("../utils/useGamepad.hook");
+const categoryPlaceholder = require("../assets/category-placeholder.png");
 
 module.exports = function CategorySelectorPlayerOne() {
   const categories = useCharacterCategories();
@@ -36,6 +37,5 @@ module.exports = function CategorySelectorPlayerOne() {
     };
   });
 
-  const categoryName = categories[selectedIndex].name;
-  return <CategoryName value={categoryName} />;
+  return <CategorySelector image={categoryPlaceholder} />;
 };

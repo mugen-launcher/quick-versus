@@ -1,16 +1,9 @@
 const React = require("react");
 const { useState } = React;
-const CategoryName = require("./categoryName.view");
+const CategorySelector = require("./categorySelector.view");
 const useCharacterCategories = require("../utils/useCharacterCategories.hook");
+const categoryPlaceholder = require("../assets/category-placeholder.png");
 
 module.exports = function CategorySelectorPlayerTwo() {
-  const categories = useCharacterCategories();
-
-  const [selectedIndex, selectIndex] = useState(null);
-
-  let categoryName = "RANDOM";
-  if (selectedIndex !== null) {
-    categoryName = categories[selectedIndex].name;
-  }
-  return <CategoryName value={categoryName} />;
+  return <CategorySelector image={categoryPlaceholder} />;
 };
