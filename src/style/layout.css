@@ -1,0 +1,15 @@
+.player-1 {
+  &.category-selector {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+.player-2 {
+  &.category-selector {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

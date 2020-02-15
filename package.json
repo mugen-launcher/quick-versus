@@ -4,15 +4,19 @@
   "license": "MIT",
   "version": "1.0.0",
   "description": "Mugen launcher for Quick Versus",
-  "keywords": ["mugen", "electron", "launcher"],
+  "keywords": [
+    "mugen",
+    "electron",
+    "launcher"
+  ],
   "scripts": {
-    "start": "npm run build && electron .",
+    "start": "webpack --mode production && electron .",
     "pack-windows": "npm run build && electron-builder --win --x64",
     "pack-windows:dev": "npm run build && electron-builder --dir --win --x64",
     "postinstall": "electron-builder install-app-deps",
     "lint": "eslint .",
     "lint:watch": "esw --watch --cache --clear .",
-    "prettier": "prettier --write \"**/*.{js,html}\"",
+    "prettier": "prettier --write \"**/*.{js,html,css}\"",
     "dev": "webpack --env dev-bundle --watch",
     "build": "webpack --mode production"
   },
@@ -31,6 +35,7 @@
     "css-loader": "^3.4.2",
     "electron": "^8.0.1",
     "electron-builder": "^22.3.2",
+    "electron-is-dev": "^1.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-solfegejs": "^1.0.17",
     "eslint-watch": "^6.0.1",
@@ -38,6 +43,7 @@
     "mini-css-extract-plugin": "^0.9.0",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
+    "postcss-nested": "^4.2.1",
     "prettier": "^1.19.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

@@ -1,1 +1,4 @@
-# mugen-quick-versus-launcher
+Quick Versus Launcher for MUGEN
+===============================
+
+

@@ -1,5 +1,4 @@
 const { app, BrowserWindow } = require("electron");
-const path = require("path");
 
 function createWindow() {
   const window = new BrowserWindow({
@@ -8,14 +7,12 @@ function createWindow() {
     fullscreen: true,
     webPreferences: {
       nodeIntegration: true,
-      enableRemoteModule: true,
+      enableRemoteModule: true
     },
     webSecurity: false
   });
-
   window.loadFile("build/index.html");
-
-  window.webContents.openDevTools();
+  //window.webContents.openDevTools();
 }
 
 app.on("window-all-closed", () => {
