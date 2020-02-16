@@ -6,14 +6,15 @@ const fs = remote.require("fs");
 const path = remote.require("path");
 const execFile = remote.require("child_process").execFile;
 const isDev = require("electron-is-dev");
-const ConfigurationContext = require("./utils/configuration.context");
-const EnvironmentContext = require("./utils/environment.context");
+const ConfigurationContext = require("./configuration/configuration.context");
+const EnvironmentContext = require("./configuration/environment.context");
 const CategorySelectorPlayerOne = require("./category/categorySelectorPlayerOne.presenter");
 const CategorySelectorPlayerTwo = require("./category/categorySelectorPlayerTwo.presenter");
+const ErrorBoundary = require("./error/errorBoundary.view");
 
 let currentDirectory;
 if (isDev) {
-  currentDirectory = path.resolve(app.getAppPath(), "dev");
+  currentDirectory = path.resolve(app.getAppPath(), "dev-env");
 } else {
   currentDirectory = remote.process.env.PORTABLE_EXECUTABLE_DIR;
 }
@@ -67,45 +68,9 @@ module.exports = function App() {
     isDev
   };
 
-  /*
-  const files = fs.readdirSync(currentDirectory);
-  files.forEach((file, index) => {
-    console.log(file);
-  });
-  */
-
-  /*
-  const mugenPath = path.resolve(currentDirectory, "mugen.exe");
-  execFile(mugenPath, [], { cwd: currentDirectory, windowsHide: true }, function(err, data) {
-    console.log("ok")
-  });
-  */
-
-  //const imagePath = `${currentDirectory}/test.png`;
-  /*
-  const p = [];
-  for (const index in gamepads) {
-    const gamepad = gamepads[index];
-    const buttons = gamepad.buttons;
-    const b = [];
-    for (const button of buttons) {
-      b.push(<li>{button.value}: {button.pressed ? "Pressed" : "Released"}</li>);
-    }
-
-    p.push(<ul key={gamepad.index}>
-      <li>Index {gamepad.index}</li>
-      <li>
-        Buttons
-        <ul>
-          {b}
-        </ul>
-      </li>
-    </ul>
-    );
-  }
-  */
-
   return (
+    <ErrorBoundary>
+
     <EnvironmentContext.Provider value={environment}>
       <ConfigurationContext.Provider value={configuration}>
         <div class="app">
@@ -118,5 +83,6 @@ module.exports = function App() {
         </div>
       </ConfigurationContext.Provider>
     </EnvironmentContext.Provider>
+    </ErrorBoundary>
   );
 }

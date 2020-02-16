@@ -1,13 +1,13 @@
 const useConfiguration = require("./useConfiguration.hook");
 
-module.exports = function useCharacterCategories() {
+module.exports = function useKeyboardMappingPlayerOne() {
   const configuration = useConfiguration();
 
-  if (!Array.isArray(configuration.characters)) {
+  if (!Array.isArray(configuration.categories)) {
     return [];
   }
 
-  const categories = configuration.characters.map(category => {
+  const categories = configuration.categories.map(category => {
     return {
       name: category.name,
       image: category.image

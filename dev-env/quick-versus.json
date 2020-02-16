@@ -61,32 +61,32 @@
       }
     }
   },
-  "characters": [
+  "categories": [
     {
       "name": "Capcom",
       "image": "chars/Capcom/image.png",
-      "definitions": [
+      "characters": [
         "chars/Capcom/Ryu/Ryu.def"
       ]
     },
     {
       "name": "SNK",
       "image": "chars/SNK/image.png",
-      "definitions": [
+      "characters": [
         "chars/SNK/Kyo/Kyo.def"
       ]
     },
     {
       "name": "Nintendo",
       "image": "chars/Nintendo/image.png",
-      "definitions": [
-        "chars/Nintedo/Mario/Mario.def"
+      "characters": [
+        "chars/Nintendo/Mario/Mario.def"
       ]
     },
     {
       "name": "Sega",
       "image": "chars/Sega/image.png",
-      "definitions": [
+      "characters": [
         "chars/Sega/Sonic/Sonic.def"
       ]
     }

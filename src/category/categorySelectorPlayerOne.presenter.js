@@ -1,18 +1,14 @@
 const React = require("react");
-const remote = require("electron").remote;
-const fs = remote.require("fs");
-const path = remote.require("path");
 const { useState, useEffect } = React;
 const CategorySelector = require("./categorySelector.view");
-const useCharacterCategories = require("../utils/useCharacterCategories.hook");
-const useEnvironment = require("../utils/useEnvironment.hook");
-const useKeyboard = require("../utils/useKeyboard.hook");
-const useGamepad = require("../utils/useGamepad.hook");
-const categoryPlaceholder = require("../assets/category-placeholder.png");
+const useCategories = require("../configuration/useCategories.hook");
+const useKeyboard = require("../input/useKeyboard.hook");
+const useGamepad = require("../input/useGamepad.hook");
+const useKeyboardMapping = require("../configuration/useKeyboardMappingPlayerOne.hook");
 
 module.exports = function CategorySelectorPlayerOne() {
-  const environment = useEnvironment();
-  const categories = useCharacterCategories();
+  const keyboardMapping = useKeyboardMapping();
+  const categories = useCategories();
   const keyboard = useKeyboard();
   const gamepad = useGamepad();
   const [selectedIndex, selectIndex] = useState(0);
@@ -42,12 +38,5 @@ module.exports = function CategorySelectorPlayerOne() {
     };
   });
 
-  let imagePath = categoryPlaceholder;
-  if (categories[selectedIndex].image) {
-    const categoryImagePath = path.resolve(environment.currentDirectory, categories[selectedIndex].image);
-    if (fs.existsSync(categoryImagePath)) {
-      imagePath = categoryImagePath;
-    }
-  }
-  return <CategorySelector image={imagePath} />;
+  return <CategorySelector category={categories[selectedIndex]} />;
 };
