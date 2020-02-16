@@ -7,6 +7,7 @@ const path = remote.require("path");
 const execFile = remote.require("child_process").execFile;
 const isDev = require("electron-is-dev");
 const ConfigurationContext = require("./utils/configuration.context");
+const EnvironmentContext = require("./utils/environment.context");
 const CategorySelectorPlayerOne = require("./category/categorySelectorPlayerOne.presenter");
 const CategorySelectorPlayerTwo = require("./category/categorySelectorPlayerTwo.presenter");
 
@@ -58,6 +59,14 @@ module.exports = function App() {
     );
   }
 
+  const environment = {
+    app,
+    currentDirectory,
+    mugenPath,
+    configurationFilePath,
+    isDev
+  };
+
   /*
   const files = fs.readdirSync(currentDirectory);
   files.forEach((file, index) => {
@@ -97,15 +106,17 @@ module.exports = function App() {
   */
 
   return (
-    <ConfigurationContext.Provider value={configuration}>
-      <div class="app">
-        <div class="player-1 category-selector">
-          <CategorySelectorPlayerOne/>
+    <EnvironmentContext.Provider value={environment}>
+      <ConfigurationContext.Provider value={configuration}>
+        <div class="app">
+          <div class="player-1 category-selector">
+            <CategorySelectorPlayerOne/>
+          </div>
+          <div class="player-2 category-selector">
+            <CategorySelectorPlayerTwo/>
+          </div>
         </div>
-        <div class="player-2 category-selector">
-          <CategorySelectorPlayerTwo/>
-        </div>
-      </div>
-    </ConfigurationContext.Provider>
+      </ConfigurationContext.Provider>
+    </EnvironmentContext.Provider>
   );
 }
