@@ -1,16 +1,15 @@
-const React = require("react");
-const { createContext } = React;
-const remote = require("electron").remote;
+import React from "react";
+import { remote } from "electron";
+import isDev from "electron-is-dev";
+import ConfigurationContext from "./configuration/configuration.context";
+import EnvironmentContext from "./configuration/environment.context";
+import CategorySelectorPlayerOne from "./category/categorySelectorPlayerOne.presenter";
+import CategorySelectorPlayerTwo from "./category/categorySelectorPlayerTwo.presenter";
+import ErrorBoundary from "./error/errorBoundary.view";
 const app = remote.app;
 const fs = remote.require("fs");
 const path = remote.require("path");
 const execFile = remote.require("child_process").execFile;
-const isDev = require("electron-is-dev");
-const ConfigurationContext = require("./configuration/configuration.context");
-const EnvironmentContext = require("./configuration/environment.context");
-const CategorySelectorPlayerOne = require("./category/categorySelectorPlayerOne.presenter");
-const CategorySelectorPlayerTwo = require("./category/categorySelectorPlayerTwo.presenter");
-const ErrorBoundary = require("./error/errorBoundary.view");
 
 let currentDirectory;
 if (isDev) {
@@ -19,7 +18,7 @@ if (isDev) {
   currentDirectory = remote.process.env.PORTABLE_EXECUTABLE_DIR;
 }
 
-module.exports = function App() {
+export default function App() {
   if (!currentDirectory) {
     return (
       <div class="requirement-message">

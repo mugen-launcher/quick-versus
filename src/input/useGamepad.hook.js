@@ -1,5 +1,4 @@
-const React = require("react");
-const { useState, useEffect } = React;
+import { useState, useEffect } from "react";
 
 const emitter = new EventTarget();
 let currentButtonStates = [];
@@ -31,9 +30,9 @@ function scanGamepads() {
 
   currentButtonStates = nextButtonStates;
   window.requestAnimationFrame(scanGamepads);
-};
+}
 scanGamepads();
 
-module.exports = function useGamepads() {
+export default function useGamepads() {
   return emitter;
 };

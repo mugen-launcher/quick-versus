@@ -1,4 +1,3 @@
-const React = require("react");
-const { createContext } = React;
+import { createContext } from "react";
 
 module.exports = createContext({});

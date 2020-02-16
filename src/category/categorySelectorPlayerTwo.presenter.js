@@ -1,8 +1,7 @@
-const React = require("react");
-const { useState } = React;
-const CategorySelector = require("./categorySelector.view");
-const useCategories = require("../configuration/useCategories.hook");
+import React from "react";
+import CategorySelector from "./categorySelector.view";
+import useCategories from "../configuration/useCategories.hook";
 
-module.exports = function CategorySelectorPlayerTwo() {
+export default function CategorySelectorPlayerTwo() {
   return <CategorySelector />;
 };

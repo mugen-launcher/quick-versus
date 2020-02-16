@@ -1,7 +1,6 @@
-const React = require("react");
-const { useContext } = React;
-const EnvironmentContext = require("./environment.context");
+import { useContext } from "react";
+import EnvironmentContext from "./environment.context";
 
-module.exports = function useEnvironment() {
+export default function useEnvironment() {
   return useContext(EnvironmentContext);
 };

@@ -1,6 +1,6 @@
-const useConfiguration = require("./useConfiguration.hook");
+import useConfiguration from "./useConfiguration.hook";
 
-module.exports = function useKeyboardMappingPlayerOne() {
+export default function useKeyboardMappingPlayerOne() {
   const configuration = useConfiguration();
 
   if (!Array.isArray(configuration.categories)) {

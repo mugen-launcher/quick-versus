@@ -1,9 +1,8 @@
-const React = require("react");
-const { useEffect, useState } = React;
+import { useEffect } from "react";
 
 const emitter = new EventTarget();
 
-module.exports = function useKeyboard() {
+export default function useKeyboard() {
   useEffect(() => {
     const onKeyUp = event => {
       emitter.dispatchEvent(new Event(event.key));

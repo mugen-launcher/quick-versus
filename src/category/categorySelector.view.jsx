@@ -1,13 +1,13 @@
-const React = require("react");
-const remote = require("electron").remote;
+import React from "react";
+import { remote } from "electron";
+import ArrowLeft from "../assets/arrow-left-x.svg";
+import ArrowRight from "../assets/arrow-right-y.svg";
+import categoryPlaceholder from "../assets/category-placeholder.png";
+import useEnvironment from "../configuration/useEnvironment.hook";
 const fs = remote.require("fs");
 const path = remote.require("path");
-const ArrowLeft = require("../assets/arrow-left-x.svg").default;
-const ArrowRight = require("../assets/arrow-right-y.svg").default;
-const categoryPlaceholder = require("../assets/category-placeholder.png");
-const useEnvironment = require("../configuration/useEnvironment.hook");
 
-module.exports = function CategorySelector({ category }) {
+export default function CategorySelector({ category }) {
   const environment = useEnvironment();
 
   let imagePath = categoryPlaceholder;

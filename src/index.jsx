@@ -1,6 +1,6 @@
-const React = require("react");
-const { render } = require("react-dom");
-const Style = require("./style.css");
-const App = require("./app");
+import React from "react";
+import { render } from "react-dom";
+import "./style.css";
+import App from "./app";
 
 render(<App />, document.getElementById("root"));

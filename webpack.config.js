@@ -10,6 +10,7 @@ module.exports = (env, { mode = "development" }) => {
   return {
     target: "electron-renderer",
     entry: "./src/index.jsx",
+    devtool: "source-map",
     mode,
     output: {
       path: path.resolve(__dirname, "build"),
@@ -37,21 +38,20 @@ module.exports = (env, { mode = "development" }) => {
           test: /\.(jpg|png)$/,
           use: [
             {
-              loader: 'url-loader',
+              loader: "url-loader",
               options: {
-                esModule: false,
-              },
-            },
-          ],
+                esModule: true
+              }
+            }
+          ]
         },
         {
           test: /\.svg$/,
           use: [
             {
-              loader: '@svgr/webpack',
-
-            },
-          ],
+              loader: "@svgr/webpack"
+            }
+          ]
         },
         {
           test: /\.(eot|ttf|woff|woff2)$/,

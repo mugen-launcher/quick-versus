@@ -1,12 +1,11 @@
-const React = require("react");
-const { useState, useEffect } = React;
-const CategorySelector = require("./categorySelector.view");
-const useCategories = require("../configuration/useCategories.hook");
-const useKeyboard = require("../input/useKeyboard.hook");
-const useGamepad = require("../input/useGamepad.hook");
-const useKeyboardMapping = require("../configuration/useKeyboardMappingPlayerOne.hook");
+import React, { useState, useEffect } from "react";
+import CategorySelector from "./categorySelector.view";
+import useCategories from "../configuration/useCategories.hook";
+import useKeyboard from "../input/useKeyboard.hook";
+import useGamepad from "../input/useGamepad.hook";
+import useKeyboardMapping from "../configuration/useKeyboardMappingPlayerOne.hook";
 
-module.exports = function CategorySelectorPlayerOne() {
+export default function CategorySelectorPlayerOne() {
   const keyboardMapping = useKeyboardMapping();
   const categories = useCategories();
   const keyboard = useKeyboard();
