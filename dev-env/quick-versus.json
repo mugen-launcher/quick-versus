@@ -1,94 +1,84 @@
 {
-  "controllers": {
-    "player-one": {
-      "keyboard": {
-        "left": "ArrowLeft",
-        "right": "ArrowRight",
-        "up": "ArrowUp",
-        "down": "ArrowDown",
-        "a": "w",
-        "b": "x",
-        "c": "c",
-        "x": "q",
-        "y": "s",
-        "z": "d",
-        "escape": "Escape",
-        "enter": "Enter"
-      },
-      "gamepad": {
-        "left": "0-14",
-        "right": "0-15",
-        "up": "0-12",
-        "down": "0-13",
-        "a": "0-1",
-        "b": "0-0",
-        "c": "0-7",
-        "x": "0-3",
-        "y": "0-2",
-        "z": "0-5",
-        "escape": "0-8",
-        "enter": "0-9"
-      }
+  "playerOne": {
+    "keyboard": {
+      "left": "ArrowLeft",
+      "right": "ArrowRight",
+      "up": "ArrowUp",
+      "down": "ArrowDown",
+      "a": "w",
+      "b": "x",
+      "c": "c",
+      "x": "q",
+      "y": "s",
+      "z": "d",
+      "escape": "Escape",
+      "enter": "Enter"
     },
-    "player-two": {
-      "keyboard": {
-        "left": "k",
-        "right": "m",
-        "up": "l",
-        "down": "o",
-        "a": "g",
-        "b": "h",
-        "c": "j",
-        "x": "t",
-        "y": "y",
-        "z": "u",
-        "escape": "i",
-        "enter": "p"
-      },
-      "gamepad": {
-        "left": "1-14",
-        "right": "1-15",
-        "up": "1-12",
-        "down": "1-13",
-        "a": "1-1",
-        "b": "1-0",
-        "c": "1-7",
-        "x": "1-3",
-        "y": "1-2",
-        "z": "1-5",
-        "escape": "1-8",
-        "enter": "1-9"
-      }
+    "gamepad": {
+      "left": "0-14",
+      "right": "0-15",
+      "up": "0-12",
+      "down": "0-13",
+      "a": "0-1",
+      "b": "0-0",
+      "c": "0-7",
+      "x": "0-3",
+      "y": "0-2",
+      "z": "0-5",
+      "escape": "0-8",
+      "enter": "0-9"
+    }
+  },
+  "playerTwo": {
+    "keyboard": {
+      "left": "k",
+      "right": "m",
+      "up": "l",
+      "down": "o",
+      "a": "g",
+      "b": "h",
+      "c": "j",
+      "x": "t",
+      "y": "y",
+      "z": "u",
+      "escape": "i",
+      "enter": "p"
+    },
+    "gamepad": {
+      "left": "1-14",
+      "right": "1-15",
+      "up": "1-12",
+      "down": "1-13",
+      "a": "1-1",
+      "b": "1-0",
+      "c": "1-7",
+      "x": "1-3",
+      "y": "1-2",
+      "z": "1-5",
+      "escape": "1-8",
+      "enter": "1-9"
     }
   },
   "categories": [
     {
       "name": "Capcom",
       "image": "chars/Capcom/image.png",
-      "characters": [
-        "chars/Capcom/Ryu/Ryu.def"
-      ]
+      "characters": ["chars/Capcom/Ryu/Ryu.def"]
     },
     {
       "name": "SNK",
       "image": "chars/SNK/image.png",
-      "characters": [
-        "chars/SNK/Kyo/Kyo.def"
-      ]
+      "characters": ["chars/SNK/Kyo/Kyo.def"]
     },
     {
       "name": "Nintendo",
       "image": "chars/Nintendo/image.png",
-      "characters": [
-        "chars/Nintendo/Mario/Mario.def"
-      ]
+      "characters": ["chars/Nintendo/Mario/Mario.def"]
     },
     {
       "name": "Sega",
       "image": "chars/Sega/image.png",
-      "characters": [
-        "chars/Sega/Sonic/Sonic.def"
-      ]
+      "characters": ["chars/Sega/Sonic/Sonic.def"]
     }
   ],
   "stages": [

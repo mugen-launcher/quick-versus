@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
-const emitter = new EventTarget();
-
 export default function useKeyboard() {
+  const emitter = new EventTarget();
+
   useEffect(() => {
     const onKeyUp = event => {
       emitter.dispatchEvent(new Event(event.key));
@@ -13,7 +13,7 @@ export default function useKeyboard() {
     return () => {
       document.removeEventListener("keyup", onKeyUp);
     };
-  });
+  }, [emitter, document]);
 
   return emitter;
-};
+}

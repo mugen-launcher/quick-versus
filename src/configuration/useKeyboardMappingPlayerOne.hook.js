@@ -3,16 +3,9 @@ import useConfiguration from "./useConfiguration.hook";
 export default function useKeyboardMappingPlayerOne() {
   const configuration = useConfiguration();
 
-  if (!Array.isArray(configuration.categories)) {
-    return [];
+  if (!configuration.playerOne || !configuration.playerOne.keyboard) {
+    throw new Error("Keyboard mapping not found for player one.");
   }
 
-  const categories = configuration.categories.map(category => {
-    return {
-      name: category.name,
-      image: category.image
-    };
-  });
-
-  return categories;
-};
+  return configuration.playerOne.keyboard;
+}

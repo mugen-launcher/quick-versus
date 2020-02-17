@@ -1,7 +1,9 @@
-import React from "react";
-import CategorySelector from "./categorySelector.view";
-import useCategories from "../configuration/useCategories.hook";
+import React, { useState, useEffect } from "react";
+import useInput from "../input/useInputPlayerTwo.hook";
+import CategorySelector from "./categorySelector.presenter";
 
 export default function CategorySelectorPlayerTwo() {
-  return <CategorySelector />;
-};
+  const input = useInput();
+
+  return <CategorySelector input={input} />;
+}

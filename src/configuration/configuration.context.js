@@ -1,3 +1,3 @@
 import { createContext } from "react";
 
-module.exports = createContext({});
+export default createContext({});

@@ -35,4 +35,4 @@ scanGamepads();
 
 export default function useGamepads() {
   return emitter;
-};
+}
