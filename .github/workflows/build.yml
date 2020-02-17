@@ -23,7 +23,7 @@ jobs:
 
       - name: Project information
         id: info
-        uses: gregoranders/nodejs-project-info
+        uses: gregoranders/nodejs-project-info@v0.0.1
 
       - name: Upload
         uses: actions/upload-release-asset@v1.0.1
