@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1.0.0
+
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Build
+        run: |
+          npm ci
+          npm run pack-windows
+
+      - name: Project information
+        id: info
+        uses: gregoranders/nodejs-project-info
+
+      - name: Upload
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./dist/quick-versus ${{steps.info.outputs.version}}.exe
+          asset_name: quick-versus.exe
+          asset_content_type: application/octet-stream

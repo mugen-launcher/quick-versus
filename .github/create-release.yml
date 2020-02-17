@@ -1,0 +1,33 @@
+name: Create release
+
+on:
+  push:
+    max-parallel: 1
+    branches:
+      - master
+
+jobs:
+  create:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Check package.json version
+        uses: MontyD/package-json-updated-action@1.0.0
+        id: version-updated
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout
+        uses: actions/checkout@v1.0.0
+        if: steps.version-updated.outputs.has-updated
+
+      - name: Create release
+        if: steps.version-updated.outputs.has-updated
+        id: create-release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.CREATE_RELEASE_TOKEN }}
+        with:
+          tag_name: ${{ steps.version-updated.outputs.current-package-version }}
+          release_name: Release ${{ steps.version-updated.outputs.current-package-version }}
+          draft: false
+          prerelease: false
