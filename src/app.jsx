@@ -3,8 +3,8 @@ import { remote } from "electron";
 import isDev from "electron-is-dev";
 import ConfigurationContext from "./configuration/configuration.context";
 import EnvironmentContext from "./configuration/environment.context";
-import CategorySelectorPlayerOne from "./category/categorySelectorPlayerOne.presenter";
 import CategorySelectorPlayerTwo from "./category/categorySelectorPlayerTwo.presenter";
+import PlayerOne from "./player/playerOne.presenter";
 import ErrorBoundary from "./error/errorBoundary.view";
 const app = remote.app;
 const fs = remote.require("fs");
@@ -74,10 +74,17 @@ export default function App() {
       <ConfigurationContext.Provider value={configuration}>
         <div class="app">
           <div class="player-1 category-selector">
-            <CategorySelectorPlayerOne/>
+            <PlayerOne />
           </div>
           <div class="player-2 category-selector">
             <CategorySelectorPlayerTwo/>
+          </div>
+
+          <div class="player-1 character-selector">
+
+          </div>
+          <div class="player-2 character-selector">
+
           </div>
         </div>
       </ConfigurationContext.Provider>
