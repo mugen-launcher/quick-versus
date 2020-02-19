@@ -9,6 +9,7 @@ body {
   margin: 0;
   background: #333;
   cursor: none;
+  overflow: hidden;
 }
 
 #root {
