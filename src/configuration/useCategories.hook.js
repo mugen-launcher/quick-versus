@@ -7,12 +7,5 @@ export default function useCategories() {
     return [];
   }
 
-  const categories = configuration.categories.map(category => {
-    return {
-      name: category.name,
-      image: category.image
-    };
-  });
-
-  return categories;
+  return configuration.categories;
 }

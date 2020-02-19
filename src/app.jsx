@@ -1,10 +1,11 @@
 import React from "react";
 import { remote } from "electron";
+import styled from "styled-components";
 import isDev from "electron-is-dev";
 import ConfigurationContext from "./configuration/configuration.context";
 import EnvironmentContext from "./configuration/environment.context";
-import CategorySelectorPlayerTwo from "./category/categorySelectorPlayerTwo.presenter";
 import PlayerOne from "./player/playerOne.presenter";
+import PlayerTwo from "./player/playerTwo.presenter";
 import ErrorBoundary from "./error/errorBoundary.view";
 const app = remote.app;
 const fs = remote.require("fs");
@@ -17,6 +18,15 @@ if (isDev) {
 } else {
   currentDirectory = remote.process.env.PORTABLE_EXECUTABLE_DIR;
 }
+
+const Wrapper = styled.main`
+  flex: 1;
+  height: 100%;
+  background: #333;
+  color: white;
+  font-family: BadaBoom;
+  overflow: hidden;
+`;
 
 export default function App() {
   if (!currentDirectory) {
@@ -69,26 +79,14 @@ export default function App() {
 
   return (
     <ErrorBoundary>
-
-    <EnvironmentContext.Provider value={environment}>
-      <ConfigurationContext.Provider value={configuration}>
-        <div class="app">
-          <div class="player-1 category-selector">
+      <EnvironmentContext.Provider value={environment}>
+        <ConfigurationContext.Provider value={configuration}>
+          <Wrapper>
             <PlayerOne />
-          </div>
-          <div class="player-2 category-selector">
-            <CategorySelectorPlayerTwo/>
-          </div>
-
-          <div class="player-1 character-selector">
-
-          </div>
-          <div class="player-2 character-selector">
-
-          </div>
-        </div>
-      </ConfigurationContext.Provider>
-    </EnvironmentContext.Provider>
+            <PlayerTwo />
+          </Wrapper>
+        </ConfigurationContext.Provider>
+      </EnvironmentContext.Provider>
     </ErrorBoundary>
   );
 }

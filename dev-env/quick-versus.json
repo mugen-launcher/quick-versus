@@ -63,7 +63,18 @@
     {
       "name": "Capcom",
       "image": "chars/Capcom/image.png",
-      "characters": ["chars/Capcom/Ryu/Ryu.def"]
+      "characters": [
+        {
+          "definition": "chars/Capcom/Ryu/Ryu.def",
+          "thumbnail": "chars/Capcom/Ryu/thumbnail.png",
+          "portrait": "chars/Capcom/Ryu/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Chun-Li/Chun-Li.def",
+          "thumbnail": "chars/Capcom/Chun-Li/thumbnail.png",
+          "portrait": "chars/Capcom/Chun-Li/portrait.png"
+        }
+      ]
     },
     {
       "name": "SNK",
