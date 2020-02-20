@@ -1,11 +1,17 @@
 import React from "react";
+import styled from "styled-components";
 import { remote } from "electron";
-import ArrowLeft from "../assets/arrow-left-x.svg";
-import ArrowRight from "../assets/arrow-right-y.svg";
 import categoryPlaceholder from "../assets/category-placeholder.png";
 import useEnvironment from "../configuration/useEnvironment.hook";
 const fs = remote.require("fs");
 const path = remote.require("path");
+
+const Selector = styled.div`
+  height: 12vh;
+`;
+const Image = styled.img`
+  height: 10vh;
+`;
 
 export default function CategorySelector({ category }) {
   const environment = useEnvironment();
@@ -19,8 +25,8 @@ export default function CategorySelector({ category }) {
   }
 
   return (
-    <div class="category-selector">
-      <img class="category-image" src={imagePath} />
-    </div>
+    <Selector>
+      <Image class="category-image" src={imagePath} />
+    </Selector>
   );
 };

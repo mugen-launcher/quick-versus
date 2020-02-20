@@ -15,6 +15,8 @@ import CharacterSelector from "../character/characterSelector.view";
 import Portrait from "./portraitPlayerOne.view";
 import CharacterName from "./characterNamePlayerOne.view";
 import Type from "./typePlayerOne.view";
+import TRAINING from "../navigation/mode/training.mode";
+import VERSUS from "../navigation/mode/versus.mode";
 
 export default function PlayerOnePresenter() {
   const navigation = useNavigation();
@@ -41,7 +43,10 @@ export default function PlayerOnePresenter() {
       }
     };
     const onCancel = () => {
-      if (navigation.characterOne && !navigation.characterTwo) {
+      if (
+        (navigation.mode === TRAINING && navigation.characterOne && !navigation.characterTwo) ||
+        (navigation.mode === VERSUS && navigation.characterOne)
+      ) {
         dispatch(unselectCharacterOne());
       }
     };
@@ -60,7 +65,7 @@ export default function PlayerOnePresenter() {
       input.removeEventListener("escape", onCancel);
       input.removeEventListener("z", onSwitchMode);
     };
-  }, [input, character, navigation.characterOne, navigation.characterTwo]);
+  }, [input, character, navigation]);
 
   const renderCharacterSelector = () => {
     if (navigation.characterOne) {

@@ -32,9 +32,11 @@ export default function PlayerTwoPresenter() {
     if (!navigation.characterTwo) {
       characterSelectionEnabled = true;
     }
-  } else if (navigation.mode === VERSUS && !navigation.characterTwo) {
-    characterSelectionEnabled = true;
+  } else if (navigation.mode === VERSUS) {
     input = inputPlayerTwo;
+    if (!navigation.characterTwo) {
+      characterSelectionEnabled = true;
+    }
   }
 
   const categoryIndex = useCategoryIndex(categories, input, characterSelectionEnabled);
@@ -69,7 +71,7 @@ export default function PlayerTwoPresenter() {
         input.removeEventListener("escape", onCancel);
       }
     };
-  }, [input, navigation.characterTwo]);
+  }, [input, navigation]);
 
   const renderCharacterSelector = () => {
     if (navigation.characterTwo) {

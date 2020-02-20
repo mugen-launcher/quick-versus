@@ -176,7 +176,28 @@
     {
       "name": "SNK",
       "image": "chars/SNK/image.png",
-      "characters": ["chars/SNK/Kyo/Kyo.def"]
+      "characters": [
+        {
+          "definition": "chars/SNK/Iori/Iori.def",
+          "thumbnail": "chars/SNK/Iori/thumbnail.png",
+          "portrait": "chars/SNK/Iori/portrait.png"
+        },
+        {
+          "definition": "chars/SNK/Mai/Mai.def",
+          "thumbnail": "chars/SNK/Mai/thumbnail.png",
+          "portrait": "chars/SNK/Mai/portrait.png"
+        },
+        {
+          "definition": "chars/SNK/Vice/Vice.def",
+          "thumbnail": "chars/SNK/Vice/thumbnail.png",
+          "portrait": "chars/SNK/Vice/portrait.png"
+        },
+        {
+          "definition": "chars/SNK/Benimaru/Benimaru.def",
+          "thumbnail": "chars/SNK/Benimaru/thumbnail.png",
+          "portrait": "chars/SNK/Benimaru/portrait.png"
+        }
+      ]
     },
     {
       "name": "Nintendo",
