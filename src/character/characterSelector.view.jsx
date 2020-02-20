@@ -3,6 +3,7 @@ import { remote } from "electron";
 import styled from "styled-components";
 import getCharactersMatrix from "../character/getCharactersMatrix";
 import useEnvironment from "../configuration/useEnvironment.hook";
+import useCharacterName from "./useCharacterName.hook";
 import thumbnailPlaceholder from "../assets/character-thumbnail-placeholder.png";
 const fs = remote.require("fs");
 const path = remote.require("path");
@@ -10,26 +11,27 @@ const path = remote.require("path");
 const Grid = styled.section`
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, 5vw);
+  grid-template-columns: repeat(2, 7vh);
   grid-template-rows: auto;
-  grid-column-gap: .5vw;
-  grid-row-gap: .5vw;
+  grid-column-gap: .7vh;
+  grid-row-gap: .7vh;
 `;
 const Cell = styled.article`
   border: solid 3px #fff;
-  width: 5vw;
-  height: 5vw;
+  width: 7vh;
+  height: 7vh;
 `;
 const Thumbnail = styled.img`
   width: 100%;
   height: 100%;
+  object-fit: cover;
 `;
 const Selection = styled.div`
   position: absolute;
   border: solid 3px #f00;
   box-shadow: 0 0 0 3px #f00;
-  width: 5vw;
-  height: 5vw;
+  width: 7vh;
+  height: 7vh;
   grid-row-start: ${props => props.row};
   grid-row-end: ${props => props.row};
   grid-column-start: ${props => props.column};
@@ -38,6 +40,7 @@ const Selection = styled.div`
 
 export default function CharacterSelector({ characters, selectedCharacter }) {
   const environment = useEnvironment();
+  const characterName = useCharacterName(selectedCharacter);
   const matrix = getCharactersMatrix(characters);
 
   const cells = [];

@@ -7,6 +7,7 @@ import EnvironmentContext from "./configuration/environment.context";
 import PlayerOne from "./player/playerOne.presenter";
 import PlayerTwo from "./player/playerTwo.presenter";
 import ErrorBoundary from "./error/errorBoundary.view";
+import versusImagePath from "./assets/versus.png";
 const app = remote.app;
 const fs = remote.require("fs");
 const path = remote.require("path");
@@ -26,6 +27,13 @@ const Wrapper = styled.main`
   color: white;
   font-family: BadaBoom;
   overflow: hidden;
+`;
+const Versus = styled.img`
+  position: absolute;
+  left: 50vw;
+  bottom: 0;
+  height: 30vh;
+  transform: translateX(-50%);
 `;
 
 export default function App() {
@@ -84,6 +92,7 @@ export default function App() {
           <Wrapper>
             <PlayerOne />
             <PlayerTwo />
+            <Versus src={versusImagePath} />
           </Wrapper>
         </ConfigurationContext.Provider>
       </EnvironmentContext.Provider>

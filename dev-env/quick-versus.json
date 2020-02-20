@@ -33,8 +33,8 @@
     "keyboard": {
       "left": "k",
       "right": "m",
-      "up": "l",
-      "down": "o",
+      "up": "o",
+      "down": "l",
       "a": "g",
       "b": "h",
       "c": "j",
@@ -73,6 +73,51 @@
           "definition": "chars/Capcom/Chun-Li/Chun-Li.def",
           "thumbnail": "chars/Capcom/Chun-Li/thumbnail.png",
           "portrait": "chars/Capcom/Chun-Li/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Yun/Yun.def",
+          "thumbnail": "chars/Capcom/Yun/thumbnail.png",
+          "portrait": "chars/Capcom/Yun/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Dhalsim/Dhalsim.def",
+          "thumbnail": "chars/Capcom/Dhalsim/thumbnail.png",
+          "portrait": "chars/Capcom/Dhalsim/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Sakura/Sakura.def",
+          "thumbnail": "chars/Capcom/Sakura/thumbnail.png",
+          "portrait": "chars/Capcom/Sakura/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Ken/Ken.def",
+          "thumbnail": "chars/Capcom/Ken/thumbnail.png",
+          "portrait": "chars/Capcom/Ken/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Ibuki/Ibuki.def",
+          "thumbnail": "chars/Capcom/Ibuki/thumbnail.png",
+          "portrait": "chars/Capcom/Ibuki/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Juri/Juri.def",
+          "thumbnail": "chars/Capcom/Juri/thumbnail.png",
+          "portrait": "chars/Capcom/Juri/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Megaman/Megaman.def",
+          "thumbnail": "chars/Capcom/Megaman/thumbnail.png",
+          "portrait": "chars/Capcom/Megaman/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Morrigan/Morrigan.def",
+          "thumbnail": "chars/Capcom/Morrigan/thumbnail.png",
+          "portrait": "chars/Capcom/Morrigan/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Felicia/Felicia.def",
+          "thumbnail": "chars/Capcom/Felicia/thumbnail.png",
+          "portrait": "chars/Capcom/Felicia/portrait.png"
         }
       ]
     },

@@ -38,8 +38,14 @@ export default function useCharacterIndex(characters, input) {
       if (selectedRowIndex > 0) {
         selectedRowIndex = selectedRowIndex - 1;
       } else {
-        selectedRowIndex = matrix.length - 1;
+        for (let rowIndex = matrix.length - 1; rowIndex >= 0; rowIndex--) {
+          if (selectedColumnIndex < matrix[rowIndex].length) {
+            selectedRowIndex = rowIndex;
+            break;
+          }
+        }
       }
+
       selectIndex(getSelectedIndexFromMatrix());
     };
     const increaseRowIndex = () => {

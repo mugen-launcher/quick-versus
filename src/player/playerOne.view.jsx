@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { remote } from "electron";
 import CategorySelector from "../category/categorySelector.view";
 import CharacterSelector from "../character/characterSelector.view";
-import { remote } from "electron";
 import useEnvironment from "../configuration/useEnvironment.hook";
+import useCharacterName from "../character/useCharacterName.hook";
 const fs = remote.require("fs");
 const path = remote.require("path");
 
@@ -19,9 +20,21 @@ const Portrait = styled.img`
   height: 100vh;
   transform: translateX(-100%);
 `;
+const CharacterName = styled.h1`
+  position: absolute;
+  white-space: nowrap;
+  right: 60vw;
+  bottom: 3vh;
+  font-family: BadaBoom;
+  font-size: 10vh;
+  color: #fff;
+  margin: 0;
+  text-shadow: 2px 2px 4px #000, 2px -2px 4px #000, -2px 2px 4px #000, -2px -2px 4px #000;
+`;
 
 export default function PlayerOne({ category, character }) {
   const environment = useEnvironment();
+  const characterName = useCharacterName(character);
 
   if (!category) {
     throw new Error("Unable to render player one without category");
@@ -51,6 +64,7 @@ export default function PlayerOne({ category, character }) {
         <CategorySelector category={category} />
         <CharacterSelector characters={characters} selectedCharacter={character} />
       </Wrapper>
+      <CharacterName>{characterName}</CharacterName>
     </>
   );
 }
