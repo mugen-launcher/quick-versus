@@ -27,6 +27,9 @@ const Wrapper = styled.main`
   color: white;
   font-family: BadaBoom;
   overflow: hidden;
+  background: url(./assets/background.jpg);
+  background-size: cover;
+  background-position: 50%;
 `;
 const Versus = styled.img`
   position: absolute;
