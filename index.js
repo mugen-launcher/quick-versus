@@ -4,7 +4,11 @@ function createWindow() {
   const window = new BrowserWindow({
     backgroundColor: "#333333",
     frame: false,
-    fullscreen: true,
+    width: 1024,
+    height: 576,
+    //width: 800,
+    //height: 600,
+    //fullscreen: true,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true

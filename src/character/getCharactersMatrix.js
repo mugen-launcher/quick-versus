@@ -1,6 +1,4 @@
-const maxColumn = 2;
-
-export default function getCharactersMatrix(characters) {
+export default function getCharactersMatrix(characters, maxColumn = 1) {
   const rows = [];
   for (let index = 0; index < characters.length; index++) {
     const character = characters[index];

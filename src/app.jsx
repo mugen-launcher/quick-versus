@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { remote } from "electron";
 import styled from "styled-components";
 import isDev from "electron-is-dev";
 import ConfigurationContext from "./configuration/configuration.context";
 import EnvironmentContext from "./configuration/environment.context";
+import NavigationProvider from "./navigation/navigation.provider";
 import PlayerOne from "./player/playerOne.presenter";
 import PlayerTwo from "./player/playerTwo.presenter";
 import ErrorBoundary from "./error/errorBoundary.view";
@@ -40,6 +41,7 @@ const Versus = styled.img`
 `;
 
 export default function App() {
+
   if (!currentDirectory) {
     return (
       <div class="requirement-message">
@@ -92,11 +94,13 @@ export default function App() {
     <ErrorBoundary>
       <EnvironmentContext.Provider value={environment}>
         <ConfigurationContext.Provider value={configuration}>
-          <Wrapper>
-            <PlayerOne />
-            <PlayerTwo />
-            <Versus src={versusImagePath} />
-          </Wrapper>
+          <NavigationProvider>
+            <Wrapper>
+              <PlayerOne />
+              <PlayerTwo />
+              <Versus src={versusImagePath} />
+            </Wrapper>
+          </NavigationProvider>
         </ConfigurationContext.Provider>
       </EnvironmentContext.Provider>
     </ErrorBoundary>

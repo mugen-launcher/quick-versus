@@ -3,7 +3,7 @@ import { remote } from "electron";
 import styled from "styled-components";
 import getCharactersMatrix from "../character/getCharactersMatrix";
 import useEnvironment from "../configuration/useEnvironment.hook";
-import useCharacterName from "./useCharacterName.hook";
+import useCharacterColumns from "../configuration/useCharacterColumns.hook";
 import thumbnailPlaceholder from "../assets/character-thumbnail-placeholder.png";
 const fs = remote.require("fs");
 const path = remote.require("path");
@@ -11,7 +11,7 @@ const path = remote.require("path");
 const Grid = styled.section`
   position: relative;
   display: grid;
-  grid-template-columns: repeat(2, 7vh);
+  grid-template-columns: repeat(${props => props.column}, 7vh);
   grid-template-rows: auto;
   grid-column-gap: .7vh;
   grid-row-gap: .7vh;
@@ -40,8 +40,8 @@ const Selection = styled.div`
 
 export default function CharacterSelector({ characters, selectedCharacter }) {
   const environment = useEnvironment();
-  const characterName = useCharacterName(selectedCharacter);
-  const matrix = getCharactersMatrix(characters);
+  const columnCount = useCharacterColumns();
+  const matrix = getCharactersMatrix(characters, columnCount);
 
   const cells = [];
   let selectionRow = 1;
@@ -68,7 +68,7 @@ export default function CharacterSelector({ characters, selectedCharacter }) {
   }
 
   return (
-    <Grid>
+    <Grid column={columnCount}>
       {cells}
       <Selection row={selectionRow} column={selectionColumn} />
     </Grid>

@@ -20,9 +20,7 @@ export default function CategorySelector({ category }) {
 
   return (
     <div class="category-selector">
-      <ArrowLeft class="category-arrow-left"/>
       <img class="category-image" src={imagePath} />
-      <ArrowRight class="category-arrow-right"/>
     </div>
   );
 };

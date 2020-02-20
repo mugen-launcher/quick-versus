@@ -1,69 +1,121 @@
 {
-  "playerOne": {
-    "keyboard": {
-      "left": "ArrowLeft",
-      "right": "ArrowRight",
-      "up": "ArrowUp",
-      "down": "ArrowDown",
-      "a": "w",
-      "b": "x",
-      "c": "c",
-      "x": "q",
-      "y": "s",
-      "z": "d",
-      "escape": "Escape",
-      "enter": "Enter"
-    },
-    "gamepad": {
-      "left": "0-14",
-      "right": "0-15",
-      "up": "0-12",
-      "down": "0-13",
-      "a": "0-1",
-      "b": "0-0",
-      "c": "0-7",
-      "x": "0-3",
-      "y": "0-2",
-      "z": "0-5",
-      "escape": "0-8",
-      "enter": "0-9"
-    }
-  },
-  "playerTwo": {
-    "keyboard": {
-      "left": "k",
-      "right": "m",
-      "up": "o",
-      "down": "l",
-      "a": "g",
-      "b": "h",
-      "c": "j",
-      "x": "t",
-      "y": "y",
-      "z": "u",
-      "escape": "i",
-      "enter": "p"
-    },
-    "gamepad": {
-      "left": "1-14",
-      "right": "1-15",
-      "up": "1-12",
-      "down": "1-13",
-      "a": "1-1",
-      "b": "1-0",
-      "c": "1-7",
-      "x": "1-3",
-      "y": "1-2",
-      "z": "1-5",
-      "escape": "1-8",
-      "enter": "1-9"
-    }
-  },
+  "background": "background.jpg",
+  "characterColumns": 3,
   "categories": [
     {
       "name": "Capcom",
       "image": "chars/Capcom/image.png",
       "characters": [
+        {
+          "definition": "chars/Capcom/Ryu/Ryu.def",
+          "thumbnail": "chars/Capcom/Ryu/thumbnail.png",
+          "portrait": "chars/Capcom/Ryu/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Chun-Li/Chun-Li.def",
+          "thumbnail": "chars/Capcom/Chun-Li/thumbnail.png",
+          "portrait": "chars/Capcom/Chun-Li/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Yun/Yun.def",
+          "thumbnail": "chars/Capcom/Yun/thumbnail.png",
+          "portrait": "chars/Capcom/Yun/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Dhalsim/Dhalsim.def",
+          "thumbnail": "chars/Capcom/Dhalsim/thumbnail.png",
+          "portrait": "chars/Capcom/Dhalsim/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Sakura/Sakura.def",
+          "thumbnail": "chars/Capcom/Sakura/thumbnail.png",
+          "portrait": "chars/Capcom/Sakura/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Ken/Ken.def",
+          "thumbnail": "chars/Capcom/Ken/thumbnail.png",
+          "portrait": "chars/Capcom/Ken/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Ibuki/Ibuki.def",
+          "thumbnail": "chars/Capcom/Ibuki/thumbnail.png",
+          "portrait": "chars/Capcom/Ibuki/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Juri/Juri.def",
+          "thumbnail": "chars/Capcom/Juri/thumbnail.png",
+          "portrait": "chars/Capcom/Juri/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Megaman/Megaman.def",
+          "thumbnail": "chars/Capcom/Megaman/thumbnail.png",
+          "portrait": "chars/Capcom/Megaman/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Morrigan/Morrigan.def",
+          "thumbnail": "chars/Capcom/Morrigan/thumbnail.png",
+          "portrait": "chars/Capcom/Morrigan/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Felicia/Felicia.def",
+          "thumbnail": "chars/Capcom/Felicia/thumbnail.png",
+          "portrait": "chars/Capcom/Felicia/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Ryu/Ryu.def",
+          "thumbnail": "chars/Capcom/Ryu/thumbnail.png",
+          "portrait": "chars/Capcom/Ryu/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Chun-Li/Chun-Li.def",
+          "thumbnail": "chars/Capcom/Chun-Li/thumbnail.png",
+          "portrait": "chars/Capcom/Chun-Li/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Yun/Yun.def",
+          "thumbnail": "chars/Capcom/Yun/thumbnail.png",
+          "portrait": "chars/Capcom/Yun/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Dhalsim/Dhalsim.def",
+          "thumbnail": "chars/Capcom/Dhalsim/thumbnail.png",
+          "portrait": "chars/Capcom/Dhalsim/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Sakura/Sakura.def",
+          "thumbnail": "chars/Capcom/Sakura/thumbnail.png",
+          "portrait": "chars/Capcom/Sakura/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Ken/Ken.def",
+          "thumbnail": "chars/Capcom/Ken/thumbnail.png",
+          "portrait": "chars/Capcom/Ken/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Ibuki/Ibuki.def",
+          "thumbnail": "chars/Capcom/Ibuki/thumbnail.png",
+          "portrait": "chars/Capcom/Ibuki/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Juri/Juri.def",
+          "thumbnail": "chars/Capcom/Juri/thumbnail.png",
+          "portrait": "chars/Capcom/Juri/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Megaman/Megaman.def",
+          "thumbnail": "chars/Capcom/Megaman/thumbnail.png",
+          "portrait": "chars/Capcom/Megaman/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Morrigan/Morrigan.def",
+          "thumbnail": "chars/Capcom/Morrigan/thumbnail.png",
+          "portrait": "chars/Capcom/Morrigan/portrait.png"
+        },
+        {
+          "definition": "chars/Capcom/Felicia/Felicia.def",
+          "thumbnail": "chars/Capcom/Felicia/thumbnail.png",
+          "portrait": "chars/Capcom/Felicia/portrait.png"
+        },
         {
           "definition": "chars/Capcom/Ryu/Ryu.def",
           "thumbnail": "chars/Capcom/Ryu/thumbnail.png",
@@ -146,5 +198,65 @@
       "definition": "stages/Jungle.def",
       "image": "stages/Jungle.png"
     }
-  ]
+  ],
+  "playerOne": {
+    "keyboard": {
+      "left": "ArrowLeft",
+      "right": "ArrowRight",
+      "up": "ArrowUp",
+      "down": "ArrowDown",
+      "a": "w",
+      "b": "x",
+      "c": "c",
+      "x": "q",
+      "y": "s",
+      "z": "d",
+      "escape": "Escape",
+      "enter": "Enter"
+    },
+    "gamepad": {
+      "left": "0-14",
+      "right": "0-15",
+      "up": "0-12",
+      "down": "0-13",
+      "a": "0-1",
+      "b": "0-0",
+      "c": "0-7",
+      "x": "0-3",
+      "y": "0-2",
+      "z": "0-5",
+      "escape": "0-8",
+      "enter": "0-9"
+    }
+  },
+  "playerTwo": {
+    "keyboard": {
+      "left": "k",
+      "right": "m",
+      "up": "o",
+      "down": "l",
+      "a": "g",
+      "b": "h",
+      "c": "j",
+      "x": "t",
+      "y": "y",
+      "z": "u",
+      "escape": "i",
+      "enter": "p"
+    },
+    "gamepad": {
+      "left": "1-14",
+      "right": "1-15",
+      "up": "1-12",
+      "down": "1-13",
+      "a": "1-1",
+      "b": "1-0",
+      "c": "1-7",
+      "x": "1-3",
+      "y": "1-2",
+      "z": "1-5",
+      "escape": "1-8",
+      "enter": "1-9"
+    }
+  }
 }
