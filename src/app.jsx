@@ -5,8 +5,10 @@ import isDev from "electron-is-dev";
 import ConfigurationContext from "./configuration/configuration.context";
 import EnvironmentContext from "./configuration/environment.context";
 import NavigationProvider from "./navigation/navigation.provider";
+import StageSelector from "./stage/stageSelector.presenter";
 import LeftSide from "./side/leftSide.presenter";
 import RightSide from "./side/rightSide.presenter";
+import Fight from "./fight/fight.presenter";
 import ErrorBoundary from "./error/errorBoundary.view";
 import versusImagePath from "./assets/versus.png";
 const app = remote.app;
@@ -15,7 +17,9 @@ const path = remote.require("path");
 const execFile = remote.require("child_process").execFile;
 
 let currentDirectory;
-if (isDev) {
+if (remote.process.argv.length >= 3) {
+  currentDirectory = path.normalize(remote.process.argv[2]);
+} else if (isDev) {
   currentDirectory = path.resolve(app.getAppPath(), "dev-env");
 } else {
   currentDirectory = remote.process.env.PORTABLE_EXECUTABLE_DIR;
@@ -34,6 +38,7 @@ const Wrapper = styled.main`
 `;
 const Versus = styled.img`
   position: absolute;
+  z-index: 100;
   left: 50vw;
   bottom: 0;
   height: 30vh;
@@ -99,6 +104,8 @@ export default function App() {
               <LeftSide />
               <RightSide />
               <Versus src={versusImagePath} />
+              <StageSelector />
+              <Fight />
             </Wrapper>
           </NavigationProvider>
         </ConfigurationContext.Provider>

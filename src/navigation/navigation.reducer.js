@@ -3,6 +3,8 @@ import { UNSELECT_CHARACTER_ONE } from "./action/unselectCharacterOne.action";
 import { SELECT_CHARACTER_TWO } from "./action/selectCharacterTwo.action";
 import { UNSELECT_CHARACTER_TWO } from "./action/unselectCharacterTwo.action";
 import { SWITCH_MODE } from "./action/switchMode.action";
+import { SELECT_STAGE } from "./action/selectStage.action";
+import { END_FIGHT } from "./action/endFight.action";
 import TRAINING from "./mode/training.mode";
 import VERSUS from "./mode/versus.mode";
 import TRAINING_SELECTING_CHARACTER_ONE from "./state/trainingSelectingCharacterOne.state";
@@ -157,6 +159,38 @@ function switchMode(data) {
   throw new Error(`Unable to switch mode in state: ${data.state}`);
 }
 
+function selectStage(data, action) {
+  const newData = { ...data, stage: action.stage };
+
+  if (data.state === TRAINING_SELECTING_STAGE) {
+    newData.state = TRAINING_FIGHTING;
+    return newData;
+  }
+
+  if (data.state === VERSUS_SELECTING_STAGE) {
+    newData.state = VERSUS_FIGHTING;
+    return newData;
+  }
+
+  throw new Error(`Unable to select stage in state: ${data.state}`);
+}
+
+function endFight(data) {
+  const newData = { ...data };
+
+  if (data.state === TRAINING_FIGHTING) {
+    newData.state = TRAINING_SELECTING_CHARACTER_ONE;
+    return newData;
+  }
+
+  if (data.state === VERSUS_FIGHTING) {
+    newData.state = VERSUS_SELECTING_CHARACTERS;
+    return newData;
+  }
+
+  throw new Error(`Unable to end fight in state: ${data.state}`);
+}
+
 export default function navigationReducer(data, action) {
   switch (action.type) {
     case SWITCH_MODE:
@@ -173,6 +207,12 @@ export default function navigationReducer(data, action) {
 
     case UNSELECT_CHARACTER_TWO:
       return unselectCharacterTwo(data);
+
+    case SELECT_STAGE:
+      return selectStage(data);
+
+    case END_FIGHT:
+      return endFight(data);
   }
   return state;
 }

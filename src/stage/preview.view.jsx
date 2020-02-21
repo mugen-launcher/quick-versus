@@ -1,30 +1,30 @@
 import React from "react";
 import styled from "styled-components";
 import { remote } from "electron";
-import useEnvironment from "../../configuration/useEnvironment.hook";
+import useEnvironment from "../configuration/useEnvironment.hook";
 const fs = remote.require("fs");
 const path = remote.require("path");
 
 const Image = styled.img`
   position: absolute;
-  z-index: 100;
-  left: 50vw;
-  bottom: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
-  transform: translateX(-100%);
+  object-fit: cover;
+  z-index: 10;
 `;
 
-
-export default function Portrait({ character }) {
+export default function Preview({ stage }) {
   const environment = useEnvironment();
 
-  if (!character || !character.portrait) {
+  if (!stage || !stage.image) {
     return null;
   }
-  const imagePath = path.resolve(environment.currentDirectory, character.portrait);
+  const imagePath = path.resolve(environment.currentDirectory, stage.image);
   if (!fs.existsSync(imagePath)) {
     return null;
   }
 
-  return <Image src={imagePath} />;
+  return <Image src={imagePath} />
 }

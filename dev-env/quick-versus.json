@@ -213,11 +213,15 @@
   "stages": [
     {
       "definition": "stages/Training.def",
-      "image": "stages/Training.png"
+      "image": "stages/Training.jpg"
     },
     {
       "definition": "stages/Jungle.def",
-      "image": "stages/Jungle.png"
+      "image": "stages/Jungle.jpg"
+    },
+    {
+      "definition": "stages/Moon.def",
+      "image": "stages/Moon.jpg"
     }
   ],
   "playerOne": {

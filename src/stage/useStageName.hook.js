@@ -4,14 +4,14 @@ import useEnvironment from "../configuration/useEnvironment.hook";
 const fs = remote.require("fs");
 const path = remote.require("path");
 
-export default function useCharacterName(character) {
+export default function useStageName(stage) {
   const environment = useEnvironment();
 
-  if (!character || !character.definition) {
+  if (!stage || !stage.definition) {
     return "Unknown";
   }
 
-  const definitionPath = path.resolve(environment.currentDirectory, character.definition);
+  const definitionPath = path.resolve(environment.currentDirectory, stage.definition);
   if (!fs.existsSync(definitionPath)) {
     return "Unknown";
   }

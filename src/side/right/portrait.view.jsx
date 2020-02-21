@@ -7,6 +7,7 @@ const path = remote.require("path");
 
 const Image = styled.img`
   position: absolute;
+  z-index: 100;
   right: 50vw;
   bottom: 0;
   height: 100vh;

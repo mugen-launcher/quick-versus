@@ -4,18 +4,15 @@ export default function useCategoryIndex(categories, input, initialIndex = 0) {
   const [selectedIndex, selectIndex] = useState(initialIndex);
 
   useEffect(() => {
-    let index = 0;
     const decreaseIndex = () => {
-      if (index > 0) {
-        index = index - 1;
+      if (selectedIndex > 0) {
+        selectIndex(selectedIndex - 1);
       } else {
-        index = categories.length - 1;
+        selectIndex(categories.length - 1);
       }
-      selectIndex(index);
     };
     const increaseIndex = () => {
-      index = (index + 1) % categories.length;
-      selectIndex(index);
+      selectIndex((selectedIndex + 1) % categories.length);
     };
 
     input.addEventListener("x", decreaseIndex);
@@ -25,7 +22,7 @@ export default function useCategoryIndex(categories, input, initialIndex = 0) {
       input.removeEventListener("x", decreaseIndex);
       input.removeEventListener("y", increaseIndex);
     };
-  }, [input, categories]);
+  }, [input, categories, selectedIndex]);
 
   return selectedIndex;
 }

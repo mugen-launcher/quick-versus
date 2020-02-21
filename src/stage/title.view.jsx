@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
-export default styled.h1`
+export default styled.div`
   position: absolute;
   z-index: 100;
-  white-space: nowrap;
-  left: 60vw;
-  bottom: 10vh;
+  left: 50vw;
+  top: 1vh;
   font-family: BadaBoom;
-  font-size: 4vw;
+  font-size: 4vh;
   color: #fff;
-  margin: 0;
   text-shadow: 2px 2px 4px #000, 2px -2px 4px #000, -2px 2px 4px #000, -2px -2px 4px #000;
+  transform: translateX(-50%);
 `;
