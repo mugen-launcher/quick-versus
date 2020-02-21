@@ -2,15 +2,11 @@ import { useState, useEffect } from "react";
 import getCharactersMatrix from "../character/getCharactersMatrix";
 import useCharacterColumns from "../configuration/useCharacterColumns.hook";
 
-export default function useCharacterIndex(characters, input, enabled) {
+export default function useCharacterIndex(characters, input, initialIndex = 0) {
   const columnCount = useCharacterColumns();
-  const [selectedIndex, selectIndex] = useState(0);
+  const [selectedIndex, selectIndex] = useState(initialIndex);
 
   useEffect(() => {
-    if (!enabled) {
-      return;
-    }
-
     const matrix = getCharactersMatrix(characters, columnCount);
     let selectedRowIndex = 0;
     let selectedColumnIndex = 0;
@@ -85,7 +81,7 @@ export default function useCharacterIndex(characters, input, enabled) {
       input.removeEventListener("up", decreaseRowIndex);
       input.removeEventListener("down", increaseRowIndex);
     };
-  }, [input, characters, columnCount, enabled]);
+  }, [input, characters, columnCount]);
 
   return selectedIndex;
 }

@@ -1,7 +1,6 @@
-import { useContext } from "react";
-import Context from "./navigation.context";
+import useData from "./useData.hook";
 
 export default function useState() {
-  const { state } = useContext(Context);
-  return state;
+  const data = useData();
+  return data.state;
 }

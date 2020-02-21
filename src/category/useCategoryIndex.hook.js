@@ -1,13 +1,9 @@
 import { useState, useEffect } from "react";
 
-export default function useCategoryIndex(categories, input, enabled) {
-  const [selectedIndex, selectIndex] = useState(0);
+export default function useCategoryIndex(categories, input, initialIndex = 0) {
+  const [selectedIndex, selectIndex] = useState(initialIndex);
 
   useEffect(() => {
-    if (!enabled) {
-      return;
-    }
-
     let index = 0;
     const decreaseIndex = () => {
       if (index > 0) {
@@ -29,7 +25,7 @@ export default function useCategoryIndex(categories, input, enabled) {
       input.removeEventListener("x", decreaseIndex);
       input.removeEventListener("y", increaseIndex);
     };
-  }, [input, categories, enabled]);
+  }, [input, categories]);
 
   return selectedIndex;
 }

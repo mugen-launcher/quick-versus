@@ -1,0 +1,1 @@
+export default "TRAINING_SELECTING_STAGE";

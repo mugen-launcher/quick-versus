@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { remote } from "electron";
-import useEnvironment from "../configuration/useEnvironment.hook";
+import useEnvironment from "../../configuration/useEnvironment.hook";
 const fs = remote.require("fs");
 const path = remote.require("path");
 
-const Portrait = styled.img`
+const Image = styled.img`
   position: absolute;
   left: 50vw;
   bottom: 0;
@@ -14,7 +14,7 @@ const Portrait = styled.img`
 `;
 
 
-export default function PortraitPlayerOne({ character }) {
+export default function Portrait({ character }) {
   const environment = useEnvironment();
 
   if (!character || !character.portrait) {
@@ -25,5 +25,5 @@ export default function PortraitPlayerOne({ character }) {
     return null;
   }
 
-  return <Portrait src={imagePath} />;
+  return <Image src={imagePath} />;
 }

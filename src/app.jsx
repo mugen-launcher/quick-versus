@@ -5,8 +5,8 @@ import isDev from "electron-is-dev";
 import ConfigurationContext from "./configuration/configuration.context";
 import EnvironmentContext from "./configuration/environment.context";
 import NavigationProvider from "./navigation/navigation.provider";
-import PlayerOne from "./player/playerOne.presenter";
-import PlayerTwo from "./player/playerTwo.presenter";
+import LeftSide from "./side/leftSide.presenter";
+import RightSide from "./side/rightSide.presenter";
 import ErrorBoundary from "./error/errorBoundary.view";
 import versusImagePath from "./assets/versus.png";
 const app = remote.app;
@@ -96,8 +96,8 @@ export default function App() {
         <ConfigurationContext.Provider value={configuration}>
           <NavigationProvider>
             <Wrapper>
-              <PlayerOne />
-              <PlayerTwo />
+              <LeftSide />
+              <RightSide />
               <Versus src={versusImagePath} />
             </Wrapper>
           </NavigationProvider>
