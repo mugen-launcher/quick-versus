@@ -209,7 +209,7 @@ export default function navigationReducer(data, action) {
       return unselectCharacterTwo(data);
 
     case SELECT_STAGE:
-      return selectStage(data);
+      return selectStage(data, action);
 
     case END_FIGHT:
       return endFight(data);
