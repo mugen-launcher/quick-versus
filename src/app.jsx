@@ -36,6 +36,14 @@ const Wrapper = styled.main`
   background-size: cover;
   background-position: 50%;
 `;
+const CustomBackground = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+`;
 const Versus = styled.img`
   position: absolute;
   z-index: 100;
@@ -95,12 +103,21 @@ export default function App() {
     isDev
   };
 
+  let customBackground;
+  if (configuration.background) {
+    const imagePath = path.resolve(environment.currentDirectory, configuration.background);
+    if (fs.existsSync(imagePath)) {
+      customBackground = <CustomBackground src={imagePath}/>
+    }
+  }
+
   return (
     <ErrorBoundary>
       <EnvironmentContext.Provider value={environment}>
         <ConfigurationContext.Provider value={configuration}>
           <NavigationProvider>
             <Wrapper>
+              {customBackground}
               <LeftSide />
               <RightSide />
               <Versus src={versusImagePath} />

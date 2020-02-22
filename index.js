@@ -8,7 +8,7 @@ function createWindow() {
     height: 576,
     //width: 800,
     //height: 600,
-    //fullscreen: true,
+    fullscreen: true,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true
