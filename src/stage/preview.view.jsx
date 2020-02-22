@@ -21,7 +21,7 @@ export default function Preview({ stage }) {
   if (!stage || !stage.image) {
     return null;
   }
-  const imagePath = path.resolve(environment.currentDirectory, stage.image);
+  const imagePath = path.resolve(environment.currentDirectory, "stages", stage.image);
   if (!fs.existsSync(imagePath)) {
     return null;
   }

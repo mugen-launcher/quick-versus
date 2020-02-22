@@ -21,7 +21,7 @@ export default function Portrait({ character }) {
   if (!character || !character.portrait) {
     return null;
   }
-  const imagePath = path.resolve(environment.currentDirectory, character.portrait);
+  const imagePath = path.resolve(environment.currentDirectory, "chars", character.portrait);
   if (!fs.existsSync(imagePath)) {
     return null;
   }

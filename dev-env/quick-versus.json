@@ -4,224 +4,232 @@
   "categories": [
     {
       "name": "Capcom",
-      "image": "chars/Capcom/image.png",
+      "image": "Capcom/image.png",
       "characters": [
         {
-          "definition": "chars/Capcom/Ryu/Ryu.def",
-          "thumbnail": "chars/Capcom/Ryu/thumbnail.png",
-          "portrait": "chars/Capcom/Ryu/portrait.png"
+          "definition": "Capcom/Ryu/Ryu.def",
+          "thumbnail": "Capcom/Ryu/thumbnail.png",
+          "portrait": "Capcom/Ryu/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Chun-Li/Chun-Li.def",
-          "thumbnail": "chars/Capcom/Chun-Li/thumbnail.png",
-          "portrait": "chars/Capcom/Chun-Li/portrait.png"
+          "definition": "Capcom/Chun-Li/Chun-Li.def",
+          "thumbnail": "Capcom/Chun-Li/thumbnail.png",
+          "portrait": "Capcom/Chun-Li/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Yun/Yun.def",
-          "thumbnail": "chars/Capcom/Yun/thumbnail.png",
-          "portrait": "chars/Capcom/Yun/portrait.png"
+          "definition": "Capcom/Yun/Yun.def",
+          "thumbnail": "Capcom/Yun/thumbnail.png",
+          "portrait": "Capcom/Yun/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Dhalsim/Dhalsim.def",
-          "thumbnail": "chars/Capcom/Dhalsim/thumbnail.png",
-          "portrait": "chars/Capcom/Dhalsim/portrait.png"
+          "definition": "Capcom/Dhalsim/Dhalsim.def",
+          "thumbnail": "Capcom/Dhalsim/thumbnail.png",
+          "portrait": "Capcom/Dhalsim/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Sakura/Sakura.def",
-          "thumbnail": "chars/Capcom/Sakura/thumbnail.png",
-          "portrait": "chars/Capcom/Sakura/portrait.png"
+          "definition": "Capcom/Sakura/Sakura.def",
+          "thumbnail": "Capcom/Sakura/thumbnail.png",
+          "portrait": "Capcom/Sakura/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Ken/Ken.def",
-          "thumbnail": "chars/Capcom/Ken/thumbnail.png",
-          "portrait": "chars/Capcom/Ken/portrait.png"
+          "definition": "Capcom/Ken/Ken.def",
+          "thumbnail": "Capcom/Ken/thumbnail.png",
+          "portrait": "Capcom/Ken/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Ibuki/Ibuki.def",
-          "thumbnail": "chars/Capcom/Ibuki/thumbnail.png",
-          "portrait": "chars/Capcom/Ibuki/portrait.png"
+          "definition": "Capcom/Ibuki/Ibuki.def",
+          "thumbnail": "Capcom/Ibuki/thumbnail.png",
+          "portrait": "Capcom/Ibuki/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Juri/Juri.def",
-          "thumbnail": "chars/Capcom/Juri/thumbnail.png",
-          "portrait": "chars/Capcom/Juri/portrait.png"
+          "definition": "Capcom/Juri/Juri.def",
+          "thumbnail": "Capcom/Juri/thumbnail.png",
+          "portrait": "Capcom/Juri/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Megaman/Megaman.def",
-          "thumbnail": "chars/Capcom/Megaman/thumbnail.png",
-          "portrait": "chars/Capcom/Megaman/portrait.png"
+          "definition": "Capcom/Megaman/Megaman.def",
+          "thumbnail": "Capcom/Megaman/thumbnail.png",
+          "portrait": "Capcom/Megaman/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Morrigan/Morrigan.def",
-          "thumbnail": "chars/Capcom/Morrigan/thumbnail.png",
-          "portrait": "chars/Capcom/Morrigan/portrait.png"
+          "definition": "Capcom/Morrigan/Morrigan.def",
+          "thumbnail": "Capcom/Morrigan/thumbnail.png",
+          "portrait": "Capcom/Morrigan/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Felicia/Felicia.def",
-          "thumbnail": "chars/Capcom/Felicia/thumbnail.png",
-          "portrait": "chars/Capcom/Felicia/portrait.png"
+          "definition": "Capcom/Felicia/Felicia.def",
+          "thumbnail": "Capcom/Felicia/thumbnail.png",
+          "portrait": "Capcom/Felicia/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Ryu/Ryu.def",
-          "thumbnail": "chars/Capcom/Ryu/thumbnail.png",
-          "portrait": "chars/Capcom/Ryu/portrait.png"
+          "definition": "Capcom/Ryu/Ryu.def",
+          "thumbnail": "Capcom/Ryu/thumbnail.png",
+          "portrait": "Capcom/Ryu/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Chun-Li/Chun-Li.def",
-          "thumbnail": "chars/Capcom/Chun-Li/thumbnail.png",
-          "portrait": "chars/Capcom/Chun-Li/portrait.png"
+          "definition": "Capcom/Chun-Li/Chun-Li.def",
+          "thumbnail": "Capcom/Chun-Li/thumbnail.png",
+          "portrait": "Capcom/Chun-Li/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Yun/Yun.def",
-          "thumbnail": "chars/Capcom/Yun/thumbnail.png",
-          "portrait": "chars/Capcom/Yun/portrait.png"
+          "definition": "Capcom/Yun/Yun.def",
+          "thumbnail": "Capcom/Yun/thumbnail.png",
+          "portrait": "Capcom/Yun/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Dhalsim/Dhalsim.def",
-          "thumbnail": "chars/Capcom/Dhalsim/thumbnail.png",
-          "portrait": "chars/Capcom/Dhalsim/portrait.png"
+          "definition": "Capcom/Dhalsim/Dhalsim.def",
+          "thumbnail": "Capcom/Dhalsim/thumbnail.png",
+          "portrait": "Capcom/Dhalsim/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Sakura/Sakura.def",
-          "thumbnail": "chars/Capcom/Sakura/thumbnail.png",
-          "portrait": "chars/Capcom/Sakura/portrait.png"
+          "definition": "Capcom/Sakura/Sakura.def",
+          "thumbnail": "Capcom/Sakura/thumbnail.png",
+          "portrait": "Capcom/Sakura/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Ken/Ken.def",
-          "thumbnail": "chars/Capcom/Ken/thumbnail.png",
-          "portrait": "chars/Capcom/Ken/portrait.png"
+          "definition": "Capcom/Ken/Ken.def",
+          "thumbnail": "Capcom/Ken/thumbnail.png",
+          "portrait": "Capcom/Ken/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Ibuki/Ibuki.def",
-          "thumbnail": "chars/Capcom/Ibuki/thumbnail.png",
-          "portrait": "chars/Capcom/Ibuki/portrait.png"
+          "definition": "Capcom/Ibuki/Ibuki.def",
+          "thumbnail": "Capcom/Ibuki/thumbnail.png",
+          "portrait": "Capcom/Ibuki/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Juri/Juri.def",
-          "thumbnail": "chars/Capcom/Juri/thumbnail.png",
-          "portrait": "chars/Capcom/Juri/portrait.png"
+          "definition": "Capcom/Juri/Juri.def",
+          "thumbnail": "Capcom/Juri/thumbnail.png",
+          "portrait": "Capcom/Juri/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Megaman/Megaman.def",
-          "thumbnail": "chars/Capcom/Megaman/thumbnail.png",
-          "portrait": "chars/Capcom/Megaman/portrait.png"
+          "definition": "Capcom/Megaman/Megaman.def",
+          "thumbnail": "Capcom/Megaman/thumbnail.png",
+          "portrait": "Capcom/Megaman/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Morrigan/Morrigan.def",
-          "thumbnail": "chars/Capcom/Morrigan/thumbnail.png",
-          "portrait": "chars/Capcom/Morrigan/portrait.png"
+          "definition": "Capcom/Morrigan/Morrigan.def",
+          "thumbnail": "Capcom/Morrigan/thumbnail.png",
+          "portrait": "Capcom/Morrigan/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Felicia/Felicia.def",
-          "thumbnail": "chars/Capcom/Felicia/thumbnail.png",
-          "portrait": "chars/Capcom/Felicia/portrait.png"
+          "definition": "Capcom/Felicia/Felicia.def",
+          "thumbnail": "Capcom/Felicia/thumbnail.png",
+          "portrait": "Capcom/Felicia/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Ryu/Ryu.def",
-          "thumbnail": "chars/Capcom/Ryu/thumbnail.png",
-          "portrait": "chars/Capcom/Ryu/portrait.png"
+          "definition": "Capcom/Ryu/Ryu.def",
+          "thumbnail": "Capcom/Ryu/thumbnail.png",
+          "portrait": "Capcom/Ryu/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Chun-Li/Chun-Li.def",
-          "thumbnail": "chars/Capcom/Chun-Li/thumbnail.png",
-          "portrait": "chars/Capcom/Chun-Li/portrait.png"
+          "definition": "Capcom/Chun-Li/Chun-Li.def",
+          "thumbnail": "Capcom/Chun-Li/thumbnail.png",
+          "portrait": "Capcom/Chun-Li/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Yun/Yun.def",
-          "thumbnail": "chars/Capcom/Yun/thumbnail.png",
-          "portrait": "chars/Capcom/Yun/portrait.png"
+          "definition": "Capcom/Yun/Yun.def",
+          "thumbnail": "Capcom/Yun/thumbnail.png",
+          "portrait": "Capcom/Yun/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Dhalsim/Dhalsim.def",
-          "thumbnail": "chars/Capcom/Dhalsim/thumbnail.png",
-          "portrait": "chars/Capcom/Dhalsim/portrait.png"
+          "definition": "Capcom/Dhalsim/Dhalsim.def",
+          "thumbnail": "Capcom/Dhalsim/thumbnail.png",
+          "portrait": "Capcom/Dhalsim/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Sakura/Sakura.def",
-          "thumbnail": "chars/Capcom/Sakura/thumbnail.png",
-          "portrait": "chars/Capcom/Sakura/portrait.png"
+          "definition": "Capcom/Sakura/Sakura.def",
+          "thumbnail": "Capcom/Sakura/thumbnail.png",
+          "portrait": "Capcom/Sakura/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Ken/Ken.def",
-          "thumbnail": "chars/Capcom/Ken/thumbnail.png",
-          "portrait": "chars/Capcom/Ken/portrait.png"
+          "definition": "Capcom/Ken/Ken.def",
+          "thumbnail": "Capcom/Ken/thumbnail.png",
+          "portrait": "Capcom/Ken/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Ibuki/Ibuki.def",
-          "thumbnail": "chars/Capcom/Ibuki/thumbnail.png",
-          "portrait": "chars/Capcom/Ibuki/portrait.png"
+          "definition": "Capcom/Ibuki/Ibuki.def",
+          "thumbnail": "Capcom/Ibuki/thumbnail.png",
+          "portrait": "Capcom/Ibuki/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Juri/Juri.def",
-          "thumbnail": "chars/Capcom/Juri/thumbnail.png",
-          "portrait": "chars/Capcom/Juri/portrait.png"
+          "definition": "Capcom/Juri/Juri.def",
+          "thumbnail": "Capcom/Juri/thumbnail.png",
+          "portrait": "Capcom/Juri/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Megaman/Megaman.def",
-          "thumbnail": "chars/Capcom/Megaman/thumbnail.png",
-          "portrait": "chars/Capcom/Megaman/portrait.png"
+          "definition": "Capcom/Megaman/Megaman.def",
+          "thumbnail": "Capcom/Megaman/thumbnail.png",
+          "portrait": "Capcom/Megaman/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Morrigan/Morrigan.def",
-          "thumbnail": "chars/Capcom/Morrigan/thumbnail.png",
-          "portrait": "chars/Capcom/Morrigan/portrait.png"
+          "definition": "Capcom/Morrigan/Morrigan.def",
+          "thumbnail": "Capcom/Morrigan/thumbnail.png",
+          "portrait": "Capcom/Morrigan/portrait.png"
         },
         {
-          "definition": "chars/Capcom/Felicia/Felicia.def",
-          "thumbnail": "chars/Capcom/Felicia/thumbnail.png",
-          "portrait": "chars/Capcom/Felicia/portrait.png"
+          "definition": "Capcom/Felicia/Felicia.def",
+          "thumbnail": "Capcom/Felicia/thumbnail.png",
+          "portrait": "Capcom/Felicia/portrait.png"
         }
       ]
     },
     {
       "name": "SNK",
-      "image": "chars/SNK/image.png",
+      "image": "SNK/image.png",
       "characters": [
         {
-          "definition": "chars/SNK/Iori/Iori.def",
-          "thumbnail": "chars/SNK/Iori/thumbnail.png",
-          "portrait": "chars/SNK/Iori/portrait.png"
+          "definition": "SNK/Iori/Iori.def",
+          "thumbnail": "SNK/Iori/thumbnail.png",
+          "portrait": "SNK/Iori/portrait.png"
         },
         {
-          "definition": "chars/SNK/Mai/Mai.def",
-          "thumbnail": "chars/SNK/Mai/thumbnail.png",
-          "portrait": "chars/SNK/Mai/portrait.png"
+          "definition": "SNK/Mai/Mai.def",
+          "thumbnail": "SNK/Mai/thumbnail.png",
+          "portrait": "SNK/Mai/portrait.png"
         },
         {
-          "definition": "chars/SNK/Vice/Vice.def",
-          "thumbnail": "chars/SNK/Vice/thumbnail.png",
-          "portrait": "chars/SNK/Vice/portrait.png"
+          "definition": "SNK/Vice/Vice.def",
+          "thumbnail": "SNK/Vice/thumbnail.png",
+          "portrait": "SNK/Vice/portrait.png"
         },
         {
-          "definition": "chars/SNK/Benimaru/Benimaru.def",
-          "thumbnail": "chars/SNK/Benimaru/thumbnail.png",
-          "portrait": "chars/SNK/Benimaru/portrait.png"
+          "definition": "SNK/Benimaru/Benimaru.def",
+          "thumbnail": "SNK/Benimaru/thumbnail.png",
+          "portrait": "SNK/Benimaru/portrait.png"
         }
       ]
     },
     {
       "name": "Nintendo",
-      "image": "chars/Nintendo/image.png",
-      "characters": ["chars/Nintendo/Mario/Mario.def"]
+      "image": "Nintendo/image.png",
+      "characters": [
+        {
+          "definition": "Nintendo/Mario/Mario.def"
+        }
+      ]
     },
     {
       "name": "Sega",
-      "image": "chars/Sega/image.png",
-      "characters": ["chars/Sega/Sonic/Sonic.def"]
+      "image": "Sega/image.png",
+      "characters": [
+        {
+          "definition": "Sega/Sonic/Sonic.def"
+        }
+      ]
     }
   ],
   "stages": [
     {
-      "definition": "stages/Training.def",
-      "image": "stages/Training.jpg"
+      "definition": "Training.def",
+      "image": "Training.jpg"
     },
     {
-      "definition": "stages/Jungle.def",
-      "image": "stages/Jungle.jpg"
+      "definition": "Jungle.def",
+      "image": "Jungle.jpg"
     },
     {
-      "definition": "stages/Moon.def",
-      "image": "stages/Moon.jpg"
+      "definition": "Moon.def",
+      "image": "Moon.jpg"
     }
   ],
   "playerOne": {

@@ -18,7 +18,7 @@ export default function CategorySelector({ category }) {
 
   let imagePath = categoryPlaceholder;
   if (category && category.image) {
-    const categoryImagePath = path.resolve(environment.currentDirectory, category.image);
+    const categoryImagePath = path.resolve(environment.currentDirectory, "chars", category.image);
     if (fs.existsSync(categoryImagePath)) {
       imagePath = categoryImagePath;
     }

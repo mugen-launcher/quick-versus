@@ -53,7 +53,7 @@ export default function CharacterSelector({ characters, selectedCharacter }) {
 
       let imagePath = thumbnailPlaceholder;
       if (character && character.thumbnail) {
-        const thumbnailPath = path.resolve(environment.currentDirectory, character.thumbnail);
+        const thumbnailPath = path.resolve(environment.currentDirectory, "chars", character.thumbnail);
         if (fs.existsSync(thumbnailPath)) {
           imagePath = thumbnailPath;
         }

@@ -11,7 +11,7 @@ export default function useStageName(stage) {
     return "Unknown";
   }
 
-  const definitionPath = path.resolve(environment.currentDirectory, stage.definition);
+  const definitionPath = path.resolve(environment.currentDirectory, "stages", stage.definition);
   if (!fs.existsSync(definitionPath)) {
     return "Unknown";
   }

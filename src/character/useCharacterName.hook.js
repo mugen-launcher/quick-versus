@@ -11,7 +11,7 @@ export default function useCharacterName(character) {
     return "Unknown";
   }
 
-  const definitionPath = path.resolve(environment.currentDirectory, character.definition);
+  const definitionPath = path.resolve(environment.currentDirectory, "chars", character.definition);
   if (!fs.existsSync(definitionPath)) {
     return "Unknown";
   }
