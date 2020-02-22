@@ -18,6 +18,7 @@ const BlackScreen = styled.div`
   height: 100vh;
   background: black;
   color: white;
+  font-size: 12vh;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -7,6 +7,8 @@ export default function useCharacterIndex(characters, input, initialIndex = 0) {
   const [selectedIndex, selectIndex] = useState(initialIndex);
 
   useEffect(() => {
+    selectIndex(initialIndex);
+
     const matrix = getCharactersMatrix(characters, columnCount);
     let selectedRowIndex = 0;
     let selectedColumnIndex = 0;
@@ -81,7 +83,7 @@ export default function useCharacterIndex(characters, input, initialIndex = 0) {
       input.removeEventListener("up", decreaseRowIndex);
       input.removeEventListener("down", increaseRowIndex);
     };
-  }, [input, characters, columnCount]);
+  }, [input, characters, columnCount, initialIndex]);
 
   return selectedIndex;
 }
