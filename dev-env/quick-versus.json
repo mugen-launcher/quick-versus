@@ -116,59 +116,37 @@
           "portrait": "Capcom/Felicia/portrait.png"
         },
         {
-          "definition": "Capcom/Ryu/Ryu.def",
-          "thumbnail": "Capcom/Ryu/thumbnail.png",
-          "portrait": "Capcom/Ryu/portrait.png"
+          "definition": "Capcom/Ryu/Ryu.def"
         },
         {
-          "definition": "Capcom/Chun-Li/Chun-Li.def",
-          "thumbnail": "Capcom/Chun-Li/thumbnail.png",
-          "portrait": "Capcom/Chun-Li/portrait.png"
+          "definition": "Capcom/Chun-Li/Chun-Li.def"
         },
         {
-          "definition": "Capcom/Yun/Yun.def",
-          "thumbnail": "Capcom/Yun/thumbnail.png",
-          "portrait": "Capcom/Yun/portrait.png"
+          "definition": "Capcom/Yun/Yun.def"
         },
         {
-          "definition": "Capcom/Dhalsim/Dhalsim.def",
-          "thumbnail": "Capcom/Dhalsim/thumbnail.png",
-          "portrait": "Capcom/Dhalsim/portrait.png"
+          "definition": "Capcom/Dhalsim/Dhalsim.def"
         },
         {
-          "definition": "Capcom/Sakura/Sakura.def",
-          "thumbnail": "Capcom/Sakura/thumbnail.png",
-          "portrait": "Capcom/Sakura/portrait.png"
+          "definition": "Capcom/Sakura/Sakura.def"
         },
         {
-          "definition": "Capcom/Ken/Ken.def",
-          "thumbnail": "Capcom/Ken/thumbnail.png",
-          "portrait": "Capcom/Ken/portrait.png"
+          "definition": "Capcom/Ken/Ken.def"
         },
         {
-          "definition": "Capcom/Ibuki/Ibuki.def",
-          "thumbnail": "Capcom/Ibuki/thumbnail.png",
-          "portrait": "Capcom/Ibuki/portrait.png"
+          "definition": "Capcom/Ibuki/Ibuki.def"
         },
         {
-          "definition": "Capcom/Juri/Juri.def",
-          "thumbnail": "Capcom/Juri/thumbnail.png",
-          "portrait": "Capcom/Juri/portrait.png"
+          "definition": "Capcom/Juri/Juri.def"
         },
         {
-          "definition": "Capcom/Megaman/Megaman.def",
-          "thumbnail": "Capcom/Megaman/thumbnail.png",
-          "portrait": "Capcom/Megaman/portrait.png"
+          "definition": "Capcom/Megaman/Megaman.def"
         },
         {
-          "definition": "Capcom/Morrigan/Morrigan.def",
-          "thumbnail": "Capcom/Morrigan/thumbnail.png",
-          "portrait": "Capcom/Morrigan/portrait.png"
+          "definition": "Capcom/Morrigan/Morrigan.def"
         },
         {
-          "definition": "Capcom/Felicia/Felicia.def",
-          "thumbnail": "Capcom/Felicia/thumbnail.png",
-          "portrait": "Capcom/Felicia/portrait.png"
+          "definition": "Capcom/Felicia/Felicia.def"
         }
       ]
     },
@@ -177,24 +155,28 @@
       "image": "SNK/image.png",
       "characters": [
         {
-          "definition": "SNK/Iori/Iori.def",
-          "thumbnail": "SNK/Iori/thumbnail.png",
-          "portrait": "SNK/Iori/portrait.png"
+          "definition": "SNK/Iori/Iori.def"
         },
         {
-          "definition": "SNK/Mai/Mai.def",
-          "thumbnail": "SNK/Mai/thumbnail.png",
-          "portrait": "SNK/Mai/portrait.png"
+          "definition": "SNK/Mai/Mai.def"
         },
         {
-          "definition": "SNK/Vice/Vice.def",
-          "thumbnail": "SNK/Vice/thumbnail.png",
-          "portrait": "SNK/Vice/portrait.png"
+          "definition": "SNK/Vice/Vice.def"
         },
         {
-          "definition": "SNK/Benimaru/Benimaru.def",
-          "thumbnail": "SNK/Benimaru/thumbnail.png",
-          "portrait": "SNK/Benimaru/portrait.png"
+          "definition": "SNK/Benimaru/Benimaru.def"
+        }
+      ]
+    },
+    {
+      "name": "Dragon Ball",
+      "image": "Dragon Ball/image.png",
+      "characters": [
+        {
+          "definition": "Dragon Ball/Roshi/Roshi.def"
+        },
+        {
+          "definition": "Dragon Ball/Ten Shin Han/Ten Shin Han.def"
         }
       ]
     },
@@ -215,6 +197,11 @@
           "definition": "Sega/Sonic/Sonic.def"
         }
       ]
+    },
+    {
+      "name": "Random",
+      "image": "random.png",
+      "random": true
     }
   ],
   "stages": [

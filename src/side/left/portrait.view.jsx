@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { remote } from "electron";
-import useEnvironment from "../../configuration/useEnvironment.hook";
-const fs = remote.require("fs");
-const path = remote.require("path");
+import useCharacterPortrait from "../../character/useCharacterPortrait.hook";
 
 const Image = styled.img`
   position: absolute;
@@ -14,17 +11,12 @@ const Image = styled.img`
   transform: translateX(-100%);
 `;
 
-
 export default function Portrait({ character }) {
-  const environment = useEnvironment();
+  const portrait = useCharacterPortrait(character);
 
-  if (!character || !character.portrait) {
-    return null;
-  }
-  const imagePath = path.resolve(environment.currentDirectory, "chars", character.portrait);
-  if (!fs.existsSync(imagePath)) {
+  if (!portrait) {
     return null;
   }
 
-  return <Image src={imagePath} />;
+  return <Image src={portrait} />;
 }

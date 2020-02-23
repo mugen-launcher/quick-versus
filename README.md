@@ -1,7 +1,9 @@
 Quick Versus Launcher for MUGEN
 ===============================
 
-![Screenshot 1](./docs/screenshot-1.png)
+Launch a MUGEN fight without without displaying the screenpack.
+
+[![Video](./docs/screenshot-1.png)](https://youtu.be/eT1mzleNcB4)
 
 Installation
 ------------
@@ -19,9 +21,7 @@ Create the file `quick-versus.json`:
       "image": "Street Fighter/image.png",
       "characters": [
         {
-          "definition": "Street Fighter/Ryu/Ryu.def",
-          "thumbnail": "Street Fighter/Ryu/thumbnail.png",
-          "portrait": "Street Fighter/Ryu/portrait.png"
+          "definition": "Street Fighter/Ryu/Ryu.def"
         }
       ]
     }
@@ -97,10 +97,7 @@ Create the file `quick-versus.json`:
 
 Characters are organized by category.
 Each category has an image (displayed on top of the screen).
-For each character, you need to provide:
-- the definition path
-- the thumbnail path
-- the portrait path
+For each character, you need to provide the definition path.
 
 Optional properties
 -------------------
@@ -110,6 +107,10 @@ Optional properties
 | `background` | Image path of the background |
 | `motif` | Motif name |
 | `characterColumns` | Number of columns to display character thumbnails |
+| `categories.*.random` | Indicates that the category is a random selection (default: `false`) |
+| `categories.*.characters.*.portrait` | Image path of the character portrait (default: `portrait.png`) |
+| `categories.*.characters.*.thumbnail` | Image path of the chracter thumbnail (default: `thumbnail.png`) |
+| `categories.*.characters.*.random` | Indicates that this character is random one within category (default: `false`) |
 
 State of the application
 ------------------------

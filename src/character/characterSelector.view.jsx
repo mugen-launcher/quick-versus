@@ -5,6 +5,7 @@ import getCharactersMatrix from "../character/getCharactersMatrix";
 import useEnvironment from "../configuration/useEnvironment.hook";
 import useCharacterColumns from "../configuration/useCharacterColumns.hook";
 import thumbnailPlaceholder from "../assets/character-thumbnail-placeholder.png";
+import useCharacterThumbnail from "./useCharacterThumbnail.hook";
 const fs = remote.require("fs");
 const path = remote.require("path");
 
@@ -51,13 +52,11 @@ export default function CharacterSelector({ characters, selectedCharacter }) {
     for (let columnIndex = 0; columnIndex < row.length; columnIndex++) {
       const character = row[columnIndex];
 
-      let imagePath = thumbnailPlaceholder;
-      if (character && character.thumbnail) {
-        const thumbnailPath = path.resolve(environment.currentDirectory, "chars", character.thumbnail);
-        if (fs.existsSync(thumbnailPath)) {
-          imagePath = thumbnailPath;
-        }
+      let imagePath = useCharacterThumbnail(character);
+      if (!imagePath) {
+        imagePath = thumbnailPlaceholder;
       }
+
       cells.push(<Cell><Thumbnail src={imagePath}/></Cell>);
 
       if (character === selectedCharacter) {
