@@ -11,9 +11,17 @@ function scanGamepads() {
       }
     })
     .map(gamepad => {
-      return gamepad.buttons.map(button => {
+      const buttons = gamepad.buttons.map(button => {
         return button.pressed;
       });
+      if (Array.isArray(gamepad.axes)) {
+        for (const axe of gamepad.axes) {
+          const value = Math.round(axe);
+          buttons.push(value === -1);
+          buttons.push(value === 1);
+        }
+      }
+      return buttons;
     });
 
   nextButtonStates.forEach((buttons, gamepadIndex) => {

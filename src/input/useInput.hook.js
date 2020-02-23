@@ -60,16 +60,16 @@ export default function useInput(keyboardMapping, gamepadMapping) {
     keyboard.addEventListener(keyboardMapping.enter, onPressEnter);
     gamepad.addEventListener(gamepadMapping.left, onPressLeft);
     gamepad.addEventListener(gamepadMapping.right, onPressRight);
-    gamepad.addEventListener(keyboardMapping.up, onPressUp);
-    gamepad.addEventListener(keyboardMapping.down, onPressDown);
-    gamepad.addEventListener(keyboardMapping.a, onPressA);
-    gamepad.addEventListener(keyboardMapping.b, onPressB);
-    gamepad.addEventListener(keyboardMapping.c, onPressC);
-    gamepad.addEventListener(keyboardMapping.x, onPressX);
-    gamepad.addEventListener(keyboardMapping.y, onPressY);
-    gamepad.addEventListener(keyboardMapping.z, onPressZ);
-    gamepad.addEventListener(keyboardMapping.escape, onPressEscape);
-    gamepad.addEventListener(keyboardMapping.enter, onPressEnter);
+    gamepad.addEventListener(gamepadMapping.up, onPressUp);
+    gamepad.addEventListener(gamepadMapping.down, onPressDown);
+    gamepad.addEventListener(gamepadMapping.a, onPressA);
+    gamepad.addEventListener(gamepadMapping.b, onPressB);
+    gamepad.addEventListener(gamepadMapping.c, onPressC);
+    gamepad.addEventListener(gamepadMapping.x, onPressX);
+    gamepad.addEventListener(gamepadMapping.y, onPressY);
+    gamepad.addEventListener(gamepadMapping.z, onPressZ);
+    gamepad.addEventListener(gamepadMapping.escape, onPressEscape);
+    gamepad.addEventListener(gamepadMapping.enter, onPressEnter);
 
     return () => {
       keyboard.removeEventListener(keyboardMapping.left, onPressLeft);
@@ -86,16 +86,16 @@ export default function useInput(keyboardMapping, gamepadMapping) {
       keyboard.removeEventListener(keyboardMapping.enter, onPressEnter);
       gamepad.removeEventListener(gamepadMapping.left, onPressLeft);
       gamepad.removeEventListener(gamepadMapping.right, onPressRight);
-      gamepad.removeEventListener(keyboardMapping.up, onPressUp);
-      gamepad.removeEventListener(keyboardMapping.down, onPressDown);
-      gamepad.removeEventListener(keyboardMapping.a, onPressA);
-      gamepad.removeEventListener(keyboardMapping.b, onPressB);
-      gamepad.removeEventListener(keyboardMapping.c, onPressC);
-      gamepad.removeEventListener(keyboardMapping.x, onPressX);
-      gamepad.removeEventListener(keyboardMapping.y, onPressY);
-      gamepad.removeEventListener(keyboardMapping.z, onPressZ);
-      gamepad.removeEventListener(keyboardMapping.escape, onPressEscape);
-      gamepad.removeEventListener(keyboardMapping.enter, onPressEnter);
+      gamepad.removeEventListener(gamepadMapping.up, onPressUp);
+      gamepad.removeEventListener(gamepadMapping.down, onPressDown);
+      gamepad.removeEventListener(gamepadMapping.a, onPressA);
+      gamepad.removeEventListener(gamepadMapping.b, onPressB);
+      gamepad.removeEventListener(gamepadMapping.c, onPressC);
+      gamepad.removeEventListener(gamepadMapping.x, onPressX);
+      gamepad.removeEventListener(gamepadMapping.y, onPressY);
+      gamepad.removeEventListener(gamepadMapping.z, onPressZ);
+      gamepad.removeEventListener(gamepadMapping.escape, onPressEscape);
+      gamepad.removeEventListener(gamepadMapping.enter, onPressEnter);
     };
   }, [emitter, keyboardMapping, gamepadMapping, keyboard, gamepad]);
 
