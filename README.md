@@ -3,7 +3,7 @@ Quick Versus Launcher for MUGEN
 
 Launch a MUGEN fight without without displaying the screenpack.
 
-<video src="./docs/video-1.mp4" width="100%" controls preload></video>
+![Video 1](./docs/video-1.gif)
 
 Installation
 ------------
