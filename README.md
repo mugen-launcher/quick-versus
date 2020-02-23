@@ -112,7 +112,33 @@ Optional properties
 | `categories.*.characters.*.thumbnail` | Image path of the chracter thumbnail (default: `thumbnail.png`) |
 | `categories.*.characters.*.random` | Indicates that this character is random one within category (default: `false`) |
 
-State of the application
-------------------------
+Gamepad and keyboard mapping
+----------------------------
+
+You can download and execute [gamepad-logger.exe](https://github.com/mugen-launcher/gamepad-logger/releases/latest/download/gamepad-logger.exe) to fill the gamepad and keyboard mapping.
+
+Application states
+------------------
 
 ![States](./docs/state-machine.png)
+
+Development
+-----------
+
+Requirement:  NodeJS >= 13
+
+Install dependencies with:
+```bash
+npm ci
+```
+
+Launch in dev environment with:
+```bash
+npm start
+```
+
+Launch in MUGEN environment with:
+```bash
+npm start /path/to/mugen/directory
+```
+

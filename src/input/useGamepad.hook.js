@@ -22,7 +22,6 @@ function scanGamepads() {
         return;
       }
       if (!currentButtonStates[gamepadIndex] || !currentButtonStates[gamepadIndex][buttonIndex]) {
-        console.log("Gamepad", gamepadIndex, "Button", buttonIndex);
         emitter.dispatchEvent(new Event(`${gamepadIndex}-${buttonIndex}`));
       }
     });
