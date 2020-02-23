@@ -1,4 +1,5 @@
 import React from "react";
+import FatalError from "./fatalError.view";
 
 export default class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -15,10 +16,10 @@ export default class ErrorBoundary extends React.Component {
 
     if (hasError) {
       return (
-        <article class="fatal-error">
+        <FatalError>
           <h1>FATAL ERROR</h1>
           <p>{error.message}</p>
-        </article>
+        </FatalError>
       );
     }
 

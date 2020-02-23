@@ -3,12 +3,15 @@ import { UNSELECT_CHARACTER_ONE } from "./action/unselectCharacterOne.action";
 import { SELECT_CHARACTER_TWO } from "./action/selectCharacterTwo.action";
 import { UNSELECT_CHARACTER_TWO } from "./action/unselectCharacterTwo.action";
 import { SWITCH_MODE } from "./action/switchMode.action";
+import { SELECT_CHARACTER_TWO_AI_LEVEL } from "./action/selectCharacterTwoAILevel.action";
+import { UNSELECT_CHARACTER_TWO_AI_LEVEL } from "./action/unselectCharacterTwoAILevel.action";
 import { SELECT_STAGE } from "./action/selectStage.action";
 import { END_FIGHT } from "./action/endFight.action";
 import TRAINING from "./mode/training.mode";
 import VERSUS from "./mode/versus.mode";
 import TRAINING_SELECTING_CHARACTER_ONE from "./state/trainingSelectingCharacterOne.state";
 import TRAINING_SELECTING_CHARACTER_TWO from "./state/trainingSelectingCharacterTwo.state";
+import TRAINING_SELECTING_CHARACTER_TWO_AI_LEVEL from "./state/trainingSelectingCharacterTwoAILevel.state";
 import TRAINING_SELECTING_STAGE from "./state/trainingSelectingStage.state";
 import TRAINING_FIGHTING from "./state/trainingFighting.state";
 import VERSUS_SELECTING_CHARACTERS from "./state/versusSelectingCharacters.state";
@@ -22,7 +25,7 @@ function selectCharacterOne(data, action) {
     ...data,
     characterOne: action.character,
     characterOneCategoryIndex: action.categoryIndex,
-    characterOneIndex: action.characterIndex,
+    characterOneIndex: action.characterIndex
   };
 
   if (data.state === TRAINING_SELECTING_CHARACTER_ONE) {
@@ -72,11 +75,11 @@ function selectCharacterTwo(data, action) {
     ...data,
     characterTwo: action.character,
     characterTwoCategoryIndex: action.categoryIndex,
-    characterTwoIndex: action.characterIndex,
+    characterTwoIndex: action.characterIndex
   };
 
   if (data.state === TRAINING_SELECTING_CHARACTER_TWO) {
-    newData.state = TRAINING_SELECTING_STAGE;
+    newData.state = TRAINING_SELECTING_CHARACTER_TWO_AI_LEVEL;
     return newData;
   }
 
@@ -104,6 +107,11 @@ function unselectCharacterTwo(data) {
     return newData;
   }
 
+  if (data.state === TRAINING_SELECTING_CHARACTER_TWO_AI_LEVEL) {
+    newData.state = TRAINING_SELECTING_CHARACTER_TWO;
+    return newData;
+  }
+
   if (data.state === VERSUS_SELECTING_CHARACTER_ONE) {
     newData.state = VERSUS_SELECTING_CHARACTERS;
     return newData;
@@ -115,6 +123,28 @@ function unselectCharacterTwo(data) {
   }
 
   throw new Error(`Unable to unselect character two in state: ${data.state}`);
+}
+
+function selectCharacterTwoAILevel(data, action) {
+  const newData = { ...data, characterTwoAILevel: action.level };
+
+  if (data.state === TRAINING_SELECTING_CHARACTER_TWO_AI_LEVEL) {
+    newData.state = TRAINING_SELECTING_STAGE;
+    return newData;
+  }
+
+  throw new Error(`Unable to select character two AI level in state: ${data.state}`);
+}
+
+function unselectCharacterTwoAILevel(data) {
+  const newData = { ...data };
+
+  if (data.state === TRAINING_SELECTING_STAGE) {
+    newData.state = TRAINING_SELECTING_CHARACTER_TWO_AI_LEVEL;
+    return newData;
+  }
+
+  throw new Error(`Unable to unselect character two AI level in state: ${data.state}`);
 }
 
 function switchMode(data) {
@@ -207,6 +237,12 @@ export default function navigationReducer(data, action) {
 
     case UNSELECT_CHARACTER_TWO:
       return unselectCharacterTwo(data);
+
+    case SELECT_CHARACTER_TWO_AI_LEVEL:
+      return selectCharacterTwoAILevel(data, action);
+
+    case UNSELECT_CHARACTER_TWO_AI_LEVEL:
+      return unselectCharacterTwoAILevel(data);
 
     case SELECT_STAGE:
       return selectStage(data, action);

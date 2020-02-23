@@ -5,6 +5,7 @@ import SelectedCharacterCancellableByPlayerOne from "./left/selectedCharacterCan
 import SelectedCharacter from "./left/selectedCharacter.view";
 import TRAINING_SELECTING_CHARACTER_ONE from "../navigation/state/trainingSelectingCharacterOne.state";
 import TRAINING_SELECTING_CHARACTER_TWO from "../navigation/state/trainingSelectingCharacterTwo.state";
+import TRAINING_SELECTING_CHARACTER_TWO_AI_LEVEL from "../navigation/state/trainingSelectingCharacterTwoAILevel.state";
 import TRAINING_SELECTING_STAGE from "../navigation/state/trainingSelectingStage.state";
 import TRAINING_FIGHTING from "../navigation/state/trainingFighting.state";
 import VERSUS_SELECTING_CHARACTERS from "../navigation/state/versusSelectingCharacters.state";
@@ -23,6 +24,7 @@ export default function LeftSide() {
       return <SelectingCharacterByPlayerOne />;
     case TRAINING_SELECTING_CHARACTER_TWO:
       return <SelectedCharacterCancellableByPlayerOne character={navigation.characterOne} />;
+    case TRAINING_SELECTING_CHARACTER_TWO_AI_LEVEL:
     case TRAINING_SELECTING_STAGE:
       return <SelectedCharacter character={navigation.characterOne} />;
     case VERSUS_SELECTING_CHARACTER_TWO:

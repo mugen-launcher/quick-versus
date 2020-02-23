@@ -10,6 +10,8 @@ import LeftSide from "./side/leftSide.presenter";
 import RightSide from "./side/rightSide.presenter";
 import Fight from "./fight/fight.presenter";
 import ErrorBoundary from "./error/errorBoundary.view";
+import FatalError from "./error/fatalError.view";
+import Requirement from "./error/requirement.view";
 import versusImagePath from "./assets/versus.png";
 const app = remote.app;
 const fs = remote.require("fs");
@@ -57,27 +59,27 @@ export default function App() {
 
   if (!currentDirectory) {
     return (
-      <div class="requirement-message">
+      <Requirement>
         <p>No current directory</p>
-      </div>
+      </Requirement>
     );
   }
 
   const configurationFilePath = path.resolve(currentDirectory, "quick-versus.json");
   if (!fs.existsSync(configurationFilePath)) {
     return (
-      <div class="requirement-message">
+      <Requirement>
         <p>Configuration file is missing: {configurationFilePath}</p>
-      </div>
+      </Requirement>
     );
   }
 
   const mugenPath = path.resolve(currentDirectory, "mugen.exe");
   if (!fs.existsSync(mugenPath)) {
     return (
-      <div class="requirement-message">
+      <Requirement>
         <p>Mugen executable file is missing: {mugenPath}</p>
-      </div>
+      </Requirement>
     );
   }
 
@@ -87,11 +89,11 @@ export default function App() {
     configuration = JSON.parse(configurationContent);
   } catch(error) {
     return (
-      <div class="fatal-error">
+      <FatalError>
         <p>Invalid configuration file:</p>
         <p>{configurationFilePath}</p>
         <p>{error.message}</p>
-      </div>
+      </FatalError>
     );
   }
 
