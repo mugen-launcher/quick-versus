@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "start": "webpack --mode production && electron .",
+    "pack-mac": "npm run build && electron-builder --mac --x64",
     "pack-windows": "npm run build && electron-builder --win --x64",
     "pack-windows:dev": "npm run build && electron-builder --dir --win --x64",
     "postinstall": "electron-builder install-app-deps",

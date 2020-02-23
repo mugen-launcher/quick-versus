@@ -24,7 +24,18 @@ if (remote.process.argv.length >= 3) {
 } else if (isDev) {
   currentDirectory = path.resolve(app.getAppPath(), "dev-env");
 } else {
-  currentDirectory = remote.process.env.PORTABLE_EXECUTABLE_DIR;
+  if (remote.process.env.PORTABLE_EXECUTABLE_DIR) {
+    currentDirectory = remote.process.env.PORTABLE_EXECUTABLE_DIR;
+  } else if (remote.process.env.INIT_CWD) {
+    currentDirectory = remote.process.env.INIT_CWD;
+  } else if (app.getPath("exe")) {
+    currentDirectory = path.dirname(app.getPath("exe"));
+  } else if (remote.process.execPath) {
+    currentDirectory = remote.process.execPath;
+  }
+}
+if (path.basename(currentDirectory) === "MacOS") {
+  currentDirectory = path.resolve(currentDirectory, "..", "..", "..");
 }
 
 const Wrapper = styled.main`
@@ -56,7 +67,6 @@ const Versus = styled.img`
 `;
 
 export default function App() {
-
   if (!currentDirectory) {
     return (
       <Requirement>
