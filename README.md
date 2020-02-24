@@ -48,18 +48,18 @@ Create the file `quick-versus.json`:
       "enter": "Enter"
     },
     "gamepad": {
-      "left": "0-17",
-      "right": "0-18",
-      "up": "0-19",
-      "down": "0-20",
-      "a": "0-0",
-      "b": "0-1",
-      "c": "0-7",
-      "x": "0-2",
-      "y": "0-3",
-      "z": "0-6",
-      "escape": "0-8",
-      "enter": "0-9"
+      "left": "A17",
+      "right": "A18",
+      "up": "A19",
+      "down": "A20",
+      "a": "A0",
+      "b": "A1",
+      "c": "A7",
+      "x": "A2",
+      "y": "A3",
+      "z": "A6",
+      "escape": "A8",
+      "enter": "A9"
     }
   },
   "playerTwo": {
@@ -78,18 +78,18 @@ Create the file `quick-versus.json`:
       "enter": "p"
     },
     "gamepad": {
-      "left": "1-17",
-      "right": "1-18",
-      "up": "1-19",
-      "down": "1-20",
-      "a": "1-0",
-      "b": "1-1",
-      "c": "1-7",
-      "x": "1-2",
-      "y": "1-3",
-      "z": "1-6",
-      "escape": "1-8",
-      "enter": "1-9"
+      "left": "B17",
+      "right": "B18",
+      "up": "B19",
+      "down": "B20",
+      "a": "B0",
+      "b": "B1",
+      "c": "B7",
+      "x": "B2",
+      "y": "B3",
+      "z": "B6",
+      "escape": "B8",
+      "enter": "B9"
     }
   }
 }
