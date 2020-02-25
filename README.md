@@ -5,6 +5,17 @@ Launch a MUGEN fight without without displaying the screenpack.
 
 ![Video 1](./docs/video-1.gif)
 
+Navigation
+----------
+
+| Button | Description                      |
+| ------ | -------------------------------- |
+| `A`    | Confirm                          |
+| `B`    | Cancel                           |
+| `X`    | Previous category                |
+| `Y`    | Next category                    |
+| `Z`    | Switch mode (Training or Versus) |
+
 Installation
 ------------
 
