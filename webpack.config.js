@@ -21,7 +21,7 @@ module.exports = (env, { mode = "development" }) => {
       new CopyPlugin([
         { from: "src/index.html", to: "index.html" },
         { from: "src/assets/icon.png", to: "icon.png" },
-        { from: "src/assets", to: "assets" }
+        { from: "src/assets/background.jpg", to: "assets/background.jpg" }
       ]),
       new MiniCssExtractPlugin({
         filename: "style.css"

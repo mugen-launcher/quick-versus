@@ -13,30 +13,11 @@ import ErrorBoundary from "./error/errorBoundary.view";
 import FatalError from "./error/fatalError.view";
 import Requirement from "./error/requirement.view";
 import versusImagePath from "./assets/versus.png";
+import getCurrentDirectory from "./getCurrentDirectory";
 const app = remote.app;
 const fs = remote.require("fs");
 const path = remote.require("path");
-const execFile = remote.require("child_process").execFile;
-
-let currentDirectory;
-if (remote.process.argv.length >= 3) {
-  currentDirectory = path.normalize(remote.process.argv[2]);
-} else if (isDev) {
-  currentDirectory = path.resolve(app.getAppPath(), "dev-env");
-} else {
-  if (remote.process.env.PORTABLE_EXECUTABLE_DIR) {
-    currentDirectory = remote.process.env.PORTABLE_EXECUTABLE_DIR;
-  } else if (remote.process.env.INIT_CWD) {
-    currentDirectory = remote.process.env.INIT_CWD;
-  } else if (app.getPath("exe")) {
-    currentDirectory = path.dirname(app.getPath("exe"));
-  } else if (remote.process.execPath) {
-    currentDirectory = remote.process.execPath;
-  }
-}
-if (path.basename(currentDirectory) === "MacOS") {
-  currentDirectory = path.resolve(currentDirectory, "..", "..", "..");
-}
+const currentDirectory = getCurrentDirectory();
 
 const Wrapper = styled.main`
   flex: 1;

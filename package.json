@@ -2,7 +2,7 @@
   "name": "mugen-quick-versus-launcher",
   "author": "neolao",
   "license": "MIT",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "Mugen launcher for Quick Versus",
   "keywords": [
     "mugen",
@@ -28,6 +28,9 @@
   "engines": {
     "node": ">=13"
   },
+  "dependencies": {
+    "electron-is-dev": "^1.1.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
@@ -38,7 +41,6 @@
     "css-loader": "^3.4.2",
     "electron": "^8.0.1",
     "electron-builder": "^22.3.2",
-    "electron-is-dev": "^1.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-solfegejs": "^1.0.17",
     "eslint-watch": "^6.0.1",

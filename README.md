@@ -115,6 +115,10 @@ Optional properties
 
 | Name | Description |
 | ---- | ----------- |
+| `width` | Application width (default: `1024`) |
+| `height` | Application height (default: `576`) |
+| `fullscreen` | Fullscreen (default: `false`) |
+| `frame` | Application with frame (default: `false`) |
 | `background` | Image path of the background |
 | `motif` | Motif name |
 | `characterColumns` | Number of columns to display character thumbnails |
