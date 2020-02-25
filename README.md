@@ -1,7 +1,7 @@
 Quick Versus Launcher for MUGEN
 ===============================
 
-Launch a MUGEN fight without without displaying the screenpack.
+Launch a MUGEN fight without displaying the screenpack.
 
 ![Video 1](./docs/video-1.gif)
 
