@@ -21,6 +21,7 @@ const Cell = styled.article`
   border: solid 3px #fff;
   width: 7vh;
   height: 7vh;
+  background: rgba(0, 0, 0, 0.5);
 `;
 const Thumbnail = styled.img`
   width: 100%;

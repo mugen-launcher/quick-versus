@@ -5,7 +5,7 @@ import useCharacterPortrait from "../../character/useCharacterPortrait.hook";
 const Image = styled.img`
   position: absolute;
   z-index: 100;
-  left: 50vw;
+  left: ${props => props.x};
   bottom: 0;
   height: 100vh;
   transform: translateX(-100%);
@@ -18,5 +18,10 @@ export default function Portrait({ character }) {
     return null;
   }
 
-  return <Image src={portrait} />;
+  let x = "50vw";
+  if (character.portraitOptions && character.portraitOptions.x) {
+    x = character.portraitOptions.x;
+  }
+
+  return <Image src={portrait} x={x} />;
 }
