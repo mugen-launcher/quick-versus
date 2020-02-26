@@ -7,7 +7,7 @@ export default function useCharacterIndex(characters, input, initialIndex = 0) {
   const [selectedIndex, selectIndex] = useState(initialIndex);
 
   useEffect(() => {
-    selectIndex(initialIndex);
+    selectIndex(initialIndex < characters.length ? initialIndex : 0);
 
     const matrix = getCharactersMatrix(characters, columnCount);
     let selectedRowIndex = 0;
