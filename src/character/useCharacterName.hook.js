@@ -7,7 +7,15 @@ const path = remote.require("path");
 export default function useCharacterName(character) {
   const environment = useEnvironment();
 
-  if (!character || !character.definition) {
+  if (!character) {
+    return "Unknown";
+  }
+
+  if (character.random) {
+    return "Random";
+  }
+
+  if (!character.definition) {
     return "Unknown";
   }
 

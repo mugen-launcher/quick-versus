@@ -35,6 +35,11 @@ export default function SelectingCharacterByPlayerOne() {
     const onConfirm = () => {
       if (isRandomCategory) {
         dispatch(selectCharacterTwo(randomCharacter, categoryIndex));
+      } else if (character.random) {
+        const nonRandomCharacters = characters.filter(character => !character.random);
+        const randomCharacterIndex = Math.floor(Math.random() * nonRandomCharacters.length);
+        const randomCharacter = nonRandomCharacters[randomCharacterIndex];
+        dispatch(selectCharacterTwo(randomCharacter, categoryIndex, characterIndex));
       } else {
         dispatch(selectCharacterTwo(character, categoryIndex, characterIndex));
       }
@@ -52,7 +57,7 @@ export default function SelectingCharacterByPlayerOne() {
       input.removeEventListener("b", onCancel);
       input.removeEventListener("escape", onCancel);
     };
-  }, [input, isRandomCategory, randomCharacter, character]);
+  }, [input, isRandomCategory, randomCharacter, character, characters]);
 
   const displayedCharacter = isRandomCategory ? randomCharacter : character;
   const characterName = useCharacterName(displayedCharacter);

@@ -10,6 +10,10 @@ export default function useCharacterPortrait(character) {
     return null;
   }
 
+  if (character.random) {
+    return null;
+  }
+
   const definitionPath = path.resolve(environment.currentDirectory, "chars", character.definition);
   const directoryPath = path.dirname(definitionPath);
   const imagePathsByPriority = [path.resolve(directoryPath, "portrait.png")];

@@ -147,7 +147,7 @@
           "definition": "Capcom/Morrigan/Morrigan.def"
         },
         {
-          "definition": "Capcom/Felicia/Felicia.def"
+          "random": true
         }
       ]
     },
