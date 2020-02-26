@@ -10,6 +10,7 @@ body {
   background: #333;
   cursor: none;
   overflow: hidden;
+  user-select: none;
 }
 
 #root {
