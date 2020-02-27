@@ -7,7 +7,8 @@ export default function useCharacterIndex(characters, input, initialIndex = 0) {
   const [selectedIndex, selectIndex] = useState(initialIndex);
 
   useEffect(() => {
-    selectIndex(initialIndex < characters.length ? initialIndex : 0);
+    const newSelectedIndex = initialIndex < characters.length ? initialIndex : 0;
+    selectIndex(newSelectedIndex);
 
     const matrix = getCharactersMatrix(characters, columnCount);
     let selectedRowIndex = 0;
@@ -16,7 +17,7 @@ export default function useCharacterIndex(characters, input, initialIndex = 0) {
     for (let rowIndex = 0; rowIndex < matrix.length; rowIndex++) {
       const row = matrix[rowIndex];
       for (let columnIndex = 0; columnIndex < row.length; columnIndex++) {
-        if (index === selectedIndex) {
+        if (index === newSelectedIndex) {
           selectedRowIndex = rowIndex;
           selectedColumnIndex = columnIndex;
         }
