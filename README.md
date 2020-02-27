@@ -110,7 +110,7 @@ Characters are organized by category.
 Each category has an image (displayed on top of the screen).
 For each character, you need to provide the definition path.
 
-Optional properties
+Properties
 -------------------
 
 | Name | Description |
@@ -121,7 +121,7 @@ Optional properties
 | `frame` | Application with frame (default: `false`) |
 | `background` | Image path of the background |
 | `motif` | Motif name |
-| `characterColumns` | Number of columns to display character thumbnails |
+| `characterColumns` | Number of columns to display character thumbnails (default: `1`) |
 | `categories.*.random` | Indicates that the category is a random selection (default: `false`) |
 | `categories.*.characters.*.portrait` | Image path of the character portrait (default: `portrait.png`) |
 | `categories.*.characters.*.portraitOptions.x` | Portrait x coordinates (default: `50vw`) |

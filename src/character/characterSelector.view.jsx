@@ -10,12 +10,14 @@ const fs = remote.require("fs");
 const path = remote.require("path");
 
 const Grid = styled.section`
+  z-index: 1;
   position: relative;
   display: grid;
   grid-template-columns: repeat(${props => props.column}, 7vh);
   grid-template-rows: auto;
   grid-column-gap: .7vh;
   grid-row-gap: .7vh;
+  margin-top: ${props => -props.offsetY}vh;
 `;
 const Cell = styled.article`
   border: solid 3px #fff;
@@ -67,8 +69,16 @@ export default function CharacterSelector({ characters, selectedCharacter }) {
     }
   }
 
+  const gridY = 12; // zone top + category height
+  const cellHeight = 7;
+  const cellGap = 0.7;
+  const estimatedCellY = gridY + (cellHeight + cellGap) * selectionRow;
+  let offsetY = 0;
+  if (estimatedCellY > 100) {
+    offsetY = Math.ceil((estimatedCellY - 100) / (cellHeight + cellGap)) * (cellHeight + cellGap);
+  }
   return (
-    <Grid column={columnCount}>
+    <Grid column={columnCount} offsetY={offsetY}>
       {cells}
       <Selection row={selectionRow} column={selectionColumn} />
     </Grid>

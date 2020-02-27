@@ -6,6 +6,8 @@ const fs = remote.require("fs");
 const path = remote.require("path");
 
 const Selector = styled.div`
+  z-index: 2;
+  position: relative;
   height: 12vh;
 `;
 const Image = styled.img`
