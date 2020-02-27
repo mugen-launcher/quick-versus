@@ -33,26 +33,30 @@ function createWindow() {
   let fullscreen = false;
   let frame = false;
 
-  const currentDirectory = getCurrentDirectory();
-  const configurationFilePath = path.resolve(currentDirectory, "quick-versus.json");
-  if (fs.existsSync(configurationFilePath)) {
-    const config = require(configurationFilePath);
+  try {
+    const currentDirectory = getCurrentDirectory();
+    const configurationFilePath = path.resolve(currentDirectory, "quick-versus.json");
+    if (fs.existsSync(configurationFilePath)) {
+      const config = require(configurationFilePath);
 
-    if (config.hasOwnProperty("width")) {
-      width = config.width;
-    }
+      if (config.hasOwnProperty("width")) {
+        width = config.width;
+      }
 
-    if (config.hasOwnProperty("height")) {
-      height = config.height;
-    }
+      if (config.hasOwnProperty("height")) {
+        height = config.height;
+      }
 
-    if (config.hasOwnProperty("fullscreen")) {
-      fullscreen = config.fullscreen;
-    }
+      if (config.hasOwnProperty("fullscreen")) {
+        fullscreen = config.fullscreen;
+      }
 
-    if (config.hasOwnProperty("frame")) {
-      frame = config.frame;
+      if (config.hasOwnProperty("frame")) {
+        frame = config.frame;
+      }
     }
+  } catch(error) {
+    // No override
   }
 
   const window = new BrowserWindow({
