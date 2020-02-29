@@ -1,30 +1,14 @@
 import ini from "ini";
 import { remote } from "electron";
-import useEnvironment from "../configuration/useEnvironment.hook";
+import useCharacterDefinition from "./useCharacterDefinition.hook";
 const fs = remote.require("fs");
 const path = remote.require("path");
 
 export default function useCharacterName(character) {
-  const environment = useEnvironment();
-
-  if (!character) {
+  const definition = useCharacterDefinition(character);
+  if (!definition) {
     return "Unknown";
   }
-
-  if (character.random) {
-    return "Random";
-  }
-
-  if (!character.definition) {
-    return "Unknown";
-  }
-
-  const definitionPath = path.resolve(environment.currentDirectory, "chars", character.definition);
-  if (!fs.existsSync(definitionPath)) {
-    return "Unknown";
-  }
-
-  const definition = ini.parse(fs.readFileSync(definitionPath, "utf-8"));
 
   if (definition.Info.displayname) {
     return ini.unsafe(definition.Info.displayname);

@@ -8,6 +8,7 @@ import selectCharacterTwoAILevel from "../../navigation/action/selectCharacterTw
 import useCharacterAILevel from "../../character/useCharacterAILevel.hook";
 import AILevelSelector from "../../character/aiLevelSelector.view";
 import Portrait from "./portrait.view";
+import StandAnimation from "./standAnimation.view";
 import CharacterName from "./characterName.view";
 import Type from "./type.view";
 import Zone from "./zone.view";
@@ -44,6 +45,7 @@ export default function SelectingCharacterAILevelByPlayerOne({ character }) {
       <Zone>
         <AILevelSelector level={characterAILevel} />
       </Zone>
+      <StandAnimation character={character}/>
       <CharacterName>{characterName}</CharacterName>
       <Type>Computer</Type>
     </>

@@ -5,6 +5,7 @@ import useNavigationDispatch from "../../navigation/useDispatch.hook";
 import unselectCharacterOne from "../../navigation/action/unselectCharacterOne.action";
 import switchMode from "../../navigation/action/switchMode.action";
 import Portrait from "./portrait.view";
+import StandAnimation from "./standAnimation.view";
 import CharacterName from "./characterName.view";
 import Type from "./type.view";
 
@@ -33,6 +34,7 @@ export default function SelectedCharacterCancellableByPlayerOne({ character }) {
   return (
     <>
       <Portrait character={character}/>
+      <StandAnimation character={character}/>
       <CharacterName>{characterName}</CharacterName>
       <Type>Player 1</Type>
     </>

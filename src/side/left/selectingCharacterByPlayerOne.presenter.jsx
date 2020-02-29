@@ -13,6 +13,7 @@ import Zone from "./zone.view";
 import CategorySelector from "../../category/categorySelector.view";
 import CharacterSelector from "../../character/characterSelector.view";
 import Portrait from "./portrait.view";
+import StandAnimation from "./standAnimation.view";
 import CharacterName from "./characterName.view";
 import Type from "./type.view";
 
@@ -68,6 +69,7 @@ export default function SelectingCharacterByPlayerOne() {
           <CharacterSelector characters={characters} selectedCharacter={displayedCharacter} />
         )}
       </Zone>
+      <StandAnimation character={displayedCharacter} />
       <CharacterName>{characterName}</CharacterName>
       <Type>Player 1</Type>
     </>

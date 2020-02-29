@@ -4,6 +4,7 @@ import useCharacterName from "../../character/useCharacterName.hook";
 import useNavigationDispatch from "../../navigation/useDispatch.hook";
 import unselectCharacterTwo from "../../navigation/action/unselectCharacterTwo.action";
 import Portrait from "./portrait.view";
+import StandAnimation from "./standAnimation.view";
 import CharacterName from "./characterName.view";
 import Type from "./type.view";
 
@@ -29,6 +30,7 @@ export default function SelectedCharacterCancellableByPlayerTwo({ character }) {
   return (
     <>
       <Portrait character={character}/>
+      <StandAnimation character={character}/>
       <CharacterName>{characterName}</CharacterName>
       <Type>Player 2</Type>
     </>

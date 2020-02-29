@@ -126,7 +126,8 @@ Properties
 | `categories.*.random` | Indicates that the category is a random selection (default: `false`) |
 | `categories.*.characters.*.portrait` | Image path of the character portrait (default: `portrait.png`) |
 | `categories.*.characters.*.portraitOptions.x` | Portrait x coordinates (default: `50vw`) |
-| `categories.*.characters.*.thumbnail` | Image path of the chracter thumbnail (default: `thumbnail.png`) |
+| `categories.*.characters.*.stand` | Image path of the chracter stand animation (default: `stand.gif`) |
+| `categories.*.characters.*.thumbnail` | Image path of the character thumbnail (default: `thumbnail.png`) |
 | `categories.*.characters.*.random` | Indicates that this character is random one within category (default: `false`) |
 
 Gamepad and keyboard mapping
