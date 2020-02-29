@@ -11,6 +11,7 @@ body {
   cursor: none;
   overflow: hidden;
   user-select: none;
+  transform: translateZ(0);
 }
 
 #root {

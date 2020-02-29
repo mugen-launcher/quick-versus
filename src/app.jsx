@@ -109,9 +109,15 @@ export default function App() {
   }
 
   if (configuration.sound && configuration.sound.background) {
+    let volume = 100;
+    if (configuration.sound.volume) {
+      volume = configuration.sound.volume;
+    }
+
     const soundPath = path.resolve(environment.currentDirectory, configuration.sound.background);
     if (fs.existsSync(soundPath)) {
       const audio = new Audio(soundPath);
+      audio.volume = volume / 100;
       audio.loop = true;
       audio.play();
 

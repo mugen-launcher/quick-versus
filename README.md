@@ -120,6 +120,7 @@ Properties
 | `fullscreen` | Fullscreen (default: `false`) |
 | `frame` | Application with frame (default: `false`) |
 | `background` | Image path of the background |
+| `sound.volume` | Sound volume in percent (default: `100`) |
 | `sound.background` | File path of the background sound |
 | `sound.selectCharacter` | File path of the sound played when selecting a character |
 | `sound.selectAILevel` | File path of the sound played when selecting the AI level |
