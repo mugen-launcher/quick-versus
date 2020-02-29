@@ -26,10 +26,36 @@ export default function useCharacterSizeScale(character) {
     }
     const constantsPath = path.resolve(directoryPath, constantsFilename);
 
-    const constants = ini.parse(fs.readFileSync(constantsPath, "utf-8"));
-    return {
-      x: constants.Size.xscale,
-      y: constants.Size.yscale
-    };
+    try {
+      const fileContent = fs.readFileSync(constantsPath, "utf-8");
+      const constants = ini.parse(fileContent);
+
+      let x = 1;
+      let y = 1;
+      if (constants.Size) {
+        x = Number(constants.Size.xscale);
+        y = Number(constants.Size.yscale);
+      } else {
+        if (constants.xscape) {
+          x = Number(constants.xscale);
+        }
+        if (constants.xscape) {
+          y = Number(constants.yscale);
+        }
+      }
+
+      if (isNaN(x)) {
+        throw new Error("xscale is not a number");
+      }
+      if (isNaN(y)) {
+        throw new Error("yscale is not a number");
+      }
+
+      return { x, y };
+    } catch (error) {
+      console.error("Unable to load constants file", constantsPath);
+      console.error(error);
+      return;
+    }
   }, [character]);
 }
