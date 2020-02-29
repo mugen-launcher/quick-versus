@@ -45,9 +45,7 @@ export default function SelectingCharacterByPlayerTwo() {
       } else {
         dispatch(selectCharacterTwo(character, categoryIndex, characterIndex));
       }
-      if (selectCharacterSound) {
-        selectCharacterSound.play();
-      }
+      selectCharacterSound.play();
     };
 
     input.addEventListener("a", onConfirm);

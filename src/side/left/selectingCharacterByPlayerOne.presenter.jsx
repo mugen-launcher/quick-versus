@@ -46,9 +46,7 @@ export default function SelectingCharacterByPlayerOne() {
       } else {
         dispatch(selectCharacterOne(character, categoryIndex, characterIndex));
       }
-      if (selectCharacterSound) {
-        selectCharacterSound.play();
-      }
+      selectCharacterSound.play();
     };
     const onSwitchMode = () => {
       dispatch(switchMode());

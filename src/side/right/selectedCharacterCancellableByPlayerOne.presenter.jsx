@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import useInput from "../../input/useInputPlayerOne.hook";
 import useCharacterName from "../../character/useCharacterName.hook";
 import useNavigationDispatch from "../../navigation/useDispatch.hook";
+import useCancelSound from "../../configuration/useCancelSound.hook";
 import unselectCharacterTwo from "../../navigation/action/unselectCharacterTwo.action";
 import Portrait from "./portrait.view";
 import StandAnimation from "./standAnimation.view";
@@ -12,10 +13,12 @@ export default function SelectedCharacterCancellableByPlayerOne({ character }) {
   const dispatch = useNavigationDispatch();
   const input = useInput();
   const characterName = useCharacterName(character);
+  const cancelSound = useCancelSound();
 
   useEffect(() => {
     const onCancel = () => {
       dispatch(unselectCharacterTwo());
+      cancelSound.play();
     };
 
     input.addEventListener("b", onCancel);
