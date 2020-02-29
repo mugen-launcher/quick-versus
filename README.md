@@ -122,6 +122,7 @@ Properties
 | `background` | Image path of the background |
 | `sound.background` | File path of the background sound |
 | `sound.selectCharacter` | File path of the sound played when selecting a character |
+| `sound.moveCursor` | File path of the sound played when moving the cursor |
 | `sound.cancel` | File path of the sound played on cancel |
 | `motif` | Motif name |
 | `characterColumns` | Number of columns to display character thumbnails (default: `1`) |

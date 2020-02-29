@@ -19,6 +19,12 @@ export default function useSelectCharacterSound() {
 
   return useMemo(() => {
     const filePath = path.resolve(environment.currentDirectory, configuration.sound.selectCharacter);
-    return new Audio(filePath);
+    const audio = new Audio(filePath);
+    return {
+      play: () => {
+        audio.currentTime = 0;
+        audio.play();
+      }
+    }
   });
 }

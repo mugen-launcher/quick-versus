@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import getCharactersMatrix from "../character/getCharactersMatrix";
 import useCharacterColumns from "../configuration/useCharacterColumns.hook";
+import useMoveCursorSound from "../configuration/useMoveCursorSound.hook";
 
 export default function useCharacterIndex(characters, input, initialIndex = 0) {
+  const moveCursorSound = useMoveCursorSound();
   const columnCount = useCharacterColumns();
   const [selectedIndex, selectIndex] = useState(initialIndex);
 
@@ -46,10 +48,12 @@ export default function useCharacterIndex(characters, input, initialIndex = 0) {
         selectedColumnIndex = matrix[selectedRowIndex].length - 1;
       }
       selectIndex(getSelectedIndexFromMatrix());
+      moveCursorSound.play();
     };
     const increaseColumnIndex = () => {
       selectedColumnIndex = (selectedColumnIndex + 1) % matrix[selectedRowIndex].length;
       selectIndex(getSelectedIndexFromMatrix());
+      moveCursorSound.play();
     };
     const decreaseRowIndex = () => {
       if (selectedRowIndex > 0) {
@@ -64,6 +68,7 @@ export default function useCharacterIndex(characters, input, initialIndex = 0) {
       }
 
       selectIndex(getSelectedIndexFromMatrix());
+      moveCursorSound.play();
     };
     const increaseRowIndex = () => {
       selectedRowIndex = (selectedRowIndex + 1) % matrix.length;
@@ -71,6 +76,7 @@ export default function useCharacterIndex(characters, input, initialIndex = 0) {
         selectedRowIndex = 0;
       }
       selectIndex(getSelectedIndexFromMatrix());
+      moveCursorSound.play();
     };
 
     input.addEventListener("left", decreaseColumnIndex);

@@ -5,7 +5,7 @@ import useEnvironment from "./useEnvironment.hook";
 import noSound from "./noSound";
 const path = remote.require("path");
 
-export default function useCancelSound() {
+export default function useMoveCursorSound() {
   const environment = useEnvironment();
   const configuration = useConfiguration();
 
@@ -13,12 +13,12 @@ export default function useCancelSound() {
     return noSound;
   }
 
-  if (!configuration.sound.cancel) {
+  if (!configuration.sound.moveCursor) {
     return noSound;
   }
 
   return useMemo(() => {
-    const filePath = path.resolve(environment.currentDirectory, configuration.sound.cancel);
+    const filePath = path.resolve(environment.currentDirectory, configuration.sound.moveCursor);
     const audio = new Audio(filePath);
     return {
       play: () => {
