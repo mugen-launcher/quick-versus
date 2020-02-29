@@ -38,6 +38,10 @@ const CustomBackground = styled.img`
   height: 100vh;
   object-fit: cover;
 `;
+const CustomSound = styled.audio`
+  position: absolute;
+  visibility: hidden;
+`;
 const Versus = styled.img`
   position: absolute;
   z-index: 100;
@@ -100,7 +104,15 @@ export default function App() {
   if (configuration.background) {
     const imagePath = path.resolve(environment.currentDirectory, configuration.background);
     if (fs.existsSync(imagePath)) {
-      customBackground = <CustomBackground src={imagePath}/>
+      customBackground = <CustomBackground src={imagePath}/>;
+    }
+  }
+
+  let customSound;
+  if (configuration.sound) {
+    const soundPath = path.resolve(environment.currentDirectory, configuration.sound);
+    if (fs.existsSync(soundPath)) {
+      customSound = <CustomSound src={soundPath} autoPlay loop/>;
     }
   }
 
@@ -109,6 +121,7 @@ export default function App() {
       <EnvironmentContext.Provider value={environment}>
         <ConfigurationContext.Provider value={configuration}>
           <NavigationProvider>
+            {customSound}
             <Wrapper>
               {customBackground}
               <LeftSide />
