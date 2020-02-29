@@ -9,19 +9,20 @@ export default function useSelectCharacterSound() {
   const environment = useEnvironment();
   const configuration = useConfiguration();
 
-  if (!configuration.sound) {
-    return noSound;
-  }
-
-  if (!configuration.sound.selectCharacter) {
-    return noSound;
-  }
-
   return useMemo(() => {
+    if (!configuration.sound) {
+      return noSound;
+    }
+
+    if (!configuration.sound.selectCharacter) {
+      return noSound;
+    }
+
     const filePath = path.resolve(environment.currentDirectory, configuration.sound.selectCharacter);
     const audio = new Audio(filePath);
     return {
       play: () => {
+        audio.pause();
         audio.currentTime = 0;
         audio.play();
       }

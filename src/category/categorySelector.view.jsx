@@ -39,7 +39,7 @@ export default function CategorySelector({ category }) {
         <Text>{category.name}</Text>
       )}
       {imagePath && (
-        <Image class="category-image" src={imagePath} />
+        <Image src={imagePath} />
       )}
     </Selector>
   );

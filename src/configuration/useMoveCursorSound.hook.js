@@ -9,19 +9,20 @@ export default function useMoveCursorSound() {
   const environment = useEnvironment();
   const configuration = useConfiguration();
 
-  if (!configuration.sound) {
-    return noSound;
-  }
-
-  if (!configuration.sound.moveCursor) {
-    return noSound;
-  }
-
   return useMemo(() => {
+    if (!configuration.sound) {
+      return noSound;
+    }
+
+    if (!configuration.sound.moveCursor) {
+      return noSound;
+    }
+
     const filePath = path.resolve(environment.currentDirectory, configuration.sound.moveCursor);
     const audio = new Audio(filePath);
     return {
       play: () => {
+        audio.pause();
         audio.currentTime = 0;
         audio.play();
       }

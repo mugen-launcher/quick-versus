@@ -108,11 +108,14 @@ export default function App() {
     }
   }
 
-  let customSound;
   if (configuration.sound && configuration.sound.background) {
     const soundPath = path.resolve(environment.currentDirectory, configuration.sound.background);
     if (fs.existsSync(soundPath)) {
-      customSound = <CustomSound src={soundPath} autoPlay loop/>;
+      const audio = new Audio(soundPath);
+      audio.loop = true;
+      audio.play();
+
+      environment.backgroundSound = audio;
     }
   }
 
@@ -121,7 +124,6 @@ export default function App() {
       <EnvironmentContext.Provider value={environment}>
         <ConfigurationContext.Provider value={configuration}>
           <NavigationProvider>
-            {customSound}
             <Wrapper>
               {customBackground}
               <LeftSide />

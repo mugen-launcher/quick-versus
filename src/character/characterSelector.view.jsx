@@ -60,7 +60,7 @@ export default function CharacterSelector({ characters, selectedCharacter }) {
         imagePath = thumbnailPlaceholder;
       }
 
-      cells.push(<Cell><Thumbnail src={imagePath}/></Cell>);
+      cells.push(<Cell key={imagePath}><Thumbnail src={imagePath}/></Cell>);
 
       if (character === selectedCharacter) {
         selectionRow = rowIndex + 1;

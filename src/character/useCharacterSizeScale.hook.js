@@ -9,11 +9,12 @@ const path = remote.require("path");
 export default function useCharacterSizeScale(character) {
   const environment = useEnvironment();
   const definition = useCharacterDefinition(character);
-  if (!definition) {
-    return;
-  }
 
   return useMemo(() => {
+    if (!definition) {
+      return;
+    }
+
     const definitionPath = path.resolve(environment.currentDirectory, "chars", character.definition);
     const directoryPath = path.dirname(definitionPath);
     let constantsFilename;
@@ -57,5 +58,5 @@ export default function useCharacterSizeScale(character) {
       console.error(error);
       return;
     }
-  }, [character]);
+  }, [character, definition]);
 }

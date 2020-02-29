@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import useMoveCursorSound from "../configuration/useMoveCursorSound.hook";
 
 export default function useCharacterAILevel(input, initialLevel = 0) {
+  const moveCursorSound = useMoveCursorSound();
   const [level, setLevel] = useState(initialLevel);
 
   useEffect(() => {
@@ -10,9 +12,11 @@ export default function useCharacterAILevel(input, initialLevel = 0) {
       } else {
         setLevel(9);
       }
+      moveCursorSound.play();
     };
     const increaseLevel = () => {
       setLevel((level + 1) % 10);
+      moveCursorSound.play();
     };
 
     input.addEventListener("up", decreaseLevel);

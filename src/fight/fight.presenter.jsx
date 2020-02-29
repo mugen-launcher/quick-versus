@@ -8,6 +8,7 @@ import TRAINING_FIGHTING from "../navigation/state/trainingFighting.state";
 import VERSUS_FIGHTING from "../navigation/state/versusFighting.state";
 import useEnvironment from "../configuration/useEnvironment.hook";
 import useConfiguration from "../configuration/useConfiguration.hook";
+import useBackgroundSound from "../configuration/useBackgroundSound.hook";
 const execFile = remote.require("child_process").execFile;
 
 const BlackScreen = styled.div`
@@ -30,6 +31,7 @@ export default function Fight() {
   const navigation = useNavigation();
   const environment = useEnvironment();
   const dispatch = useNavigationDispatch();
+  const backgroundSound = useBackgroundSound();
 
   if (navigation.state === TRAINING_FIGHTING || navigation.state === VERSUS_FIGHTING) {
     const options = [
@@ -45,6 +47,7 @@ export default function Fight() {
       options.push("-p2.ai", navigation.characterTwoAILevel);
     }
 
+    backgroundSound.pause();
     execFile(
       environment.mugenPath,
       options,
@@ -53,6 +56,7 @@ export default function Fight() {
       },
       () => {
         dispatch(endFight());
+        backgroundSound.play();
       }
     );
 

@@ -5,7 +5,7 @@ import useEnvironment from "./useEnvironment.hook";
 import noSound from "./noSound";
 const path = remote.require("path");
 
-export default function useCancelSound() {
+export default function useSelectAILevelSound() {
   const environment = useEnvironment();
   const configuration = useConfiguration();
 
@@ -14,11 +14,11 @@ export default function useCancelSound() {
       return noSound;
     }
 
-    if (!configuration.sound.cancel) {
+    if (!configuration.sound.selectAILevel) {
       return noSound;
     }
 
-    const filePath = path.resolve(environment.currentDirectory, configuration.sound.cancel);
+    const filePath = path.resolve(environment.currentDirectory, configuration.sound.selectAILevel);
     const audio = new Audio(filePath);
     return {
       play: () => {

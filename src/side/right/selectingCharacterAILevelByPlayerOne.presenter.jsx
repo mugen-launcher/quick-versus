@@ -5,6 +5,7 @@ import useNavigation from "../../navigation/useData.hook";
 import useNavigationDispatch from "../../navigation/useDispatch.hook";
 import unselectCharacterTwo from "../../navigation/action/unselectCharacterTwo.action";
 import useCancelSound from "../../configuration/useCancelSound.hook";
+import useSelectAILevelSound from "../../configuration/useSelectAILevelSound.hook";
 import selectCharacterTwoAILevel from "../../navigation/action/selectCharacterTwoAILevel.action";
 import useCharacterAILevel from "../../character/useCharacterAILevel.hook";
 import AILevelSelector from "../../character/aiLevelSelector.view";
@@ -20,6 +21,7 @@ export default function SelectingCharacterAILevelByPlayerOne({ character }) {
   const input = useInput();
   const characterName = useCharacterName(character);
   const characterAILevel = useCharacterAILevel(input, navigation.characterTwoAILevel);
+  const selectAILevelSound = useSelectAILevelSound();
   const cancelSound = useCancelSound();
 
   useEffect(() => {
@@ -29,6 +31,7 @@ export default function SelectingCharacterAILevelByPlayerOne({ character }) {
     };
     const onConfirm = () => {
       dispatch(selectCharacterTwoAILevel(characterAILevel));
+      selectAILevelSound.play();
     };
 
     input.addEventListener("a", onConfirm);

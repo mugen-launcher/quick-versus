@@ -2,7 +2,7 @@
   "name": "mugen-quick-versus-launcher",
   "author": "neolao",
   "license": "MIT",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "description": "Mugen launcher for Quick Versus",
   "keywords": [
     "mugen",
@@ -10,7 +10,7 @@
     "launcher"
   ],
   "scripts": {
-    "start": "webpack --mode production && electron .",
+    "start": "webpack --mode development && electron .",
     "pack-mac": "npm run build && electron-builder --mac --x64",
     "pack-windows": "npm run build && electron-builder --win --x64",
     "pack-windows:dev": "npm run build && electron-builder --dir --win --x64",
