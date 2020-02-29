@@ -7,7 +7,7 @@ import useCharacterAnimationScaleFactor from "../../configuration/useCharacterAn
 const Image = styled.img`
   position: absolute;
   z-index: 120;
-  left: 47vw;
+  left: ${props => props.x};
   bottom: 2vh;
   transform-origin: bottom right;
   transform:
@@ -26,6 +26,11 @@ export default function StandAnimation({ character }) {
     return null;
   }
 
+  let x = "47vw";
+  if (character.standOptions && character.standOptions.x) {
+    x = character.standOptions.x;
+  }
+
   let xScale = 1;
   let yScale = 1;
   if (scale) {
@@ -36,5 +41,5 @@ export default function StandAnimation({ character }) {
   xScale *= scaleFactor;
   yScale *= scaleFactor;
 
-  return <Image src={standAnimation} xScale={xScale} yScale={yScale} />;
+  return <Image src={standAnimation} x={x} xScale={xScale} yScale={yScale} />;
 }
