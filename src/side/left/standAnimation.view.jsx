@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import useCharacterStandAnimation from "../../character/useCharacterStandAnimation.hook";
 import useCharacterSizeScale from "../../character/useCharacterSizeScale.hook";
-import useCharacterAnimationScaleFactor from "../../configuration/useCharacterAnimationScaleFactor.hook";
+import useCharacterAnimationOptions from "../../configuration/useCharacterAnimationOptions.hook";
 
 const Image = styled.img`
   position: absolute;
@@ -18,7 +18,7 @@ const Image = styled.img`
 `;
 
 export default function StandAnimation({ character }) {
-  const scaleFactor = useCharacterAnimationScaleFactor();
+  const options = useCharacterAnimationOptions();
   const standAnimation = useCharacterStandAnimation(character);
   const scale = useCharacterSizeScale(character);
 
@@ -26,7 +26,7 @@ export default function StandAnimation({ character }) {
     return null;
   }
 
-  let x = "47vw";
+  let x = options.x;
   if (character.standOptions && character.standOptions.x) {
     x = character.standOptions.x;
   }
@@ -38,8 +38,8 @@ export default function StandAnimation({ character }) {
     yScale = scale.y;
   }
 
-  xScale *= scaleFactor;
-  yScale *= scaleFactor;
+  xScale *= options.scaleFactor;
+  yScale *= options.scaleFactor;
 
   return <Image src={standAnimation} x={x} xScale={xScale} yScale={yScale} />;
 }

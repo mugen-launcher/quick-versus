@@ -128,12 +128,14 @@ Properties
 | `sound.cancel` | File path of the sound played on cancel |
 | `motif` | Motif name |
 | `characterColumns` | Number of columns to display character thumbnails (default: `1`) |
-| `characterAnimationScaleFactor` | Scale factor for the character animation (default: `1`) |
+| `characterAnimationOptions.x` | X coordinate for the character animation (default: `47vw`) |
+| `characterAnimationOptions.scaleFactor` | Scale factor for the character animation (default: `1`) |
+| `characterNameOptions.x` | Character name x coordinate (default: `40vw`) |
 | `categories.*.random` | Indicates that the category is a random selection (default: `false`) |
 | `categories.*.characters.*.portrait` | Image path of the character portrait (default: `portrait.png`) |
-| `categories.*.characters.*.portraitOptions.x` | Portrait x coordinates (default: `50vw`) |
+| `categories.*.characters.*.portraitOptions.x` | Portrait x coordinate (default: `50vw`) |
 | `categories.*.characters.*.stand` | Image path of the chracter stand animation (default: `stand.gif`) |
-| `categories.*.characters.*.standOptions.x` | Stand animation x coordinates (default: `47vw`) |
+| `categories.*.characters.*.standOptions.x` | Override x coordinate for the character stand animation (default: `47vw`) |
 | `categories.*.characters.*.thumbnail` | Image path of the character thumbnail (default: `thumbnail.png`) |
 | `categories.*.characters.*.random` | Indicates that this character is random one within category (default: `false`) |
 

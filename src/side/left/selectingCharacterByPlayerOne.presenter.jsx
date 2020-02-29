@@ -61,18 +61,28 @@ export default function SelectingCharacterByPlayerOne() {
     };
   }, [input, isRandomCategory, randomCharacter, character, characters]);
 
-  const displayedCharacter = isRandomCategory ? randomCharacter : character;
-  const characterName = useCharacterName(displayedCharacter);
+  if (isRandomCategory) {
+    const characterName = useCharacterName(randomCharacter);
+    return (
+      <>
+        <Zone>
+          <CategorySelector category={category} />
+        </Zone>
+        <CharacterName>{characterName}</CharacterName>
+        <Type>Player 1</Type>
+      </>
+    );
+  }
+
+  const characterName = useCharacterName(character);
   return (
     <>
-      <Portrait character={displayedCharacter}/>
+      <Portrait character={character}/>
       <Zone>
         <CategorySelector category={category} />
-        {!isRandomCategory && (
-          <CharacterSelector characters={characters} selectedCharacter={displayedCharacter} />
-        )}
+        <CharacterSelector characters={characters} selectedCharacter={character} />
       </Zone>
-      <StandAnimation character={displayedCharacter} />
+      <StandAnimation character={character} />
       <CharacterName>{characterName}</CharacterName>
       <Type>Player 1</Type>
     </>
