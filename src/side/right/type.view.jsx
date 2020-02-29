@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export default styled.div`
   position: absolute;
-  z-index: 100;
+  z-index: 105;
   white-space: nowrap;
   left: 60vw;
   bottom: 3vh;

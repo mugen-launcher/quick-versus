@@ -6,7 +6,7 @@ import useCharacterAnimationScaleFactor from "../../configuration/useCharacterAn
 
 const Image = styled.img`
   position: absolute;
-  z-index: 110;
+  z-index: 120;
   left: 47vw;
   bottom: 2vh;
   transform-origin: bottom right;
