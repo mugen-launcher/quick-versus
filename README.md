@@ -120,7 +120,8 @@ Properties
 | `fullscreen` | Fullscreen (default: `false`) |
 | `frame` | Application with frame (default: `false`) |
 | `background` | Image path of the background |
-| `sound` | File path of the sound |
+| `sound.background` | File path of the background sound |
+| `sound.selectCharacter` | File path of the sound played when selecting a character |
 | `motif` | Motif name |
 | `characterColumns` | Number of columns to display character thumbnails (default: `1`) |
 | `categories.*.random` | Indicates that the category is a random selection (default: `false`) |

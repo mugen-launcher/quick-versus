@@ -34,7 +34,7 @@ module.exports = (env, { mode = "development" }) => {
           use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
         },
         {
-          test: /\.(jpg|png)$/,
+          test: /\.(jpg|png|wav)$/,
           use: [
             {
               loader: "url-loader",

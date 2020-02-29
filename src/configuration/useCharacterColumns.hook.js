@@ -1,6 +1,6 @@
 import useConfiguration from "./useConfiguration.hook";
 
-export default function useCategories() {
+export default function useCharacterColumns() {
   const configuration = useConfiguration();
 
   if (!configuration.characterColumns) {

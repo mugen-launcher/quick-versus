@@ -7,6 +7,7 @@ import useCharacterName from "../../character/useCharacterName.hook";
 import useRandomCharacter from "../../character/useRandomCharacter.hook";
 import useNavigation from "../../navigation/useData.hook";
 import useNavigationDispatch from "../../navigation/useDispatch.hook";
+import useSelectCharacterSound from "../../configuration/useSelectCharacterSound.hook";
 import selectCharacterTwo from "../../navigation/action/selectCharacterTwo.action";
 import Zone from "./zone.view";
 import CategorySelector from "../../category/categorySelector.view";
@@ -21,6 +22,7 @@ export default function SelectingCharacterByPlayerTwo() {
   const dispatch = useNavigationDispatch();
   const categories = useCategories();
   const input = useInput();
+  const selectCharacterSound = useSelectCharacterSound();
 
   const categoryIndex = useCategoryIndex(categories, input, navigation.characterTwoCategoryIndex);
   const category = categories[categoryIndex];
@@ -42,6 +44,9 @@ export default function SelectingCharacterByPlayerTwo() {
         dispatch(selectCharacterTwo(randomCharacter, categoryIndex, characterIndex));
       } else {
         dispatch(selectCharacterTwo(character, categoryIndex, characterIndex));
+      }
+      if (selectCharacterSound) {
+        selectCharacterSound.play();
       }
     };
 

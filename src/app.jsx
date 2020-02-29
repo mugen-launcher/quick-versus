@@ -109,8 +109,8 @@ export default function App() {
   }
 
   let customSound;
-  if (configuration.sound) {
-    const soundPath = path.resolve(environment.currentDirectory, configuration.sound);
+  if (configuration.sound && configuration.sound.background) {
+    const soundPath = path.resolve(environment.currentDirectory, configuration.sound.background);
     if (fs.existsSync(soundPath)) {
       customSound = <CustomSound src={soundPath} autoPlay loop/>;
     }
