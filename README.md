@@ -127,6 +127,7 @@ Properties
 | `sound.cancel` | File path of the sound played on cancel |
 | `motif` | Motif name |
 | `characterColumns` | Number of columns to display character thumbnails (default: `1`) |
+| `characterAnimationScaleFactor` | Scale factor for the character animation (default: `1`) |
 | `categories.*.random` | Indicates that the category is a random selection (default: `false`) |
 | `categories.*.characters.*.portrait` | Image path of the character portrait (default: `portrait.png`) |
 | `categories.*.characters.*.portraitOptions.x` | Portrait x coordinates (default: `50vw`) |

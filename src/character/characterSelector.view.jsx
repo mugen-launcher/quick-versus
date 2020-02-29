@@ -2,7 +2,6 @@ import React from "react";
 import { remote } from "electron";
 import styled from "styled-components";
 import getCharactersMatrix from "../character/getCharactersMatrix";
-import useEnvironment from "../configuration/useEnvironment.hook";
 import useCharacterColumns from "../configuration/useCharacterColumns.hook";
 import thumbnailPlaceholder from "../assets/character-thumbnail-placeholder.png";
 import useCharacterThumbnail from "./useCharacterThumbnail.hook";
@@ -43,7 +42,6 @@ const Selection = styled.div`
 `;
 
 export default function CharacterSelector({ characters, selectedCharacter }) {
-  const environment = useEnvironment();
   const columnCount = useCharacterColumns();
   const matrix = getCharactersMatrix(characters, columnCount);
 
@@ -60,7 +58,7 @@ export default function CharacterSelector({ characters, selectedCharacter }) {
         imagePath = thumbnailPlaceholder;
       }
 
-      cells.push(<Cell key={imagePath}><Thumbnail src={imagePath}/></Cell>);
+      cells.push(<Cell key={`${rowIndex}-${columnIndex}-${imagePath}`}><Thumbnail src={imagePath}/></Cell>);
 
       if (character === selectedCharacter) {
         selectionRow = rowIndex + 1;

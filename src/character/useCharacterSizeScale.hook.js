@@ -25,6 +25,7 @@ export default function useCharacterSizeScale(character) {
     } else {
       return;
     }
+    constantsFilename = constantsFilename.replace(/\\/g, "/");
     const constantsPath = path.resolve(directoryPath, constantsFilename);
 
     try {
@@ -34,13 +35,25 @@ export default function useCharacterSizeScale(character) {
       let x = 1;
       let y = 1;
       if (constants.Size) {
-        x = Number(constants.Size.xscale);
-        y = Number(constants.Size.yscale);
+        if (constants.Size.xscale) {
+          x = Number(constants.Size.xscale);
+        } else if (constants.Size.xScale) {
+          x = Number(constants.Size.xScale);
+        } else {
+          throw new Error("xscale not found");
+        }
+        if (constants.Size.yscale) {
+          y = Number(constants.Size.yscale);
+        } else if (constants.Size.yScale) {
+          y = Number(constants.Size.yScale);
+        } else {
+          throw new Error("yscale not found");
+        }
       } else {
-        if (constants.xscape) {
+        if (constants.xscale) {
           x = Number(constants.xscale);
         }
-        if (constants.xscape) {
+        if (constants.xscale) {
           y = Number(constants.yscale);
         }
       }

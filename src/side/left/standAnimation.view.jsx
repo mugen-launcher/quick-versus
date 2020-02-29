@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import useCharacterStandAnimation from "../../character/useCharacterStandAnimation.hook";
 import useCharacterSizeScale from "../../character/useCharacterSizeScale.hook";
+import useCharacterAnimationScaleFactor from "../../configuration/useCharacterAnimationScaleFactor.hook";
 
-//translateX(${props => -100 + 100 * props.xScale}%)
 const Image = styled.img`
   position: absolute;
   z-index: 110;
@@ -18,6 +18,7 @@ const Image = styled.img`
 `;
 
 export default function StandAnimation({ character }) {
+  const scaleFactor = useCharacterAnimationScaleFactor();
   const standAnimation = useCharacterStandAnimation(character);
   const scale = useCharacterSizeScale(character);
 
@@ -31,5 +32,9 @@ export default function StandAnimation({ character }) {
     xScale = scale.x;
     yScale = scale.y;
   }
+
+  xScale *= scaleFactor;
+  yScale *= scaleFactor;
+
   return <Image src={standAnimation} xScale={xScale} yScale={yScale} />;
 }
