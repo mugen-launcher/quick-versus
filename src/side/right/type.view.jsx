@@ -4,7 +4,7 @@ import useCharacterNameOptions from "../../configuration/useCharacterNameOptions
 
 const Wrapper = styled.div`
   position: absolute;
-  z-index: 105;
+  z-index: 130;
   white-space: nowrap;
   right: ${props => props.x};
   bottom: 3vh;

@@ -8,7 +8,7 @@ const Image = styled.img`
   position: absolute;
   z-index: 120;
   left: ${props => props.x};
-  bottom: 2vh;
+  bottom: ${props => props.y};
   transform-origin: bottom right;
   transform:
     translateX(-100%)
@@ -27,8 +27,14 @@ export default function StandAnimation({ character }) {
   }
 
   let x = options.x;
-  if (character.standOptions && character.standOptions.x) {
-    x = character.standOptions.x;
+  let y = options.y;
+  if (character.standOptions) {
+    if (character.standOptions.x) {
+      x = character.standOptions.x;
+    }
+    if (character.standOptions.y) {
+      y = character.standOptions.y;
+    }
   }
 
   let xScale = 1;
@@ -41,5 +47,5 @@ export default function StandAnimation({ character }) {
   xScale *= options.scaleFactor;
   yScale *= options.scaleFactor;
 
-  return <Image src={standAnimation} x={x} xScale={xScale} yScale={yScale} />;
+  return <Image src={standAnimation} x={x} y={y} xScale={xScale} yScale={yScale} />;
 }
