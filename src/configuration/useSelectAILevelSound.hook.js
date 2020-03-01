@@ -29,6 +29,6 @@ export default function useSelectAILevelSound() {
         audio.currentTime = 0;
         audio.play();
       }
-    }
+    };
   });
 }

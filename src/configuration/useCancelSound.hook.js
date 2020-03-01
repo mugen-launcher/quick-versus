@@ -29,6 +29,6 @@ export default function useCancelSound() {
         audio.currentTime = 0;
         audio.play();
       }
-    }
+    };
   });
 }

@@ -29,6 +29,6 @@ export default function useSelectCharacterSound() {
         audio.currentTime = 0;
         audio.play();
       }
-    }
+    };
   });
 }

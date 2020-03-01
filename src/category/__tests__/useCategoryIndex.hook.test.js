@@ -1,4 +1,4 @@
-import { renderHook, act } from "@testing-library/react-hooks"
+import { renderHook, act } from "@testing-library/react-hooks";
 import useCategoryIndex from "../useCategoryIndex.hook";
 
 describe("useCategoryIndex()", () => {
@@ -23,7 +23,7 @@ describe("useCategoryIndex()", () => {
     const { result } = renderHook(() => useCategoryIndex(categories, input));
     act(() => {
       input.dispatchEvent(new Event("y"));
-    })
+    });
     expect(result.current).toEqual(1);
   });
 
@@ -34,7 +34,7 @@ describe("useCategoryIndex()", () => {
     const { result } = renderHook(() => useCategoryIndex(categories, input, initialValue));
     act(() => {
       input.dispatchEvent(new Event("x"));
-    })
+    });
     expect(result.current).toEqual(1);
   });
 
@@ -45,7 +45,7 @@ describe("useCategoryIndex()", () => {
     const { result } = renderHook(() => useCategoryIndex(categories, input, initialValue));
     act(() => {
       input.dispatchEvent(new Event("y"));
-    })
+    });
     expect(result.current).toEqual(0);
   });
 
@@ -56,7 +56,7 @@ describe("useCategoryIndex()", () => {
     const { result } = renderHook(() => useCategoryIndex(categories, input, initialValue));
     act(() => {
       input.dispatchEvent(new Event("x"));
-    })
+    });
     expect(result.current).toEqual(1);
   });
 });

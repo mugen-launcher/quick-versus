@@ -50,10 +50,14 @@ export default function useGamepads() {
                 buttons.push(value === 0.7142857313156128 || value === 1 || value === 0.4285714626312256);
 
                 // down
-                buttons.push(value === 0.14285719394683838 || value === 0.4285714626312256 || value === -0.1428571343421936);
+                buttons.push(
+                  value === 0.14285719394683838 || value === 0.4285714626312256 || value === -0.1428571343421936
+                );
 
                 // right
-                buttons.push(value === -0.4285714030265808 || value === -0.7142857313156128 || value === -0.1428571343421936);
+                buttons.push(
+                  value === -0.4285714030265808 || value === -0.7142857313156128 || value === -0.1428571343421936
+                );
               }
             }
 
@@ -79,7 +83,7 @@ export default function useGamepads() {
         console.error(error);
       }
       window.requestAnimationFrame(scanGamepads);
-    }
+    };
     scanGamepads();
   }, [emitter]);
 

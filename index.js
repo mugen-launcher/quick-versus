@@ -55,7 +55,7 @@ function createWindow() {
         frame = config.frame;
       }
     }
-  } catch(error) {
+  } catch (error) {
     // No override
   }
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { remote } from "electron";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import getCharactersMatrix from "../character/getCharactersMatrix";
 import useCharacterColumns from "../configuration/useCharacterColumns.hook";
 import thumbnailPlaceholder from "../assets/character-thumbnail-placeholder.png";
@@ -29,12 +29,33 @@ const Thumbnail = styled.img`
   height: 100%;
   object-fit: cover;
 `;
-const Selection = styled.div`
+
+const grow = keyframes`
+  0% {
+    width: 7vh;
+    height: 7vh;
+    transform: translateX(0) translateY(0);
+  }
+
+  50% {
+    width: 9vh;
+    height: 9vh;
+    transform: translateX(-1vh) translateY(-1vh);
+  }
+
+  100% {
+    width: 7vh;
+    height: 7vh;
+    transform: translateX(0) translateY(0);
+  }
+`;
+const Cursor = styled.div`
   position: absolute;
-  border: solid 3px #f00;
-  box-shadow: 0 0 0 3px #f00;
+  border: solid 5px #f00;
   width: 7vh;
   height: 7vh;
+  animation: ${grow} 1s ease-in-out infinite;
+  box-shadow: 0 0 0.2vh 0.2vh #000, inset 0 0 0.2vh 0.2vh #000;
   grid-row-start: ${props => props.row};
   grid-row-end: ${props => props.row};
   grid-column-start: ${props => props.column};
@@ -78,7 +99,7 @@ export default function CharacterSelector({ characters, selectedCharacter }) {
   return (
     <Grid column={columnCount} offsetY={offsetY}>
       {cells}
-      <Selection row={selectionRow} column={selectionColumn} />
+      <Cursor row={selectionRow} column={selectionColumn} />
     </Grid>
   );
 }

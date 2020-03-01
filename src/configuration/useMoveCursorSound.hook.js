@@ -29,6 +29,6 @@ export default function useMoveCursorSound() {
         audio.currentTime = 0;
         audio.play();
       }
-    }
+    };
   });
 }
