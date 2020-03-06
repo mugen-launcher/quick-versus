@@ -1,1 +1,0 @@
-export default "VERSUS_SELECTING_CHARACTER_TWO";
