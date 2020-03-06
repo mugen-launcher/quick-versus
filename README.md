@@ -5,6 +5,24 @@ Launch a MUGEN fight without displaying the screenpack.
 
 ![Video 1](./docs/video-1.gif)
 
+Features
+--------
+
+- Training mode (player versus computer)
+- Versus mode (player versus player)
+- Organize your characters by category
+- Choose the number of columns for your grid
+- Scrolling grid
+- Random selection for all the characters
+- Random selection for category characters
+- Custom background image
+- Custom sounds
+- Select character style
+- Select character color
+- Select AI level
+- Select stage
+- Responsive
+
 Navigation
 ----------
 
