@@ -1,34 +1,36 @@
 import React, { useEffect } from "react";
 import useInput from "../../input/useInputPlayerOne.hook";
 import useCharacterName from "../../character/useCharacterName.hook";
-import useCharacterColorCount from '../../character/useCharacterColorCount.hook';
-import useCharacterColorIndex from '../../character/useCharacterColorIndex.hook';
+import useCharacterStyleNames from '../../character/useCharacterStyleNames.hook';
+import useCharacterStyleIndex from '../../character/useCharacterStyleIndex.hook';
+import useCharacterStyle from '../../character/useCharacterStyle.hook';
 import useNavigationDispatch from "../../navigation/useDispatch.hook";
 import unselectCharacterTwo from "../../navigation/action/unselectCharacterTwo.action";
-import useSelectColorSound from "../../configuration/useSelectColorSound.hook";
 import useCancelSound from "../../configuration/useCancelSound.hook";
 import useNavigation from "../../navigation/useData.hook";
-import selectCharacterTwoColor from "../../navigation/action/selectCharacterTwoColor.action";
-import ColorSelector from "../../character/colorSelector.view";
+import useSelectStyleSound from "../../configuration/useSelectStyleSound.hook";
+import selectCharacterTwoStyle from "../../navigation/action/selectCharacterTwoStyle.action";
+import StyleSelector from "../../character/styleSelector.view";
 import Portrait from "./portrait.view";
 import StandAnimation from "./standAnimation.view";
 import CharacterName from "./characterName.view";
 import Type from "./type.view";
 import Zone from "./zone.view";
 
-export default function SelectingCharacterColorByPlayerOne({ character }) {
+export default function SelectingCharacterStyleByPlayerOne({ character }) {
   const navigation = useNavigation();
   const dispatch = useNavigationDispatch();
   const input = useInput();
-  const colorSound = useSelectColorSound();
+  const styleSound = useSelectStyleSound();
   const cancelSound = useCancelSound();
-  const characterName = useCharacterName(character);
-  const colorCount = useCharacterColorCount(character);
-  if (colorCount <= 1) {
-    dispatch(selectCharacterTwoColor(1));
+  const styleNames = useCharacterStyleNames(character);
+  if (styleNames.length <= 1) {
+    dispatch(selectCharacterTwoStyle(0, character));
     return null;
   }
-  const characterColorIndex = useCharacterColorIndex(input, colorCount, navigation.characterTwoColorIndex);
+  const characterStyleIndex = useCharacterStyleIndex(input, styleNames.length, navigation.characterTwoStyleIndex);
+  const characterStyle = useCharacterStyle(character, characterStyleIndex);
+  const characterName = useCharacterName(characterStyle);
 
   useEffect(() => {
     const onCancel = () => {
@@ -36,8 +38,8 @@ export default function SelectingCharacterColorByPlayerOne({ character }) {
       cancelSound.play();
     };
     const onConfirm = () => {
-      dispatch(selectCharacterTwoColor(characterColorIndex));
-      colorSound.play();
+      dispatch(selectCharacterTwoStyle(characterStyleIndex, characterStyle));
+      styleSound.play();
     };
 
     input.addEventListener("a", onConfirm);
@@ -49,15 +51,15 @@ export default function SelectingCharacterColorByPlayerOne({ character }) {
       input.removeEventListener("b", onCancel);
       input.removeEventListener("escape", onCancel);
     };
-  }, [input, characterColorIndex]);
+  }, [input, characterStyleIndex]);
 
   return (
     <>
-      <Portrait character={character}/>
+      <Portrait character={characterStyle}/>
       <Zone>
-        <ColorSelector total={colorCount} index={characterColorIndex} />
+        <StyleSelector names={styleNames} index={characterStyleIndex} />
       </Zone>
-      <StandAnimation character={character}/>
+      <StandAnimation character={characterStyle}/>
       <CharacterName>{characterName}</CharacterName>
       <Type>Computer</Type>
     </>

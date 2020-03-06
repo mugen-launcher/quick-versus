@@ -8,6 +8,7 @@ export default function selectCharacterOneStyle(data, action) {
 
   return {
     ...data,
+    characterOne: action.character,
     characterOneStyleIndex: action.styleIndex,
     leftSideState: SELECTING_COLOR
   };

@@ -29,9 +29,11 @@ export default function SelectingCharacterByPlayerTwo() {
   const characters = category.characters || [];
   const characterIndex = useCharacterIndex(characters, input, navigation.characterTwoIndex);
   const character = characters[characterIndex];
+  const characterName = useCharacterName(character);
 
   const isRandomCategory = category.random ? true : false;
   const randomCharacter = useRandomCharacter(categories, isRandomCategory);
+  const randomCharacterName = useCharacterName(randomCharacter);
 
   useEffect(() => {
     const onConfirm = () => {
@@ -56,19 +58,18 @@ export default function SelectingCharacterByPlayerTwo() {
   }, [input, isRandomCategory, randomCharacter, character, characters]);
 
   if (isRandomCategory) {
-    const characterName = useCharacterName(randomCharacter);
+
     return (
       <>
         <Zone>
           <CategorySelector category={category} />
         </Zone>
-        <CharacterName>{characterName}</CharacterName>
+        <CharacterName>{randomCharacterName}</CharacterName>
         <Type>Player 2</Type>
       </>
     );
   }
 
-  const characterName = useCharacterName(character);
   return (
     <>
       <Portrait character={character}/>

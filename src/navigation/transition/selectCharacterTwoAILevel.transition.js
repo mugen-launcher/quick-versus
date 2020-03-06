@@ -1,6 +1,6 @@
 import SELECTING_AI_LEVEL from "../sideState/selectingAILevel.state";
 import SELECTED from "../sideState/selected.state";
-import VERSUS_SELECTING_STAGE from "../state/versusSelectingStage.state";
+import TRAINING_SELECTING_STAGE from "../state/trainingSelectingStage.state";
 
 export default function selectCharacterTwoAILevel(data, action) {
   if (data.rightSideState !== SELECTING_AI_LEVEL) {
@@ -10,7 +10,7 @@ export default function selectCharacterTwoAILevel(data, action) {
   return {
     ...data,
     characterTwoAILevel: action.level,
-    state: VERSUS_SELECTING_STAGE,
-    rightSideState: SELECTED,
+    state: TRAINING_SELECTING_STAGE,
+    rightSideState: SELECTED
   };
 }

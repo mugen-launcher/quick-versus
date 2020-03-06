@@ -17,10 +17,10 @@ const Choice = styled.p`
   text-shadow: 0 0 4px #000;
 `;
 
-export default function ColorSelector({ total, index }) {
+export default function StyleSelector({ names, index }) {
   const choices = [];
-  for (let current = 1; current <= total; current++) {
-    choices.push(<Choice selected={current === index} key={`color-${current}`}>Color {current}</Choice>);
+  for (let current = 0; current < names.length; current++) {
+    choices.push(<Choice selected={current === index} key={names[current]}>{names[current]}</Choice>);
   }
   return (
     <Wrapper>

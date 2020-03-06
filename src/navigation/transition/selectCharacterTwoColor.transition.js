@@ -12,7 +12,7 @@ export default function selectCharacterTwoColor(data, action) {
 
   const newData = {
     ...data,
-    characterTwoColorIndex: action.colorIndex,
+    characterTwoColorIndex: action.colorIndex
   };
 
   if (newData.mode === TRAINING) {

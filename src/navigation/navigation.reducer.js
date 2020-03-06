@@ -60,6 +60,9 @@ export default function navigationReducer(data, action) {
 
     case END_FIGHT:
       return endFight(data);
+
+    default:
   }
-  return state;
+
+  return data;
 }

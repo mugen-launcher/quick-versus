@@ -1,2 +1,3 @@
-import { createContext, useReducer } from "react";
+import { createContext } from "react";
+
 export default createContext();

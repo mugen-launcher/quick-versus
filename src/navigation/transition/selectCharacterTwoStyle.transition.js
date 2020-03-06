@@ -8,6 +8,7 @@ export default function selectCharacterTwoStyle(data, action) {
 
   return {
     ...data,
+    characterTwo: action.character,
     characterTwoStyleIndex: action.styleIndex,
     rightSideState: SELECTING_COLOR
   };

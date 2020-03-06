@@ -13,7 +13,7 @@ export default function useKeyboard() {
     return () => {
       document.removeEventListener("keyup", onKeyUp);
     };
-  }, [emitter, document]);
+  }, [emitter]);
 
   return emitter;
 }

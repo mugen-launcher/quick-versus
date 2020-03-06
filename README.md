@@ -129,7 +129,7 @@ Each category has an image (displayed on top of the screen).
 For each character, you need to provide the definition path.
 
 Properties
--------------------
+----------
 
 | Name | Description |
 | ---- | ----------- |
@@ -138,26 +138,51 @@ Properties
 | `fullscreen` | Fullscreen (default: `false`) |
 | `frame` | Application with frame (default: `false`) |
 | `background` | Image path of the background |
-| `sound.volume` | Sound volume in percent (default: `100`) |
-| `sound.background` | File path of the background sound |
-| `sound.selectCharacter` | File path of the sound played when selecting a character |
-| `sound.selectAILevel` | File path of the sound played when selecting the AI level |
-| `sound.moveCursor` | File path of the sound played when moving the cursor |
-| `sound.cancel` | File path of the sound played on cancel |
+| `sound` | Sound properties (see below) |
 | `motif` | Motif name |
 | `characterColumns` | Number of columns to display character thumbnails (default: `1`) |
 | `characterAnimationOptions.x` | X coordinate for the character animation (default: `47vw`) |
 | `characterAnimationOptions.y` | Y coordinate (from bottom) for the character animation (default: `2vh`) |
 | `characterAnimationOptions.scaleFactor` | Scale factor for the character animation (default: `1`) |
 | `characterNameOptions.x` | Character name x coordinate (default: `40vw`) |
-| `categories.*.random` | Indicates that the category is a random selection (default: `false`) |
-| `categories.*.characters.*.portrait` | Image path of the character portrait (default: `portrait.png`) |
-| `categories.*.characters.*.portraitOptions.x` | Portrait x coordinate (default: `50vw`) |
-| `categories.*.characters.*.stand` | Image path of the chracter stand animation (default: `stand.gif`) |
-| `categories.*.characters.*.standOptions.x` | Override x coordinate for the character stand animation (default: `47vw`) |
-| `categories.*.characters.*.standOptions.y` | Override y coordinate for the character stand animation (default: `2vh`) |
-| `categories.*.characters.*.thumbnail` | Image path of the character thumbnail (default: `thumbnail.png`) |
-| `categories.*.characters.*.random` | Indicates that this character is random one within category (default: `false`) |
+| `categories` | List of categories |
+
+Sound properties
+----------------
+
+| Name | Description |
+| ---- | ----------- |
+| `volume` | Sound volume in percent (default: `100`) |
+| `background` | File path of the background sound |
+| `selectCharacter` | File path of the sound played when selecting a character |
+| `selectStyle` | File path of the sound played when selecting the character style |
+| `selectColor` | File path of the sound played when selecting the character color |
+| `selectAILevel` | File path of the sound played when selecting the AI level |
+| `moveCursor` | File path of the sound played when moving the cursor |
+| `cancel` | File path of the sound played on cancel |
+
+Category properties
+-------------------
+
+| Name | Description |
+| ---- | ----------- |
+| `characters` | List of characters |
+| `random` | Indicates that the category is a random selection (default: `false`) |
+
+Character properties
+--------------------
+
+| Name | Description |
+| ---- | ----------- |
+| `styleName` | Style name (default: `Style 1`) |
+| `portrait` | Image path of the character portrait (default: `portrait.png`) |
+| `portraitOptions.x` | Portrait x coordinate (default: `50vw`) |
+| `stand` | Image path of the chracter stand animation (default: `stand.gif`) |
+| `standOptions.x` | Override x coordinate for the character stand animation (default: `47vw`) |
+| `standOptions.y` | Override y coordinate for the character stand animation (default: `2vh`) |
+| `thumbnail` | Image path of the character thumbnail (default: `thumbnail.png`) |
+| `styles` | Alternative styles. List of characters (default: `[]`) |
+| `random` | Indicates that this character is random one within category (default: `false`) |
 
 Gamepad and keyboard mapping
 ----------------------------

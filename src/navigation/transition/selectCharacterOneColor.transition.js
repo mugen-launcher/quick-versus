@@ -14,7 +14,7 @@ export default function selectCharacterOneColor(data, action) {
   const newData = {
     ...data,
     characterOneColorIndex: action.colorIndex,
-    leftSideState: SELECTED,
+    leftSideState: SELECTED
   };
 
   if (newData.mode === TRAINING) {

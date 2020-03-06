@@ -43,6 +43,12 @@ export default function Fight() {
     if (configuration.motif) {
       options.push("-r", configuration.motif);
     }
+    if (navigation.characterOneColorIndex) {
+      options.push("-p1.color", navigation.characterOneColorIndex);
+    }
+    if (navigation.characterTwoColorIndex) {
+      options.push("-p2.color", navigation.characterTwoColorIndex);
+    }
     if (navigation.characterTwoAILevel > 0) {
       options.push("-p2.ai", navigation.characterTwoAILevel);
     }
@@ -59,6 +65,7 @@ export default function Fight() {
         backgroundSound.play();
       }
     );
+    console.log(environment.mugenPath, options);
 
     return <BlackScreen>Fighting ...</BlackScreen>;
   }
