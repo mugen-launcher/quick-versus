@@ -21,7 +21,7 @@ export default function useCharacterColorCount(character) {
 
   if (definition.hasOwnProperty("Palette Keymap")) {
     const keymap = definition["Palette Keymap"];
-    count += keymap.keys().length;
+    count += Object.keys(keymap).length;
   }
 
   cache.set(character, count);

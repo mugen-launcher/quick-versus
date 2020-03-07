@@ -4,6 +4,7 @@ import getCharactersMatrix from "./getCharactersMatrix";
 import useCharacterColumns from "../configuration/useCharacterColumns.hook";
 import thumbnailPlaceholder from "../assets/character-thumbnail-placeholder.png";
 import useCharacterThumbnail from "./useCharacterThumbnail.hook";
+import useCharacterStyleNames from "../character/useCharacterStyleNames.hook";
 
 const Grid = styled.section`
   z-index: 1;
@@ -16,12 +17,25 @@ const Grid = styled.section`
   margin-top: ${props => -props.offsetY}vh;
 `;
 const Cell = styled.article`
+  position: relative;
   border: solid 3px #fff;
   width: 7vh;
   height: 7vh;
   background: rgba(0, 0, 0, 0.5);
 `;
+const StyleCount = styled.span`
+  position: absolute;
+  z-index: 2;
+  color: #000;
+  background: #fff;
+  border-radius: 100%;
+  right: -1vh;
+  bottom: -1vh;
+  font-size: 2vh;
+  padding: .2em .5em;
+`;
 const Thumbnail = styled.img`
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -47,6 +61,7 @@ const grow = keyframes`
   }
 `;
 const Cursor = styled.div`
+  z-index: 3;
   position: absolute;
   border: solid 5px #f00;
   width: 7vh;
@@ -71,6 +86,7 @@ export default function CharacterSelector({ characters, selectedCharacter }) {
     for (let columnIndex = 0; columnIndex < row.length; columnIndex++) {
       const character = row[columnIndex];
 
+      const styleNames = useCharacterStyleNames(character); // eslint-disable-line
       let imagePath = useCharacterThumbnail(character); // eslint-disable-line
       if (!imagePath) {
         imagePath = thumbnailPlaceholder;
@@ -79,6 +95,7 @@ export default function CharacterSelector({ characters, selectedCharacter }) {
       cells.push(
         <Cell key={`${rowIndex}-${columnIndex}-${imagePath}`}>
           <Thumbnail src={imagePath} />
+          {styleNames.length > 1 && <StyleCount>{styleNames.length}</StyleCount>}
         </Cell>
       );
 
