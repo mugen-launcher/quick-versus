@@ -2,12 +2,11 @@ import ini from "ini";
 import { remote } from "electron";
 import useEnvironment from "../configuration/useEnvironment.hook";
 
-const fs = remote.require("fs");
-const path = remote.require("path");
-
 const cache = new WeakMap();
 
 export default function useCharacterDefinition(character) {
+  const fs = remote.require("fs");
+  const path = remote.require("path");
   const environment = useEnvironment();
 
   if (cache.has(character)) {
@@ -15,20 +14,20 @@ export default function useCharacterDefinition(character) {
   }
 
   if (!character) {
-    return {};
+    return null;
   }
 
   if (character.random) {
-    return {};
+    return null;
   }
 
   if (!character.definition) {
-    return {};
+    return null;
   }
 
   const definitionPath = path.resolve(environment.currentDirectory, "chars", character.definition);
   if (!fs.existsSync(definitionPath)) {
-    return {};
+    return null;
   }
 
   const definition = ini.parse(fs.readFileSync(definitionPath, "utf-8"));
