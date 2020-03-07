@@ -1,3 +1,6 @@
 [Info]
 name = "Iori"
 
+
+[Files]
+cns = constants.cns

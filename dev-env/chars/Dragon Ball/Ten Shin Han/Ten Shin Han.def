@@ -1,3 +1,5 @@
 [Info]
 name = "Ten Shin Han"
 
+[Files]
+cns = constants.cns

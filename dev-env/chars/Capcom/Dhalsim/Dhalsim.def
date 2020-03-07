@@ -1,2 +1,5 @@
 [Info]
 name = "Dhalsim"
+
+[Files]
+cns = constants.cns

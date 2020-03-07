@@ -2,3 +2,5 @@
 name = "Roshi"
 displayname = "Muten Roshi"
 
+[Files]
+cns = constants.cns

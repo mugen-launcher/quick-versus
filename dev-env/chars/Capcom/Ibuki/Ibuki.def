@@ -1,2 +1,5 @@
 [Info]
 name = "Ibuki"
+
+[Files]
+cns = constants.cns

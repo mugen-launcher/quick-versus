@@ -1,3 +1,5 @@
 [Info]
 name = "Sonic"
 
+[Files]
+cns = constants.cns

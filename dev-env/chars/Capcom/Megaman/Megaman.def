@@ -1,2 +1,5 @@
 [Info]
 name = "Megaman"
+
+[Files]
+cns = constants.cns

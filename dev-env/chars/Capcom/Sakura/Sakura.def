@@ -1,3 +1,6 @@
 [Info]
 name = "Sakura"
 
+
+[Files]
+cns = constants.cns
