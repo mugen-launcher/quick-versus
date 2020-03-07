@@ -24,5 +24,5 @@ export default function CharacterType({ children }) {
     x = options.x;
   }
 
-  return <Wrapper x={x}>{children}</Wrapper>
+  return <Wrapper x={x}>{children}</Wrapper>;
 }

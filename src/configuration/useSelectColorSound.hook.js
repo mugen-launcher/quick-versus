@@ -3,6 +3,7 @@ import useConfiguration from "./useConfiguration.hook";
 import useEnvironment from "./useEnvironment.hook";
 import useSoundVolume from "./useSoundVolume.hook";
 import noSound from "./noSound";
+
 const path = remote.require("path");
 
 let cache;

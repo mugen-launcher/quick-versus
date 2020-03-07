@@ -1,8 +1,5 @@
 import ini from "ini";
-import { remote } from "electron";
 import useCharacterDefinition from "./useCharacterDefinition.hook";
-const fs = remote.require("fs");
-const path = remote.require("path");
 
 export default function useCharacterName(character) {
   const definition = useCharacterDefinition(character);

@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 const Choice = styled.p`
   font-family: BadaBoom;
   font-size: 4vh;
-  color: rgba(255, 255, 255, ${props => props.selected ? "1" : "0.5"});
+  color: rgba(255, 255, 255, ${props => (props.selected ? "1" : "0.5")});
   margin: 0;
   text-shadow: 0 0 4px #000;
 `;
@@ -20,11 +20,12 @@ const Choice = styled.p`
 export default function ColorSelector({ total, index }) {
   const choices = [];
   for (let current = 1; current <= total; current++) {
-    choices.push(<Choice selected={current === index} key={`color-${current}`}>Color {current}</Choice>);
+    choices.push(
+      <Choice selected={current === index} key={`color-${current}`}>
+        Color
+        {current}
+      </Choice>
+    );
   }
-  return (
-    <Wrapper>
-      {choices}
-    </Wrapper>
-  );
+  return <Wrapper>{choices}</Wrapper>;
 }

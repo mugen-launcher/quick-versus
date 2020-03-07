@@ -28,12 +28,12 @@ export default function SelectedCharacterCancellableByPlayerOne({ character }) {
       input.removeEventListener("b", onCancel);
       input.removeEventListener("escape", onCancel);
     };
-  }, [input]);
+  }, [input, cancelSound, dispatch]);
 
   return (
     <>
-      <Portrait character={character}/>
-      <StandAnimation character={character}/>
+      <Portrait character={character} />
+      <StandAnimation character={character} />
       <CharacterName>{characterName}</CharacterName>
       <Type>Computer</Type>
     </>

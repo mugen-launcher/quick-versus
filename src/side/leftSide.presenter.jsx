@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import useNavigation from "../navigation/useData.hook";
 import SelectingCharacterByPlayerOne from "./left/selectingCharacterByPlayerOne.presenter";
 import SelectingCharacterStyleByPlayerOne from "./left/selectingCharacterStyleByPlayerOne.presenter";
@@ -19,17 +19,23 @@ export default function LeftSide() {
 
   if (leftSideState === SELECTING_CHARACTER) {
     return <SelectingCharacterByPlayerOne />;
-  } else if (leftSideState === SELECTING_STYLE) {
+  }
+  if (leftSideState === SELECTING_STYLE) {
     return <SelectingCharacterStyleByPlayerOne character={characterOne} />;
-  } else if (leftSideState === SELECTING_COLOR) {
+  }
+  if (leftSideState === SELECTING_COLOR) {
     return <SelectingCharacterColorByPlayerOne character={characterOne} />;
-  } else if (leftSideState === SELECTED && state === TRAINING_SELECTING_CHARACTER_TWO) {
+  }
+  if (leftSideState === SELECTED && state === TRAINING_SELECTING_CHARACTER_TWO) {
     return <SelectedCharacterCancellableByPlayerOne character={characterOne} />;
-  } else if (leftSideState === SELECTED && state === VERSUS_SELECTING_CHARACTERS) {
+  }
+  if (leftSideState === SELECTED && state === VERSUS_SELECTING_CHARACTERS) {
     return <SelectedCharacterCancellableByPlayerOne character={characterOne} />;
-  } else if (state === VERSUS_SELECTING_STAGE) {
+  }
+  if (state === VERSUS_SELECTING_STAGE) {
     return <SelectedCharacterCancellableByPlayerOne character={characterOne} />;
-  } else if (state === TRAINING_SELECTING_STAGE) {
+  }
+  if (state === TRAINING_SELECTING_STAGE) {
     return <SelectedCharacter character={characterOne} />;
   }
 

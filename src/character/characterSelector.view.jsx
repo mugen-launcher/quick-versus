@@ -1,12 +1,9 @@
 import React from "react";
-import { remote } from "electron";
 import styled, { keyframes } from "styled-components";
-import getCharactersMatrix from "../character/getCharactersMatrix";
+import getCharactersMatrix from "./getCharactersMatrix";
 import useCharacterColumns from "../configuration/useCharacterColumns.hook";
 import thumbnailPlaceholder from "../assets/character-thumbnail-placeholder.png";
 import useCharacterThumbnail from "./useCharacterThumbnail.hook";
-const fs = remote.require("fs");
-const path = remote.require("path");
 
 const Grid = styled.section`
   z-index: 1;
@@ -14,8 +11,8 @@ const Grid = styled.section`
   display: grid;
   grid-template-columns: repeat(${props => props.column}, 7vh);
   grid-template-rows: auto;
-  grid-column-gap: .7vh;
-  grid-row-gap: .7vh;
+  grid-column-gap: 0.7vh;
+  grid-row-gap: 0.7vh;
   margin-top: ${props => -props.offsetY}vh;
 `;
 const Cell = styled.article`
@@ -74,12 +71,16 @@ export default function CharacterSelector({ characters, selectedCharacter }) {
     for (let columnIndex = 0; columnIndex < row.length; columnIndex++) {
       const character = row[columnIndex];
 
-      let imagePath = useCharacterThumbnail(character);
+      let imagePath = useCharacterThumbnail(character); // eslint-disable-line
       if (!imagePath) {
         imagePath = thumbnailPlaceholder;
       }
 
-      cells.push(<Cell key={`${rowIndex}-${columnIndex}-${imagePath}`}><Thumbnail src={imagePath}/></Cell>);
+      cells.push(
+        <Cell key={`${rowIndex}-${columnIndex}-${imagePath}`}>
+          <Thumbnail src={imagePath} />
+        </Cell>
+      );
 
       if (character === selectedCharacter) {
         selectionRow = rowIndex + 1;

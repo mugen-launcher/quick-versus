@@ -1,14 +1,21 @@
 import { remote } from "electron";
 import useEnvironment from "../configuration/useEnvironment.hook";
 import randomCharacter from "../assets/random-character.png";
+
 const fs = remote.require("fs");
 const path = remote.require("path");
+
+const cache = new WeakMap();
 
 export default function useCharacterThumbnail(character) {
   const environment = useEnvironment();
 
   if (!character) {
     return null;
+  }
+
+  if (cache.has(character)) {
+    return cache.get(character);
   }
 
   if (character.random) {
@@ -24,11 +31,14 @@ export default function useCharacterThumbnail(character) {
     imagePathsByPriority.push(path.resolve(environment.currentDirectory, "chars", character.thumbnail));
   }
 
+  let foundImagePath;
   for (const imagePath of imagePathsByPriority) {
     if (fs.existsSync(imagePath)) {
-      return imagePath;
+      foundImagePath = imagePath;
+      break;
     }
   }
 
-  return null;
+  cache.set(character, foundImagePath);
+  return foundImagePath;
 }

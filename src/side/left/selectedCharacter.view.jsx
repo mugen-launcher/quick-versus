@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import useCharacterName from "../../character/useCharacterName.hook";
 import Portrait from "./portrait.view";
 import StandAnimation from "./standAnimation.view";
@@ -10,8 +10,8 @@ export default function SelectedCharacter({ character }) {
 
   return (
     <>
-      <Portrait character={character}/>
-      <StandAnimation character={character}/>
+      <Portrait character={character} />
+      <StandAnimation character={character} />
       <CharacterName>{characterName}</CharacterName>
       <Type>Player 1</Type>
     </>

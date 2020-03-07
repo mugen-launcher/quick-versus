@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React from "react";
 import { remote } from "electron";
 import styled from "styled-components";
 import isDev from "electron-is-dev";
@@ -14,6 +14,7 @@ import FatalError from "./error/fatalError.view";
 import Requirement from "./error/requirement.view";
 import versusImagePath from "./assets/versus.png";
 import getCurrentDirectory from "./getCurrentDirectory";
+
 const app = remote.app;
 const fs = remote.require("fs");
 const path = remote.require("path");
@@ -38,10 +39,6 @@ const CustomBackground = styled.img`
   height: 100vh;
   object-fit: cover;
 `;
-const CustomSound = styled.audio`
-  position: absolute;
-  visibility: hidden;
-`;
 const Versus = styled.img`
   position: absolute;
   z-index: 100;
@@ -64,7 +61,10 @@ export default function App() {
   if (!fs.existsSync(configurationFilePath)) {
     return (
       <Requirement>
-        <p>Configuration file is missing: {configurationFilePath}</p>
+        <p>
+          Configuration file is missing:
+          {configurationFilePath}
+        </p>
       </Requirement>
     );
   }
@@ -73,7 +73,10 @@ export default function App() {
   if (!fs.existsSync(mugenPath)) {
     return (
       <Requirement>
-        <p>Mugen executable file is missing: {mugenPath}</p>
+        <p>
+          Mugen executable file is missing:
+          {mugenPath}
+        </p>
       </Requirement>
     );
   }
@@ -82,7 +85,7 @@ export default function App() {
   let configuration;
   try {
     configuration = JSON.parse(configurationContent);
-  } catch(error) {
+  } catch (error) {
     return (
       <FatalError>
         <p>Invalid configuration file:</p>
@@ -104,7 +107,7 @@ export default function App() {
   if (configuration.background) {
     const imagePath = path.resolve(environment.currentDirectory, configuration.background);
     if (fs.existsSync(imagePath)) {
-      customBackground = <CustomBackground src={imagePath}/>;
+      customBackground = <CustomBackground src={imagePath} />;
     }
   }
 

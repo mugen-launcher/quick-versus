@@ -8,13 +8,13 @@ export default function useCharacterAnimationOptions() {
   let scaleFactor = 1;
   if (configuration.characterAnimationOptions) {
     if (configuration.characterAnimationOptions.x) {
-      x = configuration.characterAnimationOptions.x;
+      ({ x } = configuration.characterAnimationOptions);
     }
     if (configuration.characterAnimationOptions.y) {
-      y = configuration.characterAnimationOptions.x;
+      ({ y } = configuration.characterAnimationOptions.y);
     }
     if (configuration.characterAnimationOptions.scaleFactor) {
-      scaleFactor = configuration.characterAnimationOptions.scaleFactor;
+      ({ scaleFactor } = configuration.characterAnimationOptions);
     }
   }
 

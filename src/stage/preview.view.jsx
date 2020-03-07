@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { remote } from "electron";
 import useEnvironment from "../configuration/useEnvironment.hook";
+
 const fs = remote.require("fs");
 const path = remote.require("path");
 
@@ -26,5 +27,5 @@ export default function Preview({ stage }) {
     return null;
   }
 
-  return <Image src={imagePath} />
+  return <Image src={imagePath} />;
 }

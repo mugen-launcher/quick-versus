@@ -1,8 +1,4 @@
-import useCharacterDefinition from "./useCharacterDefinition.hook";
-
 export default function useCharacterStyle(character, index) {
-  const definition = useCharacterDefinition(character);
-
   if (index === 0) {
     return character;
   }

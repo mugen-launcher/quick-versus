@@ -10,11 +10,7 @@ const Image = styled.img`
   left: ${props => props.x};
   bottom: ${props => props.y};
   transform-origin: bottom right;
-  transform:
-    translateX(-100%)
-    scaleX(${props => props.xScale})
-    scaleY(${props => props.yScale})
-  ;
+  transform: translateX(-100%) scaleX(${props => props.xScale}) scaleY(${props => props.yScale});
 `;
 
 export default function StandAnimation({ character }) {

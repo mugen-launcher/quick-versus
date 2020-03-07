@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import useNavigation from "../navigation/useData.hook";
 import SelectingCharacterByPlayerOne from "./right/selectingCharacterByPlayerOne.presenter";
 import SelectingCharacterByPlayerTwo from "./right/selectingCharacterByPlayerTwo.presenter";
@@ -26,31 +26,35 @@ export default function RightSide() {
 
   if (state === TRAINING_SELECTING_CHARACTER_ONE) {
     return <WaitingComputer />;
-  } else if (rightSideState === SELECTING_CHARACTER) {
+  }
+  if (rightSideState === SELECTING_CHARACTER) {
     if (state === TRAINING_SELECTING_CHARACTER_TWO) {
       return <SelectingCharacterByPlayerOne />;
-    } else {
-      return <SelectingCharacterByPlayerTwo />;
     }
-  } else if (rightSideState === SELECTING_STYLE) {
+    return <SelectingCharacterByPlayerTwo />;
+  }
+  if (rightSideState === SELECTING_STYLE) {
     if (state === TRAINING_SELECTING_CHARACTER_TWO) {
       return <SelectingCharacterStyleByPlayerOne character={characterTwo} />;
-    } else {
-      return <SelectingCharacterStyleByPlayerTwo character={characterTwo} />;
     }
-  } else if (rightSideState === SELECTING_COLOR) {
+    return <SelectingCharacterStyleByPlayerTwo character={characterTwo} />;
+  }
+  if (rightSideState === SELECTING_COLOR) {
     if (state === TRAINING_SELECTING_CHARACTER_TWO) {
       return <SelectingCharacterColorByPlayerOne character={characterTwo} />;
-    } else {
-      return <SelectingCharacterColorByPlayerTwo character={characterTwo} />;
     }
-  } else if (rightSideState === SELECTING_AI_LEVEL) {
+    return <SelectingCharacterColorByPlayerTwo character={characterTwo} />;
+  }
+  if (rightSideState === SELECTING_AI_LEVEL) {
     return <SelectingCharacterAILevelByPlayerOne character={characterTwo} />;
-  } else if (state === TRAINING_SELECTING_STAGE) {
+  }
+  if (state === TRAINING_SELECTING_STAGE) {
     return <SelectedCharacterCancellableByPlayerOne character={characterTwo} />;
-  } else if (state === VERSUS_SELECTING_CHARACTERS && rightSideState === SELECTED) {
+  }
+  if (state === VERSUS_SELECTING_CHARACTERS && rightSideState === SELECTED) {
     return <SelectedCharacterCancellableByPlayerTwo character={characterTwo} />;
-  } else if (state === VERSUS_SELECTING_STAGE) {
+  }
+  if (state === VERSUS_SELECTING_STAGE) {
     return <SelectedCharacterCancellableByPlayerTwo character={characterTwo} />;
   }
 

@@ -9,16 +9,14 @@ function getCurrentDirectory() {
     currentDirectory = path.normalize(process.argv[2]);
   } else if (isDev) {
     currentDirectory = path.resolve(app.getAppPath(), "dev-env");
-  } else {
-    if (process.env.PORTABLE_EXECUTABLE_DIR) {
-      currentDirectory = process.env.PORTABLE_EXECUTABLE_DIR;
-    } else if (process.env.INIT_CWD) {
-      currentDirectory = process.env.INIT_CWD;
-    } else if (app.getPath("exe")) {
-      currentDirectory = path.dirname(app.getPath("exe"));
-    } else if (process.execPath) {
-      currentDirectory = process.execPath;
-    }
+  } else if (process.env.PORTABLE_EXECUTABLE_DIR) {
+    currentDirectory = process.env.PORTABLE_EXECUTABLE_DIR;
+  } else if (process.env.INIT_CWD) {
+    currentDirectory = process.env.INIT_CWD;
+  } else if (app.getPath("exe")) {
+    currentDirectory = path.dirname(app.getPath("exe"));
+  } else if (process.execPath) {
+    currentDirectory = process.execPath;
   }
   if (path.basename(currentDirectory) === "MacOS") {
     currentDirectory = path.resolve(currentDirectory, "..", "..", "..");
@@ -72,7 +70,7 @@ function createWindow() {
     webSecurity: false
   });
   window.loadFile("build/index.html");
-  //window.webContents.openDevTools();
+  // window.webContents.openDevTools();
 }
 
 app.on("window-all-closed", () => {

@@ -17,8 +17,8 @@ export default function SelectedCharacterCancellableByPlayerOne({ character }) {
 
   useEffect(() => {
     const onCancel = () => {
-        dispatch(unselectCharacterOne());
-        cancelSound.play();
+      dispatch(unselectCharacterOne());
+      cancelSound.play();
     };
 
     input.addEventListener("b", onCancel);
@@ -28,12 +28,12 @@ export default function SelectedCharacterCancellableByPlayerOne({ character }) {
       input.removeEventListener("b", onCancel);
       input.removeEventListener("escape", onCancel);
     };
-  }, [input]);
+  }, [input, cancelSound, dispatch]);
 
   return (
     <>
-      <Portrait character={character}/>
-      <StandAnimation character={character}/>
+      <Portrait character={character} />
+      <StandAnimation character={character} />
       <CharacterName>{characterName}</CharacterName>
       <Type>Player 1</Type>
     </>

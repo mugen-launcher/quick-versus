@@ -1,4 +1,3 @@
-import useEnvironment from "../configuration/useEnvironment.hook";
 import useCharacterDefinition from "./useCharacterDefinition.hook";
 
 const cache = new WeakMap();

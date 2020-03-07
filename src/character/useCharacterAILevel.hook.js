@@ -26,7 +26,7 @@ export default function useCharacterAILevel(input, initialLevel = 0) {
       input.removeEventListener("up", decreaseLevel);
       input.removeEventListener("down", increaseLevel);
     };
-  }, [input, level]);
+  }, [input, level, moveCursorSound]);
 
   return level;
 }

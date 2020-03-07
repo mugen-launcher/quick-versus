@@ -43,15 +43,15 @@ export default function SelectingCharacterAILevelByPlayerOne({ character }) {
       input.removeEventListener("b", onCancel);
       input.removeEventListener("escape", onCancel);
     };
-  }, [input, characterAILevel]);
+  }, [input, characterAILevel, cancelSound, dispatch, selectAILevelSound]);
 
   return (
     <>
-      <Portrait character={character}/>
+      <Portrait character={character} />
       <Zone>
         <AILevelSelector level={characterAILevel} />
       </Zone>
-      <StandAnimation character={character}/>
+      <StandAnimation character={character} />
       <CharacterName>{characterName}</CharacterName>
       <Type>Computer</Type>
     </>

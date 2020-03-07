@@ -31,7 +31,7 @@ export default function useCharacterColorIndex(input, total, initialIndex = 1) {
       input.removeEventListener("up", decreaseIndex);
       input.removeEventListener("down", increaseIndex);
     };
-  }, [input, total, currentIndex]);
+  }, [input, total, currentIndex, moveCursorSound]);
 
   return currentIndex;
 }

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { remote } from "electron";
 import useEnvironment from "../configuration/useEnvironment.hook";
+
 const fs = remote.require("fs");
 const path = remote.require("path");
 
@@ -35,12 +36,8 @@ export default function CategorySelector({ category }) {
 
   return (
     <Selector>
-      {!imagePath && (
-        <Text>{category.name}</Text>
-      )}
-      {imagePath && (
-        <Image src={imagePath} />
-      )}
+      {!imagePath && <Text>{category.name}</Text>}
+      {imagePath && <Image src={imagePath} />}
     </Selector>
   );
-};
+}

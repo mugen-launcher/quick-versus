@@ -15,7 +15,7 @@
         "pack-windows": "npm run build && electron-builder --win --x64",
         "pack-windows:dev": "npm run build && electron-builder --dir --win --x64",
         "postinstall": "electron-builder install-app-deps",
-        "lint": "eslint .",
+        "lint": "eslint src",
         "lint:watch": "esw --watch --cache --clear .",
         "prettier": "prettier --write \"**/*.{js,html,css,json}\"",
         "dev": "webpack --env dev-bundle --watch",
@@ -85,7 +85,11 @@
             "node/no-unpublished-require": "off",
             "react/prop-types": "off",
             "react-hooks/rules-of-hooks": "error",
-            "react-hooks/exhaustive-deps": "warn"
+            "react-hooks/exhaustive-deps": "warn",
+            "import/no-dynamic-require": "off",
+            "global-require": "off",
+            "no-prototype-builtins": "off",
+            "prefer-destructuring": "off"
         }
     },
     "main": "index.js",

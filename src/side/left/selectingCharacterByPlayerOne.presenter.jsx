@@ -32,7 +32,7 @@ export default function SelectingCharacterByPlayerOne() {
   const character = characters[characterIndex];
   const characterName = useCharacterName(character);
 
-  const isRandomCategory = category.random ? true : false;
+  const isRandomCategory = !!category.random;
   const randomCharacter = useRandomCharacter(categories, isRandomCategory);
   const randomCharacterName = useCharacterName(randomCharacter);
 
@@ -41,10 +41,9 @@ export default function SelectingCharacterByPlayerOne() {
       if (isRandomCategory) {
         dispatch(selectCharacterOne(randomCharacter, categoryIndex));
       } else if (character.random) {
-        const nonRandomCharacters = characters.filter(character => !character.random);
+        const nonRandomCharacters = characters.filter(currentCharacter => !currentCharacter.random);
         const randomCharacterIndex = Math.floor(Math.random() * nonRandomCharacters.length);
-        const randomCharacter = nonRandomCharacters[randomCharacterIndex];
-        dispatch(selectCharacterOne(randomCharacter, categoryIndex, characterIndex));
+        dispatch(selectCharacterOne(nonRandomCharacters[randomCharacterIndex], categoryIndex, characterIndex));
       } else {
         dispatch(selectCharacterOne(character, categoryIndex, characterIndex));
       }
@@ -61,7 +60,17 @@ export default function SelectingCharacterByPlayerOne() {
       input.removeEventListener("a", onConfirm);
       input.removeEventListener("z", onSwitchMode);
     };
-  }, [input, isRandomCategory, randomCharacter, character, characters]);
+  }, [
+    input,
+    isRandomCategory,
+    randomCharacter,
+    character,
+    characters,
+    categoryIndex,
+    characterIndex,
+    dispatch,
+    selectCharacterSound
+  ]);
 
   if (isRandomCategory) {
     return (
@@ -77,7 +86,7 @@ export default function SelectingCharacterByPlayerOne() {
 
   return (
     <>
-      <Portrait character={character}/>
+      <Portrait character={character} />
       <Zone>
         <CategorySelector category={category} />
         <CharacterSelector characters={characters} selectedCharacter={character} />

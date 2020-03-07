@@ -31,7 +31,7 @@ export default function useCharacterStyleIndex(input, total, initialIndex = 0) {
       input.removeEventListener("up", decreaseIndex);
       input.removeEventListener("down", increaseIndex);
     };
-  }, [input, total, currentIndex]);
+  }, [input, total, currentIndex, moveCursorSound]);
 
   return currentIndex;
 }

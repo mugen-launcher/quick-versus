@@ -1,4 +1,3 @@
-import useEnvironment from "../configuration/useEnvironment.hook";
 import useCharacterDefinition from "./useCharacterDefinition.hook";
 
 const cache = new WeakMap();
@@ -10,7 +9,7 @@ export default function useCharacterColorCount(character) {
     return cache.get(character);
   }
   if (!definition) {
-    return;
+    return 1;
   }
 
   let count = 0;
@@ -22,9 +21,7 @@ export default function useCharacterColorCount(character) {
 
   if (definition.hasOwnProperty("Palette Keymap")) {
     const keymap = definition["Palette Keymap"];
-    for (let key in keymap) {
-      count++;
-    }
+    count += keymap.keys().length;
   }
 
   cache.set(character, count);

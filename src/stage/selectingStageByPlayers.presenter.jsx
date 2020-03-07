@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import useStages from "../configuration/useStages.hook";
 import useInputPlayerOne from "../input/useInputPlayerOne.hook";
 import useInputPlayerTwo from "../input/useInputPlayerTwo.hook";
-import useStageName from "../stage/useStageName.hook";
+import useStageName from "./useStageName.hook";
 import useNavigationDispatch from "../navigation/useDispatch.hook";
 import selectStage from "../navigation/action/selectStage.action";
 import Title from "./title.view";
@@ -48,7 +48,7 @@ export default function SelectingStageByPlayers() {
       inputPlayerTwo.removeEventListener("right", previous);
       inputPlayerTwo.removeEventListener("a", confirm);
     };
-  }, [inputPlayerOne, inputPlayerTwo, stages, stageIndex]);
+  }, [inputPlayerOne, inputPlayerTwo, stages, stageIndex, dispatch]);
 
   return (
     <>

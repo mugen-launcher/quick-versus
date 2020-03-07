@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import useInput from "../../input/useInputPlayerTwo.hook";
 import useCharacterName from "../../character/useCharacterName.hook";
-import useCharacterStyleNames from '../../character/useCharacterStyleNames.hook';
-import useCharacterStyleIndex from '../../character/useCharacterStyleIndex.hook';
-import useCharacterStyle from '../../character/useCharacterStyle.hook';
+import useCharacterStyleNames from "../../character/useCharacterStyleNames.hook";
+import useCharacterStyleIndex from "../../character/useCharacterStyleIndex.hook";
+import useCharacterStyle from "../../character/useCharacterStyle.hook";
 import useNavigationDispatch from "../../navigation/useDispatch.hook";
 import unselectCharacterTwo from "../../navigation/action/unselectCharacterTwo.action";
 import useCancelSound from "../../configuration/useCancelSound.hook";
@@ -24,10 +24,6 @@ export default function SelectingCharacterStyleByPlayerTwo({ character }) {
   const styleSound = useSelectStyleSound();
   const cancelSound = useCancelSound();
   const styleNames = useCharacterStyleNames(character);
-  if (styleNames.length <= 1) {
-    dispatch(selectCharacterTwoStyle(0, character));
-    return null;
-  }
   const characterStyleIndex = useCharacterStyleIndex(input, styleNames.length, navigation.characterTwoStyleIndex);
   const characterStyle = useCharacterStyle(character, characterStyleIndex);
   const characterName = useCharacterName(characterStyle);
@@ -51,15 +47,20 @@ export default function SelectingCharacterStyleByPlayerTwo({ character }) {
       input.removeEventListener("b", onCancel);
       input.removeEventListener("escape", onCancel);
     };
-  }, [input, characterStyleIndex]);
+  }, [input, characterStyleIndex, cancelSound, characterStyle, dispatch, styleSound]);
+
+  if (styleNames.length <= 1) {
+    dispatch(selectCharacterTwoStyle(0, character));
+    return null;
+  }
 
   return (
     <>
-      <Portrait character={characterStyle}/>
+      <Portrait character={characterStyle} />
       <Zone>
         <StyleSelector names={styleNames} index={characterStyleIndex} />
       </Zone>
-      <StandAnimation character={characterStyle}/>
+      <StandAnimation character={characterStyle} />
       <CharacterName>{characterName}</CharacterName>
       <Type>Player 2</Type>
     </>

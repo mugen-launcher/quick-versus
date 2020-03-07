@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import useInput from "../../input/useInputPlayerOne.hook";
 import useCharacterName from "../../character/useCharacterName.hook";
-import useCharacterColorCount from '../../character/useCharacterColorCount.hook';
-import useCharacterColorIndex from '../../character/useCharacterColorIndex.hook';
+import useCharacterColorCount from "../../character/useCharacterColorCount.hook";
+import useCharacterColorIndex from "../../character/useCharacterColorIndex.hook";
 import useNavigationDispatch from "../../navigation/useDispatch.hook";
 import useSelectColorSound from "../../configuration/useSelectColorSound.hook";
 import useCancelSound from "../../configuration/useCancelSound.hook";
@@ -25,10 +25,6 @@ export default function SelectingCharacterColorByPlayerOne({ character }) {
   const colorSound = useSelectColorSound();
   const cancelSound = useCancelSound();
   const colorCount = useCharacterColorCount(character);
-  if (colorCount <= 1) {
-    dispatch(selectCharacterOneColor(1));
-    return null;
-  }
   const characterColorIndex = useCharacterColorIndex(input, colorCount, navigation.characterOneColorIndex);
 
   useEffect(() => {
@@ -55,15 +51,20 @@ export default function SelectingCharacterColorByPlayerOne({ character }) {
       input.removeEventListener("escape", onCancel);
       input.removeEventListener("z", onSwitchMode);
     };
-  }, [input, characterColorIndex]);
+  }, [input, characterColorIndex, cancelSound, colorSound, dispatch]);
+
+  if (colorCount <= 1) {
+    dispatch(selectCharacterOneColor(1));
+    return null;
+  }
 
   return (
     <>
-      <Portrait character={character}/>
+      <Portrait character={character} />
       <Zone>
         <ColorSelector total={colorCount} index={characterColorIndex} />
       </Zone>
-      <StandAnimation character={character}/>
+      <StandAnimation character={character} />
       <CharacterName>{characterName}</CharacterName>
       <Type>Player 1</Type>
     </>

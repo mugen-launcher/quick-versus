@@ -12,6 +12,7 @@ export default class ErrorBoundary extends React.Component {
   }
 
   render() {
+    const { children } = this.props;
     const { hasError, error } = this.state;
 
     if (hasError) {
@@ -23,6 +24,6 @@ export default class ErrorBoundary extends React.Component {
       );
     }
 
-    return this.props.children;
+    return children;
   }
 }

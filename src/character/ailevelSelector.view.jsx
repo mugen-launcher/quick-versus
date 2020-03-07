@@ -12,13 +12,12 @@ const Wrapper = styled.div`
 const Choice = styled.p`
   font-family: BadaBoom;
   font-size: 4vh;
-  color: rgba(255, 255, 255, ${props => props.selected ? "1" : "0.5"});
+  color: rgba(255, 255, 255, ${props => (props.selected ? "1" : "0.5")});
   margin: 0;
   text-shadow: 0 0 4px #000;
 `;
 
 export default function AILevelSelector({ level }) {
-
   return (
     <Wrapper>
       <Choice selected={level === 0}>No AI</Choice>

@@ -2,6 +2,7 @@ import ini from "ini";
 import { remote } from "electron";
 import useEnvironment from "../configuration/useEnvironment.hook";
 import useCharacterDefinition from "./useCharacterDefinition.hook";
+
 const fs = remote.require("fs");
 const path = remote.require("path");
 
@@ -15,7 +16,7 @@ export default function useCharacterSizeScale(character) {
     return cache.get(character);
   }
   if (!definition) {
-    return;
+    return { x: 1, y: 1 };
   }
 
   const definitionPath = path.resolve(environment.currentDirectory, "chars", character.definition);
@@ -26,7 +27,7 @@ export default function useCharacterSizeScale(character) {
   } else if (definition.Files.Cns) {
     constantsFilename = ini.unsafe(definition.Files.Cns);
   } else {
-    return;
+    return { x: 1, y: 1 };
   }
   constantsFilename = constantsFilename.replace(/\\/g, "/");
   const constantsPath = path.resolve(directoryPath, constantsFilename);
@@ -61,10 +62,10 @@ export default function useCharacterSizeScale(character) {
       }
     }
 
-    if (isNaN(x)) {
+    if (Number.isNaN(x)) {
       throw new Error("xscale is not a number");
     }
-    if (isNaN(y)) {
+    if (Number.isNaN(y)) {
       throw new Error("yscale is not a number");
     }
 
@@ -74,6 +75,7 @@ export default function useCharacterSizeScale(character) {
   } catch (error) {
     console.error("Unable to load constants file", constantsPath);
     console.error(error);
-    return;
   }
+
+  return { x: 1, y: 1 };
 }

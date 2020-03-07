@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { remote } from "electron";
 import useNavigation from "../navigation/useData.hook";
@@ -9,6 +9,7 @@ import VERSUS_FIGHTING from "../navigation/state/versusFighting.state";
 import useEnvironment from "../configuration/useEnvironment.hook";
 import useConfiguration from "../configuration/useConfiguration.hook";
 import useBackgroundSound from "../configuration/useBackgroundSound.hook";
+
 const execFile = remote.require("child_process").execFile;
 
 const BlackScreen = styled.div`
@@ -35,10 +36,14 @@ export default function Fight() {
 
   if (navigation.state === TRAINING_FIGHTING || navigation.state === VERSUS_FIGHTING) {
     const options = [
-      "-p1", navigation.characterOne.definition,
-      "-p2", navigation.characterTwo.definition,
-      "-s", navigation.stage.definition,
-      "-rounds", 2
+      "-p1",
+      navigation.characterOne.definition,
+      "-p2",
+      navigation.characterTwo.definition,
+      "-s",
+      navigation.stage.definition,
+      "-rounds",
+      2
     ];
     if (configuration.motif) {
       options.push("-r", configuration.motif);

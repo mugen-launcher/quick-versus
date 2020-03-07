@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import getCharactersMatrix from "../character/getCharactersMatrix";
+import getCharactersMatrix from "./getCharactersMatrix";
 import useCharacterColumns from "../configuration/useCharacterColumns.hook";
 import useMoveCursorSound from "../configuration/useMoveCursorSound.hook";
 
@@ -28,22 +28,22 @@ export default function useCharacterIndex(characters, input, initialIndex = 0) {
     }
 
     const getSelectedIndexFromMatrix = () => {
-      let index = 0;
+      let selectedIndexFromMatrix = 0;
       for (let rowIndex = 0; rowIndex < matrix.length; rowIndex++) {
         const row = matrix[rowIndex];
         for (let columnIndex = 0; columnIndex < row.length; columnIndex++) {
           if (rowIndex === selectedRowIndex && columnIndex === selectedColumnIndex) {
-            return index;
+            return selectedIndexFromMatrix;
           }
-          index++;
+          selectedIndexFromMatrix++;
         }
       }
-      return index;
+      return selectedIndexFromMatrix;
     };
 
     const decreaseColumnIndex = () => {
       if (selectedColumnIndex > 0) {
-        selectedColumnIndex = selectedColumnIndex - 1;
+        selectedColumnIndex -= 1;
       } else {
         selectedColumnIndex = matrix[selectedRowIndex].length - 1;
       }
@@ -57,7 +57,7 @@ export default function useCharacterIndex(characters, input, initialIndex = 0) {
     };
     const decreaseRowIndex = () => {
       if (selectedRowIndex > 0) {
-        selectedRowIndex = selectedRowIndex - 1;
+        selectedRowIndex -= 1;
       } else {
         for (let rowIndex = matrix.length - 1; rowIndex >= 0; rowIndex--) {
           if (selectedColumnIndex < matrix[rowIndex].length) {
@@ -90,7 +90,7 @@ export default function useCharacterIndex(characters, input, initialIndex = 0) {
       input.removeEventListener("up", decreaseRowIndex);
       input.removeEventListener("down", increaseRowIndex);
     };
-  }, [input, characters, columnCount, initialIndex]);
+  }, [input, characters, columnCount, initialIndex, moveCursorSound]);
 
   return selectedIndex;
 }
