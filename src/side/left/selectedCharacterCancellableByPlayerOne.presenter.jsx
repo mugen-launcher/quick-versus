@@ -4,6 +4,7 @@ import useCharacterName from "../../character/useCharacterName.hook";
 import useNavigationDispatch from "../../navigation/useDispatch.hook";
 import useCancelSound from "../../configuration/useCancelSound.hook";
 import unselectCharacterOne from "../../navigation/action/unselectCharacterOne.action";
+import useColorIndex from "./useColorIndex.hook";
 import Portrait from "./portrait.view";
 import StandAnimation from "./standAnimation.view";
 import CharacterName from "./characterName.view";
@@ -14,6 +15,7 @@ export default function SelectedCharacterCancellableByPlayerOne({ character }) {
   const input = useInput();
   const characterName = useCharacterName(character);
   const cancelSound = useCancelSound();
+  const colorIndex = useColorIndex();
 
   useEffect(() => {
     const onCancel = () => {
@@ -33,7 +35,7 @@ export default function SelectedCharacterCancellableByPlayerOne({ character }) {
   return (
     <>
       <Portrait character={character} />
-      <StandAnimation character={character} />
+      <StandAnimation character={character} colorIndex={colorIndex} />
       <CharacterName>{characterName}</CharacterName>
       <Type>Player 1</Type>
     </>

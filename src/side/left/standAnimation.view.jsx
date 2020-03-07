@@ -13,9 +13,9 @@ const Image = styled.img`
   transform: translateX(-100%) scaleX(${props => props.xScale}) scaleY(${props => props.yScale});
 `;
 
-export default function StandAnimation({ character }) {
+export default function StandAnimation({ character, colorIndex }) {
   const options = useCharacterAnimationOptions();
-  const standAnimation = useCharacterStandAnimation(character);
+  const standAnimation = useCharacterStandAnimation(character, colorIndex);
   const scale = useCharacterSizeScale(character);
 
   if (!standAnimation) {

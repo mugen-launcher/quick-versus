@@ -58,7 +58,7 @@ export default function SelectingCharacterColorByPlayerTwo({ character }) {
       <Zone>
         <ColorSelector total={colorCount} index={characterColorIndex} />
       </Zone>
-      <StandAnimation character={character} />
+      <StandAnimation character={character} colorIndex={characterColorIndex} />
       <CharacterName>{characterName}</CharacterName>
       <Type>Player 2</Type>
     </>

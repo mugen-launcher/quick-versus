@@ -22,8 +22,7 @@ export default function ColorSelector({ total, index }) {
   for (let current = 1; current <= total; current++) {
     choices.push(
       <Choice selected={current === index} key={`color-${current}`}>
-        Color
-        {current}
+        {`Color ${current}`}
       </Choice>
     );
   }

@@ -4,7 +4,7 @@ import useEnvironment from "../configuration/useEnvironment.hook";
 const fs = remote.require("fs");
 const path = remote.require("path");
 
-export default function useCharacterStandAnimation(character) {
+export default function useCharacterStandAnimation(character, colorIndex = 1) {
   const environment = useEnvironment();
 
   if (!character) {
@@ -15,13 +15,21 @@ export default function useCharacterStandAnimation(character) {
     return null;
   }
 
+  let propertyName = "stand";
+  if (colorIndex > 1) {
+    propertyName = `stand${colorIndex}`;
+  }
+
   const definitionPath = path.resolve(environment.currentDirectory, "chars", character.definition);
   const directoryPath = path.dirname(definitionPath);
-  const imagePathsByPriority = [path.resolve(directoryPath, "stand.gif")];
-  if (character.portrait) {
-    imagePathsByPriority.push(path.resolve(directoryPath, character.stand));
-    imagePathsByPriority.push(path.resolve(environment.currentDirectory, character.stand));
-    imagePathsByPriority.push(path.resolve(environment.currentDirectory, "chars", character.stand));
+  const imagePathsByPriority = [
+    path.resolve(directoryPath, `stand${colorIndex}.gif`),
+    path.resolve(directoryPath, "stand.gif")
+  ];
+  if (character.hasOwnProperty(propertyName)) {
+    imagePathsByPriority.push(path.resolve(directoryPath, character[propertyName]));
+    imagePathsByPriority.push(path.resolve(environment.currentDirectory, character[propertyName]));
+    imagePathsByPriority.push(path.resolve(environment.currentDirectory, "chars", character[propertyName]));
   }
 
   for (const imagePath of imagePathsByPriority) {

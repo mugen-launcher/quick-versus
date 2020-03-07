@@ -9,6 +9,7 @@ import useSelectAILevelSound from "../../configuration/useSelectAILevelSound.hoo
 import selectCharacterTwoAILevel from "../../navigation/action/selectCharacterTwoAILevel.action";
 import useCharacterAILevel from "../../character/useCharacterAILevel.hook";
 import AILevelSelector from "../../character/aiLevelSelector.view";
+import useColorIndex from "./useColorIndex.hook";
 import Portrait from "./portrait.view";
 import StandAnimation from "./standAnimation.view";
 import CharacterName from "./characterName.view";
@@ -23,6 +24,7 @@ export default function SelectingCharacterAILevelByPlayerOne({ character }) {
   const characterAILevel = useCharacterAILevel(input, navigation.characterTwoAILevel);
   const selectAILevelSound = useSelectAILevelSound();
   const cancelSound = useCancelSound();
+  const colorIndex = useColorIndex();
 
   useEffect(() => {
     const onCancel = () => {
@@ -51,7 +53,7 @@ export default function SelectingCharacterAILevelByPlayerOne({ character }) {
       <Zone>
         <AILevelSelector level={characterAILevel} />
       </Zone>
-      <StandAnimation character={character} />
+      <StandAnimation character={character} colorIndex={colorIndex} />
       <CharacterName>{characterName}</CharacterName>
       <Type>Computer</Type>
     </>
