@@ -145,7 +145,7 @@ Properties
 | `characterAnimationOptions.y` | Y coordinate (from bottom) for the character animation (default: `2vh`) |
 | `characterAnimationOptions.scaleFactor` | Scale factor for the character animation (default: `1`) |
 | `characterNameOptions.x` | Character name x coordinate (default: `40vw`) |
-| `categories` | List of categories |
+| `categories` | List of categories (see below) |
 
 Sound properties
 ----------------
@@ -166,7 +166,7 @@ Category properties
 
 | Name | Description |
 | ---- | ----------- |
-| `characters` | List of characters |
+| `characters` | List of characters (see below) |
 | `random` | Indicates that the category is a random selection (default: `false`) |
 
 Character properties
@@ -178,6 +178,7 @@ Character properties
 | `portrait` | Image path of the character portrait (default: `portrait.png`) |
 | `portraitOptions.x` | Portrait x coordinate (default: `50vw`) |
 | `stand` | Image path of the chracter stand animation (default: `stand.gif`) |
+| `stand2` | Image path of the chracter stand animation for color 2 (default: `stand2.gif`) |
 | `standOptions.x` | Override x coordinate for the character stand animation (default: `47vw`) |
 | `standOptions.y` | Override y coordinate for the character stand animation (default: `2vh`) |
 | `thumbnail` | Image path of the character thumbnail (default: `thumbnail.png`) |
