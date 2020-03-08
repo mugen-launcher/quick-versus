@@ -31,8 +31,9 @@ const StyleCount = styled.span`
   border-radius: 100%;
   right: -1vh;
   bottom: -1vh;
+  font-family: Ubuntu;
   font-size: 2vh;
-  padding: .2em .5em;
+  padding: .2em .4em;
 `;
 const Thumbnail = styled.img`
   z-index: 1;
