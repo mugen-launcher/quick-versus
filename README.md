@@ -177,8 +177,8 @@ Character properties
 | `styleName` | Style name (default: `Style 1`) |
 | `portrait` | Image path of the character portrait (default: `portrait.png`) |
 | `portraitOptions.x` | Portrait x coordinate (default: `50vw`) |
-| `stand` | Image path of the chracter stand animation (default: `stand.gif`) |
-| `stand2` | Image path of the chracter stand animation for color 2 (default: `stand2.gif`) |
+| `stand` | Image path of the character stand animation (default: `stand.gif`) |
+| `stand2` | Image path of the character stand animation for color 2 (default: `stand2.gif`) |
 | `standOptions.x` | Override x coordinate for the character stand animation (default: `47vw`) |
 | `standOptions.y` | Override y coordinate for the character stand animation (default: `2vh`) |
 | `thumbnail` | Image path of the character thumbnail (default: `thumbnail.png`) |
