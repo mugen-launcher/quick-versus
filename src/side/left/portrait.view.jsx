@@ -23,5 +23,5 @@ export default function Portrait({ character }) {
     x = character.portraitOptions.x;
   }
 
-  return <Image src={portrait} x={x} />;
+  return <Image src={portrait} x={x} key={JSON.stringify(character)}/>;
 }
