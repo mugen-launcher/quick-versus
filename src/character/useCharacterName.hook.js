@@ -1,5 +1,9 @@
 import ini from "ini";
 import useCharacterDefinition from "./useCharacterDefinition.hook";
+import getObjectPropertyValueCaseInsensitive from "./util/getObjectPropertyValueCaseInsensitive";
+
+const infoKeys = ["Info", "info"];
+const nameKeys = ["displayname", "Displayname", "DisplayName", "name", "Name"];
 
 export default function useCharacterName(character) {
   const definition = useCharacterDefinition(character);
@@ -16,20 +20,19 @@ export default function useCharacterName(character) {
     return "Unknown";
   }
 
-  if (definition.Info.displayname) {
-    return ini.unsafe(definition.Info.displayname);
+  const info = getObjectPropertyValueCaseInsensitive(definition, "info");
+  if (!info) {
+    return "Unknown";
   }
-  if (definition.Info.Displayname) {
-    return ini.unsafe(definition.Info.Displayname);
+
+  const displayName = getObjectPropertyValueCaseInsensitive(info, "displayname");
+  if (displayName) {
+    return ini.unsafe(displayName);
   }
-  if (definition.Info.DisplayName) {
-    return ini.unsafe(definition.Info.DisplayName);
+  const name = getObjectPropertyValueCaseInsensitive(info, "name");
+  if (name) {
+    return ini.unsafe(name);
   }
-  if (definition.Info.name) {
-    return ini.unsafe(definition.Info.name);
-  }
-  if (definition.Info.Name) {
-    return ini.unsafe(definition.Info.Name);
-  }
+
   return "Unknown";
 }

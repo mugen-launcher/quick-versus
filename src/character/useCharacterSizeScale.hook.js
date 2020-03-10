@@ -2,6 +2,7 @@ import ini from "ini";
 import { remote } from "electron";
 import useEnvironment from "../configuration/useEnvironment.hook";
 import useCharacterDefinition from "./useCharacterDefinition.hook";
+import getObjectPropertyValueCaseInsensitive from "./util/getObjectPropertyValueCaseInsensitive";
 
 const fs = remote.require("fs");
 const path = remote.require("path");
@@ -21,14 +22,17 @@ export default function useCharacterSizeScale(character) {
 
   const definitionPath = path.resolve(environment.currentDirectory, "chars", character.definition);
   const directoryPath = path.dirname(definitionPath);
-  let constantsFilename;
-  if (definition.Files.cns) {
-    constantsFilename = ini.unsafe(definition.Files.cns);
-  } else if (definition.Files.Cns) {
-    constantsFilename = ini.unsafe(definition.Files.Cns);
-  } else {
+
+  const definitionFiles = getObjectPropertyValueCaseInsensitive(definition, "files");
+  if (!definitionFiles) {
     return { x: 1, y: 1 };
   }
+
+  const cns = getObjectPropertyValueCaseInsensitive(definitionFiles, "cns");
+  if (!cns) {
+    return { x: 1, y: 1 };
+  }
+  let constantsFilename = ini.unsafe(cns);
   constantsFilename = constantsFilename.replace(/\\/g, "/");
   const constantsPath = path.resolve(directoryPath, constantsFilename);
 
