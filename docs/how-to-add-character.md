@@ -114,7 +114,7 @@ Add a file `portrait.png` inside the character directory:
 
 You can use this template to keep the same face size for all your characters: [portrait-template.png](./images/portrait-template.png)
 
-You can also customize the file path:
+You can also customize the image path:
 
 ```json
 {
@@ -132,10 +132,11 @@ Add a file `thumbnail.png` inside the character directory:
 
 You can use this template to keep the same face size for all your characters: [thumbnail-template.png](./images/thumbnail-template.png)
 
+You can also customize the image path:
 ```json
 {
   "definition": "ryu/ryu.def",
-  "portrait": "path/to/thumbnail.png"
+  "thumbnail": "path/to/thumbnail.png"
 }
 ```
 
@@ -148,10 +149,11 @@ Download and open the definition file with [Fighter Factory Studio](http://fight
 
 Go to the `Animation` view and export the stand animation in the character directory as `stand.gif`.
 
+You can also customize the image path:
 ```json
 {
   "definition": "ryu/ryu.def",
-  "portrait": "path/to/stand.gif"
+  "stand": "path/to/stand.gif"
 }
 ```
 
