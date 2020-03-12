@@ -190,6 +190,11 @@ Gamepad and keyboard mapping
 
 You can download and execute [gamepad-logger.exe](https://github.com/mugen-launcher/gamepad-logger/releases/latest/download/gamepad-logger.exe) to fill the gamepad and keyboard mapping.
 
+Tutorials
+---------
+
+- [How to add a character](./docs/how-to-add-character.md)
+
 Application states
 ------------------
 
