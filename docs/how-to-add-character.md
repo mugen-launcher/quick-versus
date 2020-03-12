@@ -123,6 +123,8 @@ You can also customize the image path:
 }
 ```
 
+Note: The portrait is optional. Without the file, it simply displays nothing.
+
 Add the character thumbnail
 ---------------------------
 
@@ -140,6 +142,8 @@ You can also customize the image path:
 }
 ```
 
+Note: The thumbnail is optional. Without the file, it simply displays a placeholder.
+
 Add the character stand animation
 ---------------------------------
 
@@ -156,4 +160,6 @@ You can also customize the image path:
   "stand": "path/to/stand.gif"
 }
 ```
+
+Note: The stand animation is optional. Without the file, it simply displays nothing.
 
