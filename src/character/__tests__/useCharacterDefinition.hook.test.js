@@ -5,6 +5,10 @@ import useEnvironment from "../../configuration/useEnvironment.hook";
 jest.mock("../../configuration/useEnvironment.hook");
 
 describe("useCharacterDefinition()", () => {
+  useEnvironment.mockReturnValue({
+    currentDirectory: ""
+  });
+
   it("should return null if the provided character is null", () => {
     expect(useCharacterDefinition(null)).toBeNull();
   });
@@ -22,9 +26,6 @@ describe("useCharacterDefinition()", () => {
   });
 
   it("should return null if the definition file does not exists", () => {
-    useEnvironment.mockReturnValue({
-      currentDirectory: ""
-    });
     remote.require.mockReturnValue({
       resolve: jest.fn(),
       existsSync: jest.fn().mockReturnValue(false)
@@ -37,9 +38,6 @@ describe("useCharacterDefinition()", () => {
   });
 
   it("should return the definition", () => {
-    useEnvironment.mockReturnValue({
-      currentDirectory: ""
-    });
     remote.require.mockReturnValue({
       resolve: jest.fn(),
       existsSync: jest.fn().mockReturnValue(true),

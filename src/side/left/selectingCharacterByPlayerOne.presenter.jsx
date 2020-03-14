@@ -4,7 +4,6 @@ import useCategories from "../../configuration/useCategories.hook";
 import useCategoryIndex from "../../category/useCategoryIndex.hook";
 import useCharacterIndex from "../../character/useCharacterIndex.hook";
 import useCharacterName from "../../character/useCharacterName.hook";
-import useRandomCharacter from "../../character/useRandomCharacter.hook";
 import useNavigation from "../../navigation/useData.hook";
 import useNavigationDispatch from "../../navigation/useDispatch.hook";
 import useSelectCharacterSound from "../../configuration/useSelectCharacterSound.hook";
@@ -18,8 +17,11 @@ import Portrait from "./portrait.view";
 import StandAnimation from "./standAnimation.view";
 import CharacterName from "./characterName.view";
 import Type from "./type.view";
+import getSelectableCharactersFromCategories from "../../character/util/getSelectableCharactersFromCategories";
 import getSelectableCharactersFromCategory from "../../character/util/getSelectableCharactersFromCategory";
 import getRandomCharacter from "../../character/util/getRandomCharacter";
+import RandomCharacterName from "../common/randomCharacterName.presenter";
+import RandomCharacterNameFromCategory from "../common/randomCharacterNameFromCategory.presenter";
 
 export default function SelectingCharacterByPlayerOne() {
   const navigation = useNavigation();
@@ -36,16 +38,16 @@ export default function SelectingCharacterByPlayerOne() {
   const characterName = useCharacterName(character);
 
   const isRandomCategory = !!category.random;
-  const randomCharacter = useRandomCharacter(categories, isRandomCategory);
-  const randomCharacterName = useCharacterName(randomCharacter);
+  const isRandomCharacter = character && character.random;
 
   useEffect(() => {
     const onConfirm = () => {
       if (isRandomCategory) {
+        const randomCharacter = getRandomCharacter(getSelectableCharactersFromCategories(categories));
         dispatch(selectCharacterOneWithStyleAndColor(randomCharacter, categoryIndex));
       } else if (character.random) {
-        const randomCharacterInCategory = getRandomCharacter(getSelectableCharactersFromCategory(category));
-        dispatch(selectCharacterOneWithStyleAndColor(randomCharacterInCategory, categoryIndex, characterIndex));
+        const randomCharacter = getRandomCharacter(getSelectableCharactersFromCategory(category));
+        dispatch(selectCharacterOneWithStyleAndColor(randomCharacter, categoryIndex, characterIndex));
       } else {
         dispatch(selectCharacterOne(character, categoryIndex, characterIndex));
       }
@@ -64,8 +66,9 @@ export default function SelectingCharacterByPlayerOne() {
     };
   }, [
     input,
+    categories,
+    category,
     isRandomCategory,
-    randomCharacter,
     character,
     characters,
     categoryIndex,
@@ -80,7 +83,24 @@ export default function SelectingCharacterByPlayerOne() {
         <Zone>
           <CategorySelector category={category} />
         </Zone>
-        <CharacterName>{randomCharacterName}</CharacterName>
+        <CharacterName>
+          <RandomCharacterName />
+        </CharacterName>
+        <Type>Player 1</Type>
+      </>
+    );
+  }
+
+  if (isRandomCharacter) {
+    return (
+      <>
+        <Zone>
+          <CategorySelector category={category} />
+          <CharacterSelector characters={characters} selectedCharacter={character} />
+        </Zone>
+        <CharacterName>
+          <RandomCharacterNameFromCategory category={category} />
+        </CharacterName>
         <Type>Player 1</Type>
       </>
     );
