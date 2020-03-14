@@ -11,3 +11,10 @@
   font-weight: 400;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Gobold";
+  src: url("./fonts/Gobold High Thin.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}

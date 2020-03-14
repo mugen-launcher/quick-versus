@@ -14,6 +14,7 @@ import FatalError from "./error/fatalError.view";
 import Requirement from "./error/requirement.view";
 import versusImagePath from "./assets/versus.png";
 import getCurrentDirectory from "./getCurrentDirectory";
+import HelpBar from "./help/bar.presenter";
 
 const app = remote.app;
 const fs = remote.require("fs");
@@ -140,6 +141,7 @@ export default function App() {
               <Versus src={versusImagePath} />
               <StageSelector />
               <Fight />
+              <HelpBar />
             </Wrapper>
           </NavigationProvider>
         </ConfigurationContext.Provider>
