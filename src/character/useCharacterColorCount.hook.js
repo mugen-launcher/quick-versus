@@ -1,5 +1,5 @@
 import useCharacterDefinition from "./useCharacterDefinition.hook";
-import getObjectPropertyValueCaseInsensitive from "./util/getObjectPropertyValueCaseInsensitive";
+import getObjectPropertyValueCaseInsensitive from "../util/getObjectPropertyValueCaseInsensitive";
 
 const cache = new WeakMap();
 

@@ -1,6 +1,6 @@
 import ini from "ini";
 import getCharacterDefinition from "./getCharacterDefinition";
-import getObjectPropertyValueCaseInsensitive from "./getObjectPropertyValueCaseInsensitive";
+import getObjectPropertyValueCaseInsensitive from "../../util/getObjectPropertyValueCaseInsensitive";
 
 export default function getCharacterName(character, currentDirectory) {
   if (!character) {

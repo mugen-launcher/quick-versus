@@ -146,6 +146,7 @@ Properties
 | `characterAnimationOptions.scaleFactor` | Scale factor for the character animation (default: `1`) |
 | `characterNameOptions.x` | Character name x coordinate (default: `40vw`) |
 | `categories` | List of categories (see below) |
+| `stages` | List of stages (see below) |
 
 Sound properties
 ----------------
@@ -174,6 +175,7 @@ Character properties
 
 | Name | Description |
 | ---- | ----------- |
+| `definition` | Definition file path |
 | `styleName` | Style name (default: `Style 1`) |
 | `portrait` | Image path of the character portrait (default: `portrait.png`) |
 | `portraitOptions.x` | Portrait x coordinate (default: `50vw`) |
@@ -184,6 +186,14 @@ Character properties
 | `thumbnail` | Image path of the character thumbnail (default: `thumbnail.png`) |
 | `styles` | Alternative styles. List of characters (default: `[]`) |
 | `random` | Indicates that this character is random one within category (default: `false`) |
+
+Stage properties
+----------------
+
+| Name | Description |
+| ---- | ----------- |
+| `definition` | Definition file path |
+| `random` | Indicates a random stage (default: `false`) |
 
 Gamepad and keyboard mapping
 ----------------------------
