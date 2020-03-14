@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import getSelectableCharactersFromCategories from "./util/getSelectableCharactersFromCategories";
+import getRandomCharacter from "./util/getRandomCharacter";
 
 export default function useRandomCharacter(categories, enabled) {
   const [selectedCharacter, selectCharacter] = useState();
@@ -6,26 +8,8 @@ export default function useRandomCharacter(categories, enabled) {
   useEffect(() => {
     let requestId;
     const chooseRandomCharacter = () => {
-      const nonRandomCategories = categories.filter(category => {
-        if (category.random) {
-          return false;
-        }
-        if (!Array.isArray(category.characters)) {
-          return false;
-        }
-        for (const character of category.characters) {
-          if (!character.random) {
-            return true;
-          }
-        }
-        return false;
-      });
-      const randomCategoryIndex = Math.floor(Math.random() * nonRandomCategories.length);
-      const category = nonRandomCategories[randomCategoryIndex];
-
-      const nonRandomCharacters = category.characters.filter(character => !character.random);
-      const randomCharacterIndex = Math.floor(Math.random() * nonRandomCharacters.length);
-      const character = nonRandomCharacters[randomCharacterIndex];
+      const selectableCharacters = getSelectableCharactersFromCategories(categories);
+      const character = getRandomCharacter(selectableCharacters);
       selectCharacter(character);
 
       requestId = window.requestAnimationFrame(chooseRandomCharacter);

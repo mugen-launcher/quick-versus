@@ -9,6 +9,7 @@ import useNavigation from "../../navigation/useData.hook";
 import useNavigationDispatch from "../../navigation/useDispatch.hook";
 import useSelectCharacterSound from "../../configuration/useSelectCharacterSound.hook";
 import selectCharacterOne from "../../navigation/action/selectCharacterOne.action";
+import selectCharacterOneWithStyleAndColor from "../../navigation/action/selectCharacterOneWithSyleAndColor.action";
 import switchMode from "../../navigation/action/switchMode.action";
 import Zone from "./zone.view";
 import CategorySelector from "../../category/categorySelector.view";
@@ -17,6 +18,8 @@ import Portrait from "./portrait.view";
 import StandAnimation from "./standAnimation.view";
 import CharacterName from "./characterName.view";
 import Type from "./type.view";
+import getSelectableCharactersFromCategory from "../../character/util/getSelectableCharactersFromCategory";
+import getRandomCharacter from "../../character/util/getRandomCharacter";
 
 export default function SelectingCharacterByPlayerOne() {
   const navigation = useNavigation();
@@ -39,11 +42,10 @@ export default function SelectingCharacterByPlayerOne() {
   useEffect(() => {
     const onConfirm = () => {
       if (isRandomCategory) {
-        dispatch(selectCharacterOne(randomCharacter, categoryIndex));
+        dispatch(selectCharacterOneWithStyleAndColor(randomCharacter, categoryIndex));
       } else if (character.random) {
-        const nonRandomCharacters = characters.filter(currentCharacter => !currentCharacter.random);
-        const randomCharacterIndex = Math.floor(Math.random() * nonRandomCharacters.length);
-        dispatch(selectCharacterOne(nonRandomCharacters[randomCharacterIndex], categoryIndex, characterIndex));
+        const randomCharacterInCategory = getRandomCharacter(getSelectableCharactersFromCategory(category));
+        dispatch(selectCharacterOneWithStyleAndColor(randomCharacterInCategory, categoryIndex, characterIndex));
       } else {
         dispatch(selectCharacterOne(character, categoryIndex, characterIndex));
       }
