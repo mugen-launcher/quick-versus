@@ -1,6 +1,7 @@
 import ini from "ini";
 import { remote } from "electron";
 import useEnvironment from "../configuration/useEnvironment.hook";
+import getObjectPropertyValueCaseInsensitive from "../util/getObjectPropertyValueCaseInsensitive";
 
 const fs = remote.require("fs");
 const path = remote.require("path");
@@ -8,7 +9,15 @@ const path = remote.require("path");
 export default function useStageName(stage) {
   const environment = useEnvironment();
 
-  if (!stage || !stage.definition) {
+  if (!stage) {
+    return "Unknown";
+  }
+
+  if (stage.random) {
+    return "Random";
+  }
+
+  if (!stage.definition) {
     return "Unknown";
   }
 
@@ -19,17 +28,20 @@ export default function useStageName(stage) {
 
   const definition = ini.parse(fs.readFileSync(definitionPath, "utf-8"));
 
-  if (definition.Info.displayname) {
-    return ini.unsafe(definition.Info.displayname);
+  const info = getObjectPropertyValueCaseInsensitive(definition, "info");
+  if (!info) {
+    return "Unknown";
   }
-  if (definition.Info.name) {
-    return ini.unsafe(definition.Info.name);
+
+  const displayName = getObjectPropertyValueCaseInsensitive(info, "displayname");
+  if (displayName) {
+    return ini.unsafe(displayName);
   }
-  if (definition.Info.Displayname) {
-    return ini.unsafe(definition.Info.Displayname);
+
+  const name = getObjectPropertyValueCaseInsensitive(info, "name");
+  if (name) {
+    return ini.unsafe(name);
   }
-  if (definition.Info.Name) {
-    return ini.unsafe(definition.Info.Name);
-  }
+
   return "Unknown";
 }

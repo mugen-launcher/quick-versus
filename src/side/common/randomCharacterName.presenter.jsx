@@ -1,9 +1,9 @@
-import React, { useRef, useMemo, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import useSelectableCharactersNames from "../../character/useSelectableCharacterNames.hook";
 
 export default function RandomCharacterName() {
   const display = useRef();
-  const names = useMemo(useSelectableCharactersNames);
+  const names = useSelectableCharactersNames();
 
   useEffect(() => {
     let requestId;

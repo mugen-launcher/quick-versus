@@ -8,6 +8,7 @@ import selectStage from "../navigation/action/selectStage.action";
 import Title from "./title.view";
 import Name from "./name.view";
 import Preview from "./preview.view";
+import getSelectableStages from "./util/getSelectableStages";
 
 export default function SelectingStageByPlayers() {
   const dispatch = useNavigationDispatch();
@@ -30,7 +31,13 @@ export default function SelectingStageByPlayers() {
       setStageIndex((stageIndex + 1) % stages.length);
     };
     const confirm = () => {
-      dispatch(selectStage(stages[stageIndex]));
+      if (stage.random) {
+        const selectableStages = getSelectableStages(stages);
+        const randomStage = selectableStages[Math.floor(Math.random() * selectableStages.length)];
+        dispatch(selectStage(randomStage));
+      } else {
+        dispatch(selectStage(stage));
+      }
     };
 
     inputPlayerOne.addEventListener("left", next);
@@ -48,7 +55,7 @@ export default function SelectingStageByPlayers() {
       inputPlayerTwo.removeEventListener("right", previous);
       inputPlayerTwo.removeEventListener("a", confirm);
     };
-  }, [inputPlayerOne, inputPlayerTwo, stages, stageIndex, dispatch]);
+  }, [inputPlayerOne, inputPlayerTwo, stage, stages, stageIndex, dispatch]);
 
   return (
     <>

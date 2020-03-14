@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.27.0] - 2020-03-14
+### Added
+- Random stage
+
 ## [0.26.1] - 2020-03-14
 ### Changed
 - Optimize random display
@@ -15,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Random character includes styles
 - Random character select the first color automatically
 
-[Unreleased]: https://github.com/mugen-launcher/quick-versus/compare/0.26.0...HEAD
+[Unreleased]: https://github.com/mugen-launcher/quick-versus/compare/0.27.0...HEAD
+[0.27.0]: https://github.com/mugen-launcher/quick-versus/compare/0.26.1...0.27.0
 [0.26.1]: https://github.com/mugen-launcher/quick-versus/compare/0.26.0...0.26.1
 [0.26.0]: https://github.com/mugen-launcher/quick-versus/compare/0.25.3...0.26.0

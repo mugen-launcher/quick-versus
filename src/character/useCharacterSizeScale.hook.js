@@ -2,7 +2,7 @@ import ini from "ini";
 import { remote } from "electron";
 import useEnvironment from "../configuration/useEnvironment.hook";
 import useCharacterDefinition from "./useCharacterDefinition.hook";
-import getObjectPropertyValueCaseInsensitive from "./util/getObjectPropertyValueCaseInsensitive";
+import getObjectPropertyValueCaseInsensitive from "../util/getObjectPropertyValueCaseInsensitive";
 
 const fs = remote.require("fs");
 const path = remote.require("path");
