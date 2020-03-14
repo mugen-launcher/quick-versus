@@ -25,7 +25,6 @@ export default function useCancelSound() {
     return noSound;
   }
 
-  console.log("ss");
   const filePath = path.resolve(environment.currentDirectory, configuration.sound.cancel);
   const audio = new Audio(filePath);
   audio.volume = volume / 100;
