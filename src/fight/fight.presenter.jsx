@@ -59,6 +59,7 @@ export default function Fight() {
     }
 
     backgroundSound.pause();
+    remote.getCurrentWindow().minimize();
     execFile(
       environment.mugenPath,
       options,
@@ -68,6 +69,7 @@ export default function Fight() {
       () => {
         dispatch(endFight());
         backgroundSound.play();
+        remote.getCurrentWindow().restore();
       }
     );
     console.log(environment.mugenPath, options);

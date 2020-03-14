@@ -58,6 +58,7 @@ function createWindow() {
   }
 
   const window = new BrowserWindow({
+    title: "Quick Versus Launcher",
     backgroundColor: "#333333",
     frame,
     width,
