@@ -11,39 +11,51 @@ export default function useInput(keyboardMapping, gamepadMapping) {
   useEffect(() => {
     const onPressLeft = () => {
       emitter.dispatchEvent(new Event("left"));
+      emitter.dispatchEvent(new Event("*"));
     };
     const onPressRight = () => {
       emitter.dispatchEvent(new Event("right"));
+      emitter.dispatchEvent(new Event("*"));
     };
     const onPressUp = () => {
       emitter.dispatchEvent(new Event("up"));
+      emitter.dispatchEvent(new Event("*"));
     };
     const onPressDown = () => {
       emitter.dispatchEvent(new Event("down"));
+      emitter.dispatchEvent(new Event("*"));
     };
     const onPressA = () => {
       emitter.dispatchEvent(new Event("a"));
+      emitter.dispatchEvent(new Event("*"));
     };
     const onPressB = () => {
       emitter.dispatchEvent(new Event("b"));
+      emitter.dispatchEvent(new Event("*"));
     };
     const onPressC = () => {
       emitter.dispatchEvent(new Event("c"));
+      emitter.dispatchEvent(new Event("*"));
     };
     const onPressX = () => {
       emitter.dispatchEvent(new Event("x"));
+      emitter.dispatchEvent(new Event("*"));
     };
     const onPressY = () => {
       emitter.dispatchEvent(new Event("y"));
+      emitter.dispatchEvent(new Event("*"));
     };
     const onPressZ = () => {
       emitter.dispatchEvent(new Event("z"));
+      emitter.dispatchEvent(new Event("*"));
     };
     const onPressEscape = () => {
       emitter.dispatchEvent(new Event("escape"));
+      emitter.dispatchEvent(new Event("*"));
     };
     const onPressEnter = () => {
       emitter.dispatchEvent(new Event("enter"));
+      emitter.dispatchEvent(new Event("*"));
     };
 
     keyboard.addEventListener(keyboardMapping.left, onPressLeft);

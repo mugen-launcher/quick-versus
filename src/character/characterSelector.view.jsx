@@ -110,10 +110,11 @@ export default function CharacterSelector({ characters, selectedCharacter }) {
   const gridY = 12; // zone top + category height
   const cellHeight = 7;
   const cellGap = 0.7;
+  const threshold = 90;
   const estimatedCellY = gridY + (cellHeight + cellGap) * selectionRow;
   let offsetY = 0;
-  if (estimatedCellY > 100) {
-    offsetY = Math.ceil((estimatedCellY - 100) / (cellHeight + cellGap)) * (cellHeight + cellGap);
+  if (estimatedCellY > threshold) {
+    offsetY = Math.ceil((estimatedCellY - threshold) / (cellHeight + cellGap)) * (cellHeight + cellGap);
   }
   return (
     <Grid column={columnCount} offsetY={offsetY}>
