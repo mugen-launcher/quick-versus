@@ -10,6 +10,7 @@ import useNavigationDispatch from "../../navigation/useDispatch.hook";
 import useSelectCharacterSound from "../../configuration/useSelectCharacterSound.hook";
 import useCancelSound from "../../configuration/useCancelSound.hook";
 import selectCharacterTwo from "../../navigation/action/selectCharacterTwo.action";
+import selectCharacterTwoWithStyleAndColor from "../../navigation/action/selectCharacterTwoWithSyleAndColor.action";
 import unselectCharacterOne from "../../navigation/action/unselectCharacterOne.action";
 import Zone from "./zone.view";
 import CategorySelector from "../../category/categorySelector.view";
@@ -18,6 +19,8 @@ import Portrait from "./portrait.view";
 import StandAnimation from "./standAnimation.view";
 import CharacterName from "./characterName.view";
 import Type from "./type.view";
+import getSelectableCharactersFromCategory from "../../character/util/getSelectableCharactersFromCategory";
+import getRandomCharacter from "../../character/util/getRandomCharacter";
 
 export default function SelectingCharacterByPlayerOne() {
   const navigation = useNavigation();
@@ -41,11 +44,10 @@ export default function SelectingCharacterByPlayerOne() {
   useEffect(() => {
     const onConfirm = () => {
       if (isRandomCategory) {
-        dispatch(selectCharacterTwo(randomCharacter, categoryIndex));
+        dispatch(selectCharacterTwoWithStyleAndColor(randomCharacter, categoryIndex));
       } else if (character.random) {
-        const nonRandomCharacters = characters.filter(currentCharacter => !currentCharacter.random);
-        const randomCharacterIndex = Math.floor(Math.random() * nonRandomCharacters.length);
-        dispatch(selectCharacterTwo(nonRandomCharacters[randomCharacterIndex], categoryIndex, characterIndex));
+        const randomCharacterInCategory = getRandomCharacter(getSelectableCharactersFromCategory(category));
+        dispatch(selectCharacterTwoWithStyleAndColor(randomCharacterInCategory, categoryIndex, characterIndex));
       } else {
         dispatch(selectCharacterTwo(character, categoryIndex, characterIndex));
       }

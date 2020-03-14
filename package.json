@@ -2,7 +2,7 @@
     "name": "mugen-quick-versus-launcher",
     "author": "neolao",
     "license": "MIT",
-    "version": "0.25.3",
+    "version": "0.26.0",
     "description": "Mugen launcher for Quick Versus",
     "keywords": [
         "mugen",
@@ -20,7 +20,8 @@
         "prettier": "prettier --write \"**/*.{js,html,css,json}\"",
         "dev": "webpack --env dev-bundle --watch",
         "build": "webpack --mode production",
-        "test": "jest"
+        "test": "jest",
+        "test:watch": "jest --watch"
     },
     "repository": {
         "type": "git",
