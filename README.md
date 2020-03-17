@@ -204,6 +204,7 @@ Tutorials
 ---------
 
 - [How to add a character](./docs/how-to-add-character.md)
+- [How to add stand animations from Fighter Factory HTML export](./docs/how-to-add-stand-animations-ff-export.md)
 
 Application states
 ------------------
