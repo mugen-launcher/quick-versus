@@ -6,6 +6,8 @@ export default function RandomCharacterName() {
   const names = useSelectableCharactersNames();
 
   useEffect(() => {
+    console.log("Total characters: ", names.length);
+
     let requestId;
     const chooseRandomName = () => {
       const name = names[Math.floor(Math.random() * names.length)];
