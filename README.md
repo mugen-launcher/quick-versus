@@ -183,6 +183,7 @@ Character properties
 | `stand2` | Image path of the character stand animation for color 2 (default: `stand2.gif`) |
 | `standOptions.x` | Override x coordinate for the character stand animation (default: `47vw`) |
 | `standOptions.y` | Override y coordinate for the character stand animation (default: `2vh`) |
+| `standOptions.scale` | Set the scale factor of the character stand animation (default: `1`) |
 | `thumbnail` | Image path of the character thumbnail (default: `thumbnail.png`) |
 | `styles` | Alternative styles. List of characters (default: `[]`) |
 | `random` | Indicates that this character is random one within category (default: `false`) |
