@@ -71,7 +71,7 @@ export default function useGamepads() {
             }
             if (!currentButtonStates[gamepadIndex] || !currentButtonStates[gamepadIndex][buttonIndex]) {
               const code = String.fromCharCode(65 + gamepadIndex) + buttonIndex;
-              console.log("Gamepad", code);
+              // console.log("Gamepad", code);
               emitter.dispatchEvent(new Event(code));
               emitter.dispatchEvent(new CustomEvent("button", { detail: code }));
             }
