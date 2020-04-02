@@ -43,5 +43,10 @@ export default function StandAnimation({ character, colorIndex }) {
   xScale *= options.scaleFactor;
   yScale *= options.scaleFactor;
 
+  if (character.standOptions && character.standOptions.scale > 0) {
+    xScale *= character.standOptions.scale;
+    yScale *= character.standOptions.scale;
+  }
+
   return <Image src={standAnimation} x={x} y={y} xScale={xScale} yScale={yScale} key={JSON.stringify(character)}/>;
 }
