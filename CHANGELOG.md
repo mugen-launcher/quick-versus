@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.29.1] - 2020-04-02
+### Fixed
+- Fix scale on stand animation of character 2
+
+## [0.29.0] - 2020-03-26
+### Added
+- Add scale property to resize stand animation
+
 ## [0.28.1] - 2020-03-17
 ### Added
 - Check the HTML export folder from Fighter Factory to display stand animation
@@ -27,7 +35,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Random character includes styles
 - Random character select the first color automatically
 
-[Unreleased]: https://github.com/mugen-launcher/quick-versus/compare/0.28.1...HEAD
+[Unreleased]: https://github.com/mugen-launcher/quick-versus/compare/0.29.1...HEAD
+[0.29.1]: https://github.com/mugen-launcher/quick-versus/compare/0.29.0...0.29.1
+[0.29.0]: https://github.com/mugen-launcher/quick-versus/compare/0.28.1...0.29.0
 [0.28.1]: https://github.com/mugen-launcher/quick-versus/compare/0.28.0...0.28.1
 [0.28.0]: https://github.com/mugen-launcher/quick-versus/compare/0.27.0...0.28.0
 [0.27.0]: https://github.com/mugen-launcher/quick-versus/compare/0.26.1...0.27.0
