@@ -42,7 +42,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Random character includes styles
 - Random character select the first color automatically
 
-[Unreleased]: https://github.com/mugen-launcher/quick-versus/compare/0.30.0...HEAD
+[Unreleased]: https://github.com/mugen-launcher/quick-versus/compare/0.30.1...HEAD
+[0.30.1]: https://github.com/mugen-launcher/quick-versus/compare/0.30.0...0.30.1
 [0.30.0]: https://github.com/mugen-launcher/quick-versus/compare/0.29.1...0.30.0
 [0.29.1]: https://github.com/mugen-launcher/quick-versus/compare/0.29.0...0.29.1
 [0.29.0]: https://github.com/mugen-launcher/quick-versus/compare/0.28.1...0.29.0
