@@ -3,6 +3,7 @@ import styled from "styled-components";
 import useCharacterStandAnimation from "../../character/useCharacterStandAnimation.hook";
 import useCharacterSizeScale from "../../character/useCharacterSizeScale.hook";
 import useCharacterAnimationOptions from "../../configuration/useCharacterAnimationOptions.hook";
+import useStandAnimationScaleBasedOnWindowHeight from "../common/useStandAnimationScaleBasedOnWindowHeight.hook";
 
 const Image = styled.img`
   position: absolute;
@@ -16,6 +17,7 @@ const Image = styled.img`
 export default function StandAnimation({ character, colorIndex }) {
   const options = useCharacterAnimationOptions();
   const standAnimation = useCharacterStandAnimation(character, colorIndex);
+  const defaultScale = useStandAnimationScaleBasedOnWindowHeight();
   const scale = useCharacterSizeScale(character);
 
   if (!standAnimation) {
@@ -33,11 +35,11 @@ export default function StandAnimation({ character, colorIndex }) {
     }
   }
 
-  let xScale = 1;
-  let yScale = 1;
+  let xScale = defaultScale;
+  let yScale = defaultScale;
   if (scale) {
-    xScale = scale.x;
-    yScale = scale.y;
+    xScale *= scale.x;
+    yScale *= scale.y;
   }
 
   xScale *= options.scaleFactor;
