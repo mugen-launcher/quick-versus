@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.30.0] - 2020-04-10
+### Added
+- Scale the stand animation when resizing the window
+
 ## [0.29.1] - 2020-04-02
 ### Added
 - Documentation to create stage illustration
@@ -38,7 +42,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Random character includes styles
 - Random character select the first color automatically
 
-[Unreleased]: https://github.com/mugen-launcher/quick-versus/compare/0.29.1...HEAD
+[Unreleased]: https://github.com/mugen-launcher/quick-versus/compare/0.30.0...HEAD
+[0.30.0]: https://github.com/mugen-launcher/quick-versus/compare/0.29.1...0.30.0
 [0.29.1]: https://github.com/mugen-launcher/quick-versus/compare/0.29.0...0.29.1
 [0.29.0]: https://github.com/mugen-launcher/quick-versus/compare/0.28.1...0.29.0
 [0.28.1]: https://github.com/mugen-launcher/quick-versus/compare/0.28.0...0.28.1
