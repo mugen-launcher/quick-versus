@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.30.2] - 2020-04-11
+### Added
+- Add a file name pattern "images/anim_*" for stand animations
+
+## [0.30.1] - 2020-04-10
+### Fixed
+- Change the default scale for stand animation
+
 ## [0.30.0] - 2020-04-10
 ### Added
 - Scale the stand animation when resizing the window
@@ -42,7 +50,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Random character includes styles
 - Random character select the first color automatically
 
-[Unreleased]: https://github.com/mugen-launcher/quick-versus/compare/0.30.1...HEAD
+[Unreleased]: https://github.com/mugen-launcher/quick-versus/compare/0.30.2...HEAD
+[0.30.2]: https://github.com/mugen-launcher/quick-versus/compare/0.30.1...0.30.2
 [0.30.1]: https://github.com/mugen-launcher/quick-versus/compare/0.30.0...0.30.1
 [0.30.0]: https://github.com/mugen-launcher/quick-versus/compare/0.29.1...0.30.0
 [0.29.1]: https://github.com/mugen-launcher/quick-versus/compare/0.29.0...0.29.1
