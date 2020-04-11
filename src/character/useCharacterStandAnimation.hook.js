@@ -24,6 +24,7 @@ export default function useCharacterStandAnimation(character, colorIndex = 1) {
   const directoryPath = path.dirname(definitionPath);
   const imagePathsByPriority = [
     path.resolve(directoryPath, "images", `export_anim_${colorIndex}.gif`),
+    path.resolve(directoryPath, "images", `anim_${colorIndex}.gif`),
     path.resolve(directoryPath, `stand${colorIndex}.gif`),
     path.resolve(directoryPath, "stand.gif")
   ];
