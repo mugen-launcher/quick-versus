@@ -11,7 +11,9 @@ import selectCharacterOne from "../../navigation/action/selectCharacterOne.actio
 import selectCharacterOneWithStyleAndColor from "../../navigation/action/selectCharacterOneWithSyleAndColor.action";
 import switchMode from "../../navigation/action/switchMode.action";
 import Zone from "./zone.view";
+import CategoryPaginationZone from "./categoryPaginationZone.view";
 import CategorySelector from "../../category/categorySelector.view";
+import CategoryPagination from "../../category/categoryPagination.view";
 import CharacterSelector from "../../character/characterSelector.view";
 import Portrait from "./portrait.view";
 import StandAnimation from "./standAnimation.view";
@@ -83,6 +85,9 @@ export default function SelectingCharacterByPlayerOne() {
         <Zone>
           <CategorySelector category={category} />
         </Zone>
+        <CategoryPaginationZone>
+          <CategoryPagination index={categoryIndex + 1} total={categories.length} />
+        </CategoryPaginationZone>
         <CharacterName>
           <RandomCharacterName />
         </CharacterName>
@@ -98,6 +103,9 @@ export default function SelectingCharacterByPlayerOne() {
           <CategorySelector category={category} />
           <CharacterSelector characters={characters} selectedCharacter={character} />
         </Zone>
+        <CategoryPaginationZone>
+          <CategoryPagination index={categoryIndex + 1} total={categories.length} />
+        </CategoryPaginationZone>
         <CharacterName>
           <RandomCharacterNameFromCategory category={category} />
         </CharacterName>
@@ -113,6 +121,9 @@ export default function SelectingCharacterByPlayerOne() {
         <CategorySelector category={category} />
         <CharacterSelector characters={characters} selectedCharacter={character} />
       </Zone>
+      <CategoryPaginationZone>
+        <CategoryPagination index={categoryIndex + 1} total={categories.length} />
+      </CategoryPaginationZone>
       <StandAnimation character={character} />
       <CharacterName>{characterName}</CharacterName>
       <Type>Player 1</Type>
