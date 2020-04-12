@@ -2,6 +2,7 @@ import React from "react";
 import { remote } from "electron";
 import styled from "styled-components";
 import isDev from "electron-is-dev";
+import configYaml from "config-yaml";
 import ConfigurationContext from "./configuration/configuration.context";
 import EnvironmentContext from "./configuration/environment.context";
 import NavigationProvider from "./navigation/navigation.provider";
@@ -58,13 +59,14 @@ export default function App() {
     );
   }
 
-  const configurationFilePath = path.resolve(currentDirectory, "quick-versus.json");
-  if (!fs.existsSync(configurationFilePath)) {
+  const jsonFilePath = path.resolve(currentDirectory, "quick-versus.json");
+  const yamlFilePath = path.resolve(currentDirectory, "quick-versus.yml");
+  if (!fs.existsSync(jsonFilePath) && !fs.existsSync(yamlFilePath)) {
     return (
       <Requirement>
         <p>
           Configuration file is missing:
-          {configurationFilePath}
+          {jsonFilePath}
         </p>
       </Requirement>
     );
@@ -82,18 +84,35 @@ export default function App() {
     );
   }
 
-  const configurationContent = fs.readFileSync(configurationFilePath);
   let configuration;
-  try {
-    configuration = JSON.parse(configurationContent);
-  } catch (error) {
-    return (
-      <FatalError>
-        <p>Invalid configuration file:</p>
-        <p>{configurationFilePath}</p>
-        <p>{error.message}</p>
-      </FatalError>
-    );
+  let configurationFilePath;
+  if (fs.existsSync(jsonFilePath)) {
+    const jsonContent = fs.readFileSync(jsonFilePath);
+    try {
+      configuration = JSON.parse(jsonContent);
+      configurationFilePath = jsonFilePath;
+    } catch (error) {
+      return (
+        <FatalError>
+          <p>Invalid JSON configuration file:</p>
+          <p>{jsonFilePath}</p>
+          <p>{error.message}</p>
+        </FatalError>
+      );
+    }
+  } else if (fs.existsSync(yamlFilePath)) {
+    try {
+      configuration = configYaml(yamlFilePath);
+      configurationFilePath = yamlFilePath;
+    } catch (error) {
+      return (
+        <FatalError>
+          <p>Invalid YAML configuration file:</p>
+          <p>{yamlFilePath}</p>
+          <p>{error.message}</p>
+        </FatalError>
+      );
+    }
   }
 
   const environment = {
