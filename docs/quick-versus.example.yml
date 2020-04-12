@@ -1,0 +1,84 @@
+width: 1024
+height: 576
+frame: false
+fullscreen: true
+
+motif: quick-versus
+characterColumns: 2
+characterAnimationOptions:
+    x: 46vw
+characterNameOptions:
+    x: 35vw
+sound:
+    volume: 30
+    background: sound/title.mp3
+    selectCharacter: sound/confirm.wav
+    selectStyle: sound/confirm.wav
+    selectColor: sound/confirm.wav
+    selectAILevel: sound/confirm.wav
+    moveCursor: sound/move-cursor.wav
+    cancel: sound/cancel.wav
+
+categories:
+    -
+        name: Street Fighter
+        image: Street Fighter/image.png
+        characters:
+            -
+                styleName: Capcom VS SNK
+                definition: Street Fighter/Ryu (CVS)/Ryu.def
+
+playerOne:
+    keyboard:
+        left: ArrowLeft
+        right: ArrowRight
+        up: ArrowUp
+        down: ArrowDown
+        a: w
+        b: x
+        c: c
+        x: q
+        y: s
+        z: d
+        escape: Escape
+        enter: Enter
+    gamepad:
+        left: A17
+        right: A18
+        up: A19
+        down: A20
+        a: A0
+        b: A1
+        c: A7
+        x: A2
+        y: A3
+        z: A6
+        escape: A8
+        enter: A9
+playerTwo:
+    keyboard:
+        left: k
+        right: m
+        up: o
+        down: l
+        a: g
+        b: h
+        c: j
+        x: t
+        y: y
+        z: u
+        escape: i
+        enter: p
+    gamepad:
+        left: B14
+        right: B15
+        up: B12
+        down: B13
+        a: B1
+        b: B0
+        c: B7
+        x: B3
+        y: B2
+        z: B5
+        escape: B8
+        enter: B9

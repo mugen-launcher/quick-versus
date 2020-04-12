@@ -1,6 +1,7 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const fs = require("fs");
+const configYaml = require("config-yaml");
 const isDev = require("electron-is-dev");
 
 function getCurrentDirectory() {
@@ -33,10 +34,16 @@ function createWindow() {
 
   try {
     const currentDirectory = getCurrentDirectory();
-    const configurationFilePath = path.resolve(currentDirectory, "quick-versus.json");
-    if (fs.existsSync(configurationFilePath)) {
-      const config = require(configurationFilePath);
+    const jsonFilePath = path.resolve(currentDirectory, "quick-versus.json");
+    const yamlFilePath = path.resolve(currentDirectory, "quick-versus.yml");
+    let config;
+    if (fs.existsSync(jsonFilePath)) {
+      config = require(configurationFilePath);
+    } else if (fs.existsSync(yamlFilePath)) {
+      config = configYaml(yamlFilePath);
+    }
 
+    if (config) {
       if (config.hasOwnProperty("width")) {
         width = config.width;
       }
