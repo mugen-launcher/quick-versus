@@ -10,7 +10,9 @@ import useSelectCharacterSound from "../../configuration/useSelectCharacterSound
 import selectCharacterTwo from "../../navigation/action/selectCharacterTwo.action";
 import selectCharacterTwoWithStyleAndColor from "../../navigation/action/selectCharacterTwoWithSyleAndColor.action";
 import Zone from "./zone.view";
+import CategoryPaginationZone from "./categoryPaginationZone.view";
 import CategorySelector from "../../category/categorySelector.view";
+import CategoryPagination from "../../category/categoryPagination.view";
 import CharacterSelector from "../../character/characterSelector.view";
 import Portrait from "./portrait.view";
 import StandAnimation from "./standAnimation.view";
@@ -77,6 +79,9 @@ export default function SelectingCharacterByPlayerTwo() {
         <Zone>
           <CategorySelector category={category} />
         </Zone>
+        <CategoryPaginationZone>
+          <CategoryPagination index={categoryIndex + 1} total={categories.length} />
+        </CategoryPaginationZone>
         <CharacterName>
           <RandomCharacterName />
         </CharacterName>
@@ -92,6 +97,9 @@ export default function SelectingCharacterByPlayerTwo() {
           <CategorySelector category={category} />
           <CharacterSelector characters={characters} selectedCharacter={character} />
         </Zone>
+        <CategoryPaginationZone>
+          <CategoryPagination index={categoryIndex + 1} total={categories.length} />
+        </CategoryPaginationZone>
         <CharacterName>
           <RandomCharacterNameFromCategory category={category} />
         </CharacterName>
@@ -107,6 +115,9 @@ export default function SelectingCharacterByPlayerTwo() {
         <CategorySelector category={category} />
         <CharacterSelector characters={characters} selectedCharacter={character} />
       </Zone>
+      <CategoryPaginationZone>
+        <CategoryPagination index={categoryIndex + 1} total={categories.length} />
+      </CategoryPaginationZone>
       <StandAnimation character={character} />
       <CharacterName>{characterName}</CharacterName>
       <Type>Player 2</Type>

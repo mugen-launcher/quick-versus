@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.31.0] - 2020-04-12
+### Added
+- Display category pagination
+
 ## [0.30.2] - 2020-04-11
 ### Added
 - Add a file name pattern "images/anim_*" for stand animations
@@ -50,7 +54,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Random character includes styles
 - Random character select the first color automatically
 
-[Unreleased]: https://github.com/mugen-launcher/quick-versus/compare/0.30.2...HEAD
+[Unreleased]: https://github.com/mugen-launcher/quick-versus/compare/0.31.0...HEAD
+[0.31.0]: https://github.com/mugen-launcher/quick-versus/compare/0.30.2...0.31.0
 [0.30.2]: https://github.com/mugen-launcher/quick-versus/compare/0.30.1...0.30.2
 [0.30.1]: https://github.com/mugen-launcher/quick-versus/compare/0.30.0...0.30.1
 [0.30.0]: https://github.com/mugen-launcher/quick-versus/compare/0.29.1...0.30.0
