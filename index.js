@@ -38,7 +38,7 @@ function createWindow() {
     const yamlFilePath = path.resolve(currentDirectory, "quick-versus.yml");
     let config;
     if (fs.existsSync(jsonFilePath)) {
-      config = require(configurationFilePath);
+      config = require(jsonFilePath);
     } else if (fs.existsSync(yamlFilePath)) {
       config = configYaml(yamlFilePath);
     }
