@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.32.1] - 2020-04-15
+### Fixed
+- Window configuration
+
 ## [0.32.0] - 2020-04-12
 ### Added
 - Support YAML configuration file
@@ -58,7 +62,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Random character includes styles
 - Random character select the first color automatically
 
-[Unreleased]: https://github.com/mugen-launcher/quick-versus/compare/0.32.0...HEAD
+[Unreleased]: https://github.com/mugen-launcher/quick-versus/compare/0.32.1...HEAD
+[0.32.1]: https://github.com/mugen-launcher/quick-versus/compare/0.32.0...0.32.1
 [0.32.0]: https://github.com/mugen-launcher/quick-versus/compare/0.31.0...0.32.0
 [0.31.0]: https://github.com/mugen-launcher/quick-versus/compare/0.30.2...0.31.0
 [0.30.2]: https://github.com/mugen-launcher/quick-versus/compare/0.30.1...0.30.2
