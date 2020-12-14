@@ -29,7 +29,7 @@ jobs:
           git config --global user.name "$GITHUB_ACTOR"
           npm version patch
       - name: Set up Node.js for NPM
-        uses: actions/setup-node@v1.2.0
+        uses: actions/setup-node@v1.4.4
         with:
           registry-url: 'https://registry.npmjs.org'
           node-version: '12.x'
