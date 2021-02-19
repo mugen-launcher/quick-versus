@@ -238,5 +238,5 @@ With Auto-Reload, run these in different consoles:
 npm run dev
 ```
 ```bash
-npm start
+npm start:auto-<platform>
 ```
