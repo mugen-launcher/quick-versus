@@ -4,8 +4,10 @@ const fs = require("fs");
 const configYaml = require("config-yaml");
 const isDev = require("electron-is-dev");
 
-// Enable auto-reload in development
-try { require('electron-reloader')(module) } catch {}
+// Enable auto-reload in development if set
+try {
+  if (process.env.AUTO_RELOAD) require('electron-reloader')(module);
+} catch {}
 
 function getCurrentDirectory() {
   let currentDirectory;

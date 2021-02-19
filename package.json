@@ -11,6 +11,8 @@
     ],
     "scripts": {
         "start": "webpack --mode development && electron .",
+        "start:auto-mac": "export AUTO_RELOAD=true && webpack --mode development && electron .",
+        "start:auto-windows": "set AUTO_RELOAD=true&& webpack --mode development && electron .",
         "pack-mac": "npm run build && electron-builder --mac --x64",
         "pack-windows": "npm run build && electron-builder --win --x64",
         "pack-windows:dev": "npm run build && electron-builder --dir --win --x64",
