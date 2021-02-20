@@ -233,10 +233,7 @@ Launch in MUGEN environment with:
 npm start /path/to/mugen/directory
 ```
 
-With Auto-Reload, run these in different consoles:
-```bash
-npm run dev
-```
+With Auto-Reload:
 ```bash
 npm run start:auto-<platform>
 ```
