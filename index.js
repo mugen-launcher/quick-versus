@@ -6,7 +6,7 @@ const isDev = require("electron-is-dev");
 
 // Enable auto-reload in development if set
 try {
-  if (process.env.AUTO_RELOAD) require('electron-reloader')(module);
+  if (isDev && process.env.AUTO_RELOAD) require('electron-reloader')(module);
 } catch {}
 
 function getCurrentDirectory() {
