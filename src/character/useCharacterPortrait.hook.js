@@ -1,8 +1,4 @@
-import { remote } from "electron";
 import useEnvironment from "../configuration/useEnvironment.hook";
-
-const fs = remote.require("fs");
-const path = remote.require("path");
 
 export default function useCharacterPortrait(character) {
   const environment = useEnvironment();
@@ -15,17 +11,17 @@ export default function useCharacterPortrait(character) {
     return null;
   }
 
-  const definitionPath = path.resolve(environment.currentDirectory, "chars", character.definition);
-  const directoryPath = path.dirname(definitionPath);
-  const imagePathsByPriority = [path.resolve(directoryPath, "portrait.png")];
+  const definitionPath = mainAPI.resolve(environment.currentDirectory, "chars", character.definition);
+  const directoryPath = mainAPI.dirname(definitionPath);
+  const imagePathsByPriority = [mainAPI.resolve(directoryPath, "portrait.png")];
   if (character.portrait) {
-    imagePathsByPriority.push(path.resolve(directoryPath, character.portrait));
-    imagePathsByPriority.push(path.resolve(environment.currentDirectory, character.portrait));
-    imagePathsByPriority.push(path.resolve(environment.currentDirectory, "chars", character.portrait));
+    imagePathsByPriority.push(mainAPI.resolve(directoryPath, character.portrait));
+    imagePathsByPriority.push(mainAPI.resolve(environment.currentDirectory, character.portrait));
+    imagePathsByPriority.push(mainAPI.resolve(environment.currentDirectory, "chars", character.portrait));
   }
 
   for (const imagePath of imagePathsByPriority) {
-    if (fs.existsSync(imagePath)) {
+    if (mainAPI.existsSync(imagePath)) {
       return imagePath;
     }
   }

@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { remote } from "electron";
 import useEnvironment from "../configuration/useEnvironment.hook";
-
-const fs = remote.require("fs");
-const path = remote.require("path");
 
 const Image = styled.img`
   position: absolute;
@@ -22,8 +18,8 @@ export default function Preview({ stage }) {
   if (!stage || !stage.image) {
     return null;
   }
-  const imagePath = path.resolve(environment.currentDirectory, "stages", stage.image);
-  if (!fs.existsSync(imagePath)) {
+  const imagePath = mainAPI.resolve(environment.currentDirectory, "stages", stage.image);
+  if (!mainAPI.existsSync(imagePath)) {
     return null;
   }
 

@@ -18,11 +18,14 @@ module.exports = (env, { mode = "development" }) => {
       extensions: [".js", ".jsx"]
     },
     plugins: [
-      new CopyPlugin([
-        { from: "src/index.html", to: "index.html" },
-        { from: "src/assets/icon.png", to: "icon.png" },
-        { from: "src/assets/background.jpg", to: "assets/background.jpg" }
-      ]),
+      new CopyPlugin({
+        patterns:
+          [
+            { from: "src/index.html", to: "index.html" },
+            { from: "src/assets/icon.png", to: "icon.png" },
+            { from: "src/assets/background.jpg", to: "assets/background.jpg" }
+          ]
+      }),
       new MiniCssExtractPlugin({
         filename: "style.css"
       })

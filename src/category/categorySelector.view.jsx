@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { remote } from "electron";
 import useEnvironment from "../configuration/useEnvironment.hook";
-
-const fs = remote.require("fs");
-const path = remote.require("path");
 
 const Selector = styled.div`
   z-index: 2;
@@ -28,8 +24,8 @@ export default function CategorySelector({ category }) {
 
   let imagePath;
   if (category && category.image) {
-    const categoryImagePath = path.resolve(environment.currentDirectory, "chars", category.image);
-    if (fs.existsSync(categoryImagePath)) {
+    const categoryImagePath = mainAPI.resolve(environment.currentDirectory, "chars", category.image);
+    if (mainAPI.existsSync(categoryImagePath)) {
       imagePath = categoryImagePath;
     }
   }

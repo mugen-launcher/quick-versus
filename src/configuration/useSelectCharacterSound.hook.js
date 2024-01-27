@@ -1,10 +1,7 @@
-import { remote } from "electron";
 import useConfiguration from "./useConfiguration.hook";
 import useEnvironment from "./useEnvironment.hook";
 import useSoundVolume from "./useSoundVolume.hook";
 import noSound from "./noSound";
-
-const path = remote.require("path");
 
 let cache;
 
@@ -25,7 +22,7 @@ export default function useSelectCharacterSound() {
     return noSound;
   }
 
-  const filePath = path.resolve(environment.currentDirectory, configuration.sound.selectCharacter);
+  const filePath = mainAPI.resolve(environment.currentDirectory, configuration.sound.selectCharacter);
   const audio = new Audio(filePath);
   audio.volume = volume / 100;
   const sound = {

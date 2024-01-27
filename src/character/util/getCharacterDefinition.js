@@ -1,12 +1,8 @@
 import ini from "ini";
-import { remote } from "electron";
 
 const cache = new WeakMap();
 
 export default function useCharacterDefinition(character, currentDirectory) {
-  const fs = remote.require("fs");
-  const path = remote.require("path");
-
   if (cache.has(character)) {
     return cache.get(character);
   }
@@ -23,12 +19,12 @@ export default function useCharacterDefinition(character, currentDirectory) {
     return null;
   }
 
-  const definitionPath = path.resolve(currentDirectory, "chars", character.definition);
-  if (!fs.existsSync(definitionPath)) {
+  const definitionPath = mainAPI.resolve(currentDirectory, "chars", character.definition);
+  if (!mainAPI.existsSync(definitionPath)) {
     return null;
   }
 
-  const definition = ini.parse(fs.readFileSync(definitionPath, "utf-8"));
+  const definition = ini.parse(mainAPI.readFileSync(definitionPath));
   cache.set(character, definition);
   return definition;
 }

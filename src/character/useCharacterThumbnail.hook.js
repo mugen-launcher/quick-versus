@@ -1,9 +1,5 @@
-import { remote } from "electron";
 import useEnvironment from "../configuration/useEnvironment.hook";
 import randomCharacter from "../assets/random-character.png";
-
-const fs = remote.require("fs");
-const path = remote.require("path");
 
 const cache = new WeakMap();
 
@@ -22,18 +18,18 @@ export default function useCharacterThumbnail(character) {
     return randomCharacter;
   }
 
-  const definitionPath = path.resolve(environment.currentDirectory, "chars", character.definition);
-  const directoryPath = path.dirname(definitionPath);
-  const imagePathsByPriority = [path.resolve(directoryPath, "thumbnail.png")];
+  const definitionPath = mainAPI.resolve(environment.currentDirectory, "chars", character.definition);
+  const directoryPath = mainAPI.dirname(definitionPath);
+  const imagePathsByPriority = [mainAPI.resolve(directoryPath, "thumbnail.png")];
   if (character.thumbnail) {
-    imagePathsByPriority.push(path.resolve(directoryPath, character.thumbnail));
-    imagePathsByPriority.push(path.resolve(environment.currentDirectory, character.thumbnail));
-    imagePathsByPriority.push(path.resolve(environment.currentDirectory, "chars", character.thumbnail));
+    imagePathsByPriority.push(mainAPI.resolve(directoryPath, character.thumbnail));
+    imagePathsByPriority.push(mainAPI.resolve(environment.currentDirectory, character.thumbnail));
+    imagePathsByPriority.push(mainAPI.resolve(environment.currentDirectory, "chars", character.thumbnail));
   }
 
   let foundImagePath;
   for (const imagePath of imagePathsByPriority) {
-    if (fs.existsSync(imagePath)) {
+    if (mainAPI.existsSync(imagePath)) {
       foundImagePath = imagePath;
       break;
     }

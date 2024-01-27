@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { remote } from "electron";
 import useNavigation from "../navigation/useData.hook";
 import useNavigationDispatch from "../navigation/useDispatch.hook";
 import endFight from "../navigation/action/endFight.action";
@@ -10,7 +9,7 @@ import useEnvironment from "../configuration/useEnvironment.hook";
 import useConfiguration from "../configuration/useConfiguration.hook";
 import useBackgroundSound from "../configuration/useBackgroundSound.hook";
 
-const execFile = remote.require("child_process").execFile;
+const execFile = (filePath, args, options, callback) => ipcRenderer.invoke("execFile", filePath, args, options, callback);
 
 const BlackScreen = styled.div`
   position: absolute;
@@ -59,8 +58,8 @@ export default function Fight() {
     }
 
     backgroundSound.pause();
-    remote.getCurrentWindow().minimize();
-    execFile(
+    mainAPI.minimize();
+    mainAPI.execFile(
       environment.mugenPath,
       options,
       {
@@ -69,7 +68,7 @@ export default function Fight() {
       () => {
         dispatch(endFight());
         backgroundSound.play();
-        remote.getCurrentWindow().restore();
+        mainAPI.restore();
       }
     );
     console.log(environment.mugenPath, options);

@@ -1,11 +1,7 @@
 import ini from "ini";
-import { remote } from "electron";
 import useEnvironment from "../configuration/useEnvironment.hook";
 import useCharacterDefinition from "./useCharacterDefinition.hook";
 import getObjectPropertyValueCaseInsensitive from "../util/getObjectPropertyValueCaseInsensitive";
-
-const fs = remote.require("fs");
-const path = remote.require("path");
 
 const cache = new WeakMap();
 
@@ -20,8 +16,8 @@ export default function useCharacterSizeScale(character) {
     return { x: 1, y: 1 };
   }
 
-  const definitionPath = path.resolve(environment.currentDirectory, "chars", character.definition);
-  const directoryPath = path.dirname(definitionPath);
+  const definitionPath = mainAPI.resolve(environment.currentDirectory, "chars", character.definition);
+  const directoryPath = mainAPI.dirname(definitionPath);
 
   const definitionFiles = getObjectPropertyValueCaseInsensitive(definition, "files");
   if (!definitionFiles) {
@@ -34,10 +30,10 @@ export default function useCharacterSizeScale(character) {
   }
   let constantsFilename = ini.unsafe(cns);
   constantsFilename = constantsFilename.replace(/\\/g, "/");
-  const constantsPath = path.resolve(directoryPath, constantsFilename);
+  const constantsPath = mainAPI.resolve(directoryPath, constantsFilename);
 
   try {
-    const fileContent = fs.readFileSync(constantsPath, "utf-8");
+    const fileContent = mainAPI.readFileSync(constantsPath);
     const constants = ini.parse(fileContent);
 
     let x = 1;

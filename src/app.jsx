@@ -1,8 +1,5 @@
 import React from "react";
-import { remote } from "electron";
 import styled from "styled-components";
-import isDev from "electron-is-dev";
-import configYaml from "config-yaml";
 import ConfigurationContext from "./configuration/configuration.context";
 import EnvironmentContext from "./configuration/environment.context";
 import NavigationProvider from "./navigation/navigation.provider";
@@ -14,13 +11,10 @@ import ErrorBoundary from "./error/errorBoundary.view";
 import FatalError from "./error/fatalError.view";
 import Requirement from "./error/requirement.view";
 import versusImagePath from "./assets/versus.png";
-import getCurrentDirectory from "./getCurrentDirectory";
 import HelpBar from "./help/bar.presenter";
 
-const app = remote.app;
-const fs = remote.require("fs");
-const path = remote.require("path");
-const currentDirectory = getCurrentDirectory();
+const isDev = true;
+const currentDirectory = mainAPI.getCurrentDirectory();
 
 const Wrapper = styled.main`
   flex: 1;
@@ -59,9 +53,9 @@ export default function App() {
     );
   }
 
-  const jsonFilePath = path.resolve(currentDirectory, "quick-versus.json");
-  const yamlFilePath = path.resolve(currentDirectory, "quick-versus.yml");
-  if (!fs.existsSync(jsonFilePath) && !fs.existsSync(yamlFilePath)) {
+  const jsonFilePath = mainAPI.resolve(currentDirectory, "quick-versus.json");
+  const yamlFilePath = mainAPI.resolve(currentDirectory, "quick-versus.yml");
+  if (!mainAPI.existsSync(jsonFilePath) && !mainAPI.existsSync(yamlFilePath)) {
     return (
       <Requirement>
         <p>
@@ -72,8 +66,9 @@ export default function App() {
     );
   }
 
-  const mugenPath = path.resolve(currentDirectory, "mugen.exe");
-  if (!fs.existsSync(mugenPath)) {
+
+  const mugenPath = mainAPI.resolve(currentDirectory, "mugen.exe");
+  if (!mainAPI.existsSync(mugenPath)) {
     return (
       <Requirement>
         <p>
@@ -86,8 +81,8 @@ export default function App() {
 
   let configuration;
   let configurationFilePath;
-  if (fs.existsSync(jsonFilePath)) {
-    const jsonContent = fs.readFileSync(jsonFilePath);
+  if (mainAPI.existsSync(jsonFilePath)) {
+    const jsonContent = mainAPI.readFileSync(jsonFilePath);
     try {
       configuration = JSON.parse(jsonContent);
       configurationFilePath = jsonFilePath;
@@ -100,9 +95,9 @@ export default function App() {
         </FatalError>
       );
     }
-  } else if (fs.existsSync(yamlFilePath)) {
+  } else if (mainAPI.existsSync(yamlFilePath)) {
     try {
-      configuration = configYaml(yamlFilePath);
+      configuration = mainAPI.configYaml(yamlFilePath);
       configurationFilePath = yamlFilePath;
     } catch (error) {
       return (
@@ -116,7 +111,6 @@ export default function App() {
   }
 
   const environment = {
-    app,
     currentDirectory,
     mugenPath,
     configurationFilePath,
@@ -125,8 +119,8 @@ export default function App() {
 
   let customBackground;
   if (configuration.background) {
-    const imagePath = path.resolve(environment.currentDirectory, configuration.background);
-    if (fs.existsSync(imagePath)) {
+    const imagePath = mainAPI.resolve(environment.currentDirectory, configuration.background);
+    if (mainAPI.existsSync(imagePath)) {
       customBackground = <CustomBackground src={imagePath} />;
     }
   }
@@ -137,8 +131,8 @@ export default function App() {
       volume = configuration.sound.volume;
     }
 
-    const soundPath = path.resolve(environment.currentDirectory, configuration.sound.background);
-    if (fs.existsSync(soundPath)) {
+    const soundPath = mainAPI.resolve(environment.currentDirectory, configuration.sound.background);
+    if (mainAPI.existsSync(soundPath)) {
       const audio = new Audio(soundPath);
       audio.volume = volume / 100;
       audio.loop = true;

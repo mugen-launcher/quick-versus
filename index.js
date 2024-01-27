@@ -1,8 +1,9 @@
-const { app, BrowserWindow } = require("electron");
+const { execFile } = require("node:child_process");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 const fs = require("fs");
 const configYaml = require("config-yaml");
-const isDev = require("electron-is-dev");
+const isDev = true;
 
 // Enable auto-reload in development if set
 try {
@@ -77,21 +78,72 @@ function createWindow() {
     height,
     fullscreen,
     webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
       enableRemoteModule: true
     },
     webSecurity: false
   });
   window.loadFile("build/index.html");
-  // window.webContents.openDevTools();
+  //window.webContents.openDevTools();
 }
 
 app.on("window-all-closed", () => {
   app.quit();
 });
 
+
+async function executeFile (event, filePath, args, options, callback) {
+  execFile(filePath, args, options, callback);
+}
+
+function getConfigYaml(event, filePath) {
+  event.returnValue = configYaml(filePath);
+}
+
+function existsSync(event, filePath) {
+  event.returnValue = fs.existsSync(filePath);
+}
+
+function readFileSync(event, filePath) {
+  event.returnValue = fs.readFileSync(filePath, "utf-8");
+}
+
+function resolve(event, args) {
+  event.returnValue = path.resolve.apply(this, args);
+}
+
+function dirname(event, filePath) {
+  event.returnValue = path.dirname(filePath);
+}
+
+async function minimize() {
+  app.getCurrentWindow().minimize();
+}
+
+async function minimize() {
+  app.getCurrentWindow().minimize();
+}
+
+async function restore() {
+  app.getCurrentWindow().restore();
+}
+
+function getCurrentDirectoryExported(event) {
+  event.returnValue = getCurrentDirectory();
+}
+
 async function start() {
   await app.whenReady();
+  ipcMain.on("execFile", executeFile);
+  ipcMain.on("existsSync", existsSync);
+  ipcMain.on("readFileSync", readFileSync);
+  ipcMain.on("resolve", resolve);
+  ipcMain.on("dirname", dirname);
+  ipcMain.on("configYaml", getConfigYaml);
+  ipcMain.on("getCurrentDirectory", getCurrentDirectoryExported);
+  ipcMain.handle("minimize", minimize);
+  ipcMain.handle("restore", restore);
   createWindow();
 }
 start();
