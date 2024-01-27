@@ -1,7 +1,7 @@
 const { contextBridge, ipcRenderer } = require("electron/renderer");
 
 contextBridge.exposeInMainWorld("mainAPI", {
-  execFile: (filePath, args, options, callback) => ipcRenderer.invoke("execFile", filePath, args, options, callback),
+  execFile: async (filePath, args, options) => ipcRenderer.send("execFile", filePath, args, options),
   existsSync: (filePath) => ipcRenderer.sendSync("existsSync", filePath),
   readFileSync: (filePath) => ipcRenderer.sendSync("readFileSync", filePath),
   resolve: (...args) => ipcRenderer.sendSync("resolve", args),

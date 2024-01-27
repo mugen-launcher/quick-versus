@@ -64,13 +64,12 @@ export default function Fight() {
       options,
       {
         cwd: environment.currentDirectory
-      },
-      () => {
-        dispatch(endFight());
-        backgroundSound.play();
-        mainAPI.restore();
       }
-    );
+    ).then(() => {
+      dispatch(endFight());
+      backgroundSound.play();
+      mainAPI.restore();
+    });
     console.log(environment.mugenPath, options);
 
     return <BlackScreen>Fighting ...</BlackScreen>;

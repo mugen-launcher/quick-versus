@@ -1,6 +1,16 @@
 {
   "frame": true,
   "characterColumns": 3,
+  "sound": {
+    "volume": 30,
+    "background": "sound/title.mp3",
+    "selectCharacter": "sound/confirm.wav",
+    "selectStyle": "sound/confirm.wav",
+    "selectColor": "sound/confirm.wav",
+    "selectAILevel": "sound/confirm.wav",
+    "moveCursor": "sound/move-cursor.wav",
+    "cancel": "sound/cancel.wav"
+},
   "categories": [
     {
       "name": "Capcom",

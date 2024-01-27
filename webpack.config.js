@@ -1,6 +1,5 @@
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = (env, { mode = "development" }) => {
   process.env.NODE_ENV = mode;
@@ -22,19 +21,17 @@ module.exports = (env, { mode = "development" }) => {
         patterns:
           [
             { from: "src/index.html", to: "index.html" },
+            { from: "src/style.css", to: "style.css" },
             { from: "src/assets/icon.png", to: "icon.png" },
             { from: "src/assets/background.jpg", to: "assets/background.jpg" }
           ]
-      }),
-      new MiniCssExtractPlugin({
-        filename: "style.css"
       })
     ],
     module: {
       rules: [
         {
           test: /\.css$/,
-          use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
+          use: ["css-loader"]
         },
         {
           test: /\.(jpg|png|wav)$/,

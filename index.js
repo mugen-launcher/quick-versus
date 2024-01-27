@@ -86,6 +86,8 @@ function createWindow() {
   });
   window.loadFile("build/index.html");
   //window.webContents.openDevTools();
+
+  return window;
 }
 
 app.on("window-all-closed", () => {
@@ -93,8 +95,10 @@ app.on("window-all-closed", () => {
 });
 
 
-async function executeFile (event, filePath, args, options, callback) {
-  execFile(filePath, args, options, callback);
+async function executeFile (event, filePath, args, options) {
+  execFile(filePath, args, options, () => {
+    event.returnValue = true;
+  });
 }
 
 function getConfigYaml(event, filePath) {
@@ -117,18 +121,6 @@ function dirname(event, filePath) {
   event.returnValue = path.dirname(filePath);
 }
 
-async function minimize() {
-  app.getCurrentWindow().minimize();
-}
-
-async function minimize() {
-  app.getCurrentWindow().minimize();
-}
-
-async function restore() {
-  app.getCurrentWindow().restore();
-}
-
 function getCurrentDirectoryExported(event) {
   event.returnValue = getCurrentDirectory();
 }
@@ -142,8 +134,8 @@ async function start() {
   ipcMain.on("dirname", dirname);
   ipcMain.on("configYaml", getConfigYaml);
   ipcMain.on("getCurrentDirectory", getCurrentDirectoryExported);
-  ipcMain.handle("minimize", minimize);
-  ipcMain.handle("restore", restore);
-  createWindow();
+  const window = createWindow();
+  ipcMain.handle("minimize", () => window.minimize());
+  ipcMain.handle("restore", () => window.restore());
 }
 start();
