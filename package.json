@@ -1,117 +1,118 @@
 {
-    "name": "mugen-quick-versus-launcher",
-    "author": "neolao",
-    "license": "MIT",
-    "version": "0.32.9",
-    "description": "Mugen launcher for Quick Versus",
-    "keywords": [
-        "mugen",
-        "electron",
-        "launcher"
+  "name": "mugen-quick-versus-launcher",
+  "author": "neolao",
+  "license": "MIT",
+  "version": "0.32.9",
+  "description": "Mugen launcher for Quick Versus",
+  "keywords": [
+    "mugen",
+    "electron",
+    "launcher"
+  ],
+  "scripts": {
+    "start": "webpack --mode development && electron .",
+    "start:auto-mac": "concurrently --kill-others \"npm run dev\" \"export AUTO_RELOAD=true && npm start\"",
+    "start:auto-windows": "concurrently --kill-others \"npm run dev\" \"set AUTO_RELOAD=true&& npm start\"",
+    "pack-linux": "npm run build && electron-builder --linux --x64",
+    "pack-mac": "npm run build && electron-builder --mac --x64",
+    "pack-windows": "npm run build && electron-builder --win --x64",
+    "pack-windows:dev": "npm run build && electron-builder --dir --win --x64",
+    "postinstall": "electron-builder install-app-deps",
+    "lint": "eslint src",
+    "lint:watch": "esw --watch --cache --clear .",
+    "prettier": "prettier --write \"**/*.{js,html,css,json}\"",
+    "dev": "webpack --env dev-bundle --watch",
+    "build": "webpack --mode production",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mugen-launcher/quick-versus.git"
+  },
+  "engines": {
+    "node": ">=13"
+  },
+  "dependencies": {
+    "config-yaml": "^1.1.6",
+    "electron-is-dev": "^1.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "@babel/preset-react": "^7.23.3",
+    "@svgr/webpack": "^5.5.0",
+    "@testing-library/react-hooks": "^3.7.0",
+    "babel-jest": "^25.5.1",
+    "babel-loader": "^8.3.0",
+    "concurrently": "^5.3.0",
+    "copy-webpack-plugin": "^5.1.2",
+    "css-loader": "^3.6.0",
+    "electron": "^9.4.4",
+    "electron-builder": "^22.14.13",
+    "electron-reloader": "^1.2.3",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "eslint-plugin-solfegejs": "^1.0.17",
+    "eslint-watch": "^6.0.1",
+    "file-loader": "^5.1.0",
+    "ini": "^1.3.8",
+    "jest": "^25.5.4",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-nested": "^4.2.3",
+    "prettier": "^1.19.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-test-renderer": "^16.14.0",
+    "styled-components": "^5.3.11",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.47.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "browser": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
+    "extends": [
+      "plugin:node/recommended",
+      "plugin:prettier/recommended",
+      "plugin:solfegejs/recommended"
     ],
-    "scripts": {
-        "start": "webpack --mode development && electron .",
-        "start:auto-mac": "concurrently --kill-others \"npm run dev\" \"export AUTO_RELOAD=true && npm start\"",
-        "start:auto-windows": "concurrently --kill-others \"npm run dev\" \"set AUTO_RELOAD=true&& npm start\"",
-        "pack-mac": "npm run build && electron-builder --mac --x64",
-        "pack-windows": "npm run build && electron-builder --win --x64",
-        "pack-windows:dev": "npm run build && electron-builder --dir --win --x64",
-        "postinstall": "electron-builder install-app-deps",
-        "lint": "eslint src",
-        "lint:watch": "esw --watch --cache --clear .",
-        "prettier": "prettier --write \"**/*.{js,html,css,json}\"",
-        "dev": "webpack --env dev-bundle --watch",
-        "build": "webpack --mode production",
-        "test": "jest",
-        "test:watch": "jest --watch"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/mugen-launcher/quick-versus.git"
-    },
-    "engines": {
-        "node": ">=13"
-    },
-    "dependencies": {
-        "config-yaml": "^1.1.4",
-        "electron-is-dev": "^1.2.0"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.9.0",
-        "@babel/preset-env": "^7.9.5",
-        "@babel/preset-react": "^7.9.4",
-        "@svgr/webpack": "^5.3.1",
-        "@testing-library/react-hooks": "^3.2.1",
-        "babel-jest": "^25.3.0",
-        "babel-loader": "^8.1.0",
-        "concurrently": "^5.3.0",
-        "copy-webpack-plugin": "^5.1.1",
-        "css-loader": "^3.5.2",
-        "electron": "^9.4.0",
-        "electron-builder": "^22.4.1",
-        "electron-reloader": "^1.2.0",
-        "eslint": "^6.8.0",
-        "eslint-plugin-react-hooks": "^2.5.1",
-        "eslint-plugin-solfegejs": "^1.0.17",
-        "eslint-watch": "^6.0.1",
-        "file-loader": "^5.1.0",
-        "ini": "^1.3.6",
-        "jest": "^25.3.0",
-        "mini-css-extract-plugin": "^0.9.0",
-        "postcss-import": "^12.0.1",
-        "postcss-loader": "^3.0.0",
-        "postcss-nested": "^4.2.1",
-        "prettier": "^1.19.1",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1",
-        "react-test-renderer": "^16.13.1",
-        "styled-components": "^5.1.0",
-        "url-loader": "^3.0.0",
-        "webpack": "^4.42.1",
-        "webpack-cli": "^3.3.11"
-    },
-    "eslintConfig": {
-        "env": {
-            "es6": true,
-            "browser": true
-        },
-        "parserOptions": {
-            "ecmaVersion": 2020
-        },
-        "extends": [
-            "plugin:node/recommended",
-            "plugin:prettier/recommended",
-            "plugin:solfegejs/recommended"
-        ],
-        "plugins": [
-            "react-hooks"
-        ],
-        "rules": {
-            "node/no-unsupported-features/es-syntax": "off",
-            "node/no-unpublished-require": "off",
-            "react/prop-types": "off",
-            "react-hooks/rules-of-hooks": "error",
-            "react-hooks/exhaustive-deps": "warn",
-            "import/no-dynamic-require": "off",
-            "global-require": "off",
-            "no-prototype-builtins": "off",
-            "prefer-destructuring": "off"
-        }
-    },
-    "main": "index.js",
-    "build": {
-        "appId": "com.neolao.mugen.quick-versus-launcher",
-        "productName": "quick-versus",
-        "files": [
-            "index.js",
-            "index.html",
-            "build"
-        ],
-        "mac": {
-            "category": "public.app-category.games"
-        },
-        "win": {
-            "target": "portable"
-        }
+    "plugins": [
+      "react-hooks"
+    ],
+    "rules": {
+      "node/no-unsupported-features/es-syntax": "off",
+      "node/no-unpublished-require": "off",
+      "react/prop-types": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "import/no-dynamic-require": "off",
+      "global-require": "off",
+      "no-prototype-builtins": "off",
+      "prefer-destructuring": "off"
     }
+  },
+  "main": "index.js",
+  "build": {
+    "appId": "com.neolao.mugen.quick-versus-launcher",
+    "productName": "quick-versus",
+    "files": [
+      "index.js",
+      "index.html",
+      "build"
+    ],
+    "mac": {
+      "category": "public.app-category.games"
+    },
+    "win": {
+      "target": "portable"
+    }
+  }
 }
