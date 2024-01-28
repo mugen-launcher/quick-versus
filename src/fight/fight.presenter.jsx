@@ -60,7 +60,7 @@ export default function Fight() {
     backgroundSound.pause();
     mainAPI.minimize();
     mainAPI.execFile(
-      environment.mugenPath,
+      environment.ikemenPath,
       options,
       {
         cwd: environment.currentDirectory
@@ -70,7 +70,7 @@ export default function Fight() {
       backgroundSound.play();
       mainAPI.restore();
     });
-    console.log(environment.mugenPath, options);
+    console.log(environment.ikemenPath, options);
 
     return <BlackScreen>Fighting ...</BlackScreen>;
   }

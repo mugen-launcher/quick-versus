@@ -13,9 +13,6 @@ import Requirement from "./error/requirement.view";
 import versusImagePath from "./assets/versus.png";
 import HelpBar from "./help/bar.presenter";
 
-const isDev = true;
-const currentDirectory = mainAPI.getCurrentDirectory();
-
 const Wrapper = styled.main`
   flex: 1;
   height: 100%;
@@ -45,6 +42,7 @@ const Versus = styled.img`
 `;
 
 export default function App() {
+  const currentDirectory = mainAPI.getCurrentDirectory();
   if (!currentDirectory) {
     return (
       <Requirement>
@@ -61,19 +59,6 @@ export default function App() {
         <p>
           Configuration file is missing:
           {jsonFilePath}
-        </p>
-      </Requirement>
-    );
-  }
-
-
-  const mugenPath = mainAPI.resolve(currentDirectory, "mugen.exe");
-  if (!mainAPI.existsSync(mugenPath)) {
-    return (
-      <Requirement>
-        <p>
-          Mugen executable file is missing:
-          {mugenPath}
         </p>
       </Requirement>
     );
@@ -110,16 +95,27 @@ export default function App() {
     }
   }
 
+  const ikemenPath = mainAPI.resolve(currentDirectory, configuration.ikemenExecutablePath);
+  if (!mainAPI.existsSync(ikemenPath)) {
+    return (
+      <Requirement>
+        <p>
+          Ikemen executable file is missing:
+          {ikemenPath}
+        </p>
+      </Requirement>
+    );
+  }
+
   const environment = {
     currentDirectory,
-    mugenPath,
-    configurationFilePath,
-    isDev
+    ikemenPath,
+    configurationFilePath
   };
 
   let customBackground;
   if (configuration.background) {
-    const imagePath = mainAPI.resolve(environment.currentDirectory, configuration.background);
+    const imagePath = mainAPI.resolve(currentDirectory, configuration.background);
     if (mainAPI.existsSync(imagePath)) {
       customBackground = <CustomBackground src={imagePath} />;
     }
@@ -131,7 +127,7 @@ export default function App() {
       volume = configuration.sound.volume;
     }
 
-    const soundPath = mainAPI.resolve(environment.currentDirectory, configuration.sound.background);
+    const soundPath = mainAPI.resolve(currentDirectory, configuration.sound.background);
     if (mainAPI.existsSync(soundPath)) {
       const audio = new Audio(soundPath);
       audio.volume = volume / 100;

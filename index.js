@@ -3,7 +3,8 @@ const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 const fs = require("fs");
 const configYaml = require("config-yaml");
-const isDev = true;
+const isDev = process.env.DEV;
+const version = process.env.npm_package_version;
 
 // Enable auto-reload in development if set
 try {
@@ -78,7 +79,7 @@ function createWindow() {
     height,
     fullscreen,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, "preload.js"),
       nodeIntegration: true,
       enableRemoteModule: true
     },
@@ -94,6 +95,9 @@ app.on("window-all-closed", () => {
   app.quit();
 });
 
+function getVersion(event) {
+  event.returnValue = version;
+}
 
 async function executeFile (event, filePath, args, options) {
   execFile(filePath, args, options, () => {
@@ -127,6 +131,7 @@ function getCurrentDirectoryExported(event) {
 
 async function start() {
   await app.whenReady();
+  ipcMain.on("getVersion", getVersion);
   ipcMain.on("execFile", executeFile);
   ipcMain.on("existsSync", existsSync);
   ipcMain.on("readFileSync", readFileSync);

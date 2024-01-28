@@ -235,5 +235,5 @@ npm start /path/to/mugen/directory
 
 With Auto-Reload:
 ```bash
-npm run start:auto-<platform>
+npm run start:autoreload-mac
 ```

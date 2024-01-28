@@ -1,18 +1,18 @@
 {
-  "name": "mugen-quick-versus-launcher",
+  "name": "ikemen-quick-versus-launcher",
   "author": "neolao",
   "license": "MIT",
   "version": "1.0.0",
   "description": "Mugen launcher for Quick Versus",
   "keywords": [
     "mugen",
+    "ikemen",
     "electron",
     "launcher"
   ],
   "scripts": {
     "start": "webpack --mode development && electron .",
-    "start:auto-mac": "concurrently --kill-others \"npm run dev\" \"export AUTO_RELOAD=true && npm start\"",
-    "start:auto-windows": "concurrently --kill-others \"npm run dev\" \"set AUTO_RELOAD=true&& npm start\"",
+    "start:autoreload-mac": "concurrently --kill-others \"npm run dev\" \"DEV=true AUTO_RELOAD=true npm start\"",
     "pack-linux": "npm run build && electron-builder --linux --x64",
     "pack-mac": "npm run build && electron-builder --mac --x64",
     "pack-windows": "npm run build && electron-builder --win --x64",
@@ -58,10 +58,6 @@
     "file-loader": "^6.2.0",
     "ini": "^4.1.1",
     "jest": "^29.7.0",
-    "mini-css-extract-plugin": "^2.7.7",
-    "postcss-import": "^16.0.0",
-    "postcss-loader": "^8.0.0",
-    "postcss-nested": "^6.0.1",
     "prettier": "^3.2.4",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
@@ -105,7 +101,7 @@
     "productName": "quick-versus",
     "files": [
       "index.js",
-      "index.html",
+      "preload.js",
       "build"
     ],
     "mac": {
