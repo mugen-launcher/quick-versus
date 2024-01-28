@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import useInput from "../../input/useInputPlayerOne.hook";
+import { A, B } from "../../input/event";
 import useCategories from "../../configuration/useCategories.hook";
 import useCategoryIndex from "../../category/useCategoryIndex.hook";
 import useCharacterIndex from "../../character/useCharacterIndex.hook";
@@ -62,14 +63,12 @@ export default function SelectingCharacterByPlayerOne() {
       cancelSound.play();
     };
 
-    input.addEventListener("a", onConfirm);
-    input.addEventListener("b", onCancel);
-    input.addEventListener("escape", onCancel);
+    input.addEventListener(A, onConfirm);
+    input.addEventListener(B, onCancel);
 
     return () => {
-      input.removeEventListener("a", onConfirm);
-      input.removeEventListener("b", onCancel);
-      input.removeEventListener("escape", onCancel);
+      input.removeEventListener(A, onConfirm);
+      input.removeEventListener(B, onCancel);
     };
   }, [
     input,

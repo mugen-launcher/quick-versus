@@ -9,5 +9,6 @@ contextBridge.exposeInMainWorld("mainAPI", {
   configYaml: (filePath) => ipcRenderer.sendSync("configYaml", filePath),
   getCurrentDirectory: () => { return ipcRenderer.sendSync("getCurrentDirectory"); },
   minimize: () => ipcRenderer.invoke("minimize"),
-  restore: () => ipcRenderer.invoke("restore")
+  restore: () => ipcRenderer.invoke("restore"),
+  quit: () => ipcRenderer.invoke("quit")
 });

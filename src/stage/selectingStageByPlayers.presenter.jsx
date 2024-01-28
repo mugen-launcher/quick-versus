@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import useStages from "../configuration/useStages.hook";
 import useInputPlayerOne from "../input/useInputPlayerOne.hook";
 import useInputPlayerTwo from "../input/useInputPlayerTwo.hook";
+import { A, LEFT, RIGHT } from "../input/event";
 import useStageName from "./useStageName.hook";
 import useNavigationDispatch from "../navigation/useDispatch.hook";
 import selectStage from "../navigation/action/selectStage.action";
@@ -40,20 +41,20 @@ export default function SelectingStageByPlayers() {
       }
     };
 
-    inputPlayerOne.addEventListener("left", next);
-    inputPlayerOne.addEventListener("right", previous);
-    inputPlayerOne.addEventListener("a", confirm);
-    inputPlayerTwo.addEventListener("left", next);
-    inputPlayerTwo.addEventListener("right", previous);
-    inputPlayerTwo.addEventListener("a", confirm);
+    inputPlayerOne.addEventListener(LEFT, next);
+    inputPlayerOne.addEventListener(RIGHT, previous);
+    inputPlayerOne.addEventListener(A, confirm);
+    inputPlayerTwo.addEventListener(LEFT, next);
+    inputPlayerTwo.addEventListener(RIGHT, previous);
+    inputPlayerTwo.addEventListener(A, confirm);
 
     return () => {
-      inputPlayerOne.removeEventListener("left", next);
-      inputPlayerOne.removeEventListener("right", previous);
-      inputPlayerOne.removeEventListener("a", confirm);
-      inputPlayerTwo.removeEventListener("left", next);
-      inputPlayerTwo.removeEventListener("right", previous);
-      inputPlayerTwo.removeEventListener("a", confirm);
+      inputPlayerOne.removeEventListener(LEFT, next);
+      inputPlayerOne.removeEventListener(RIGHT, previous);
+      inputPlayerOne.removeEventListener(A, confirm);
+      inputPlayerTwo.removeEventListener(LEFT, next);
+      inputPlayerTwo.removeEventListener(RIGHT, previous);
+      inputPlayerTwo.removeEventListener(A, confirm);
     };
   }, [inputPlayerOne, inputPlayerTwo, stage, stages, stageIndex, dispatch]);
 

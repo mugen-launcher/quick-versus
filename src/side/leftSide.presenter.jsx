@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useNavigation from "../navigation/useData.hook";
 import SelectingCharacterByPlayerOne from "./left/selectingCharacterByPlayerOne.presenter";
 import SelectingCharacterStyleByPlayerOne from "./left/selectingCharacterStyleByPlayerOne.presenter";
@@ -13,9 +13,24 @@ import SELECTING_CHARACTER from "../navigation/sideState/selectingCharacter.stat
 import SELECTING_STYLE from "../navigation/sideState/selectingStyle.state";
 import SELECTING_COLOR from "../navigation/sideState/selectingColor.state";
 import SELECTED from "../navigation/sideState/selected.state";
+import useInput from "../input/useInputPlayerOne.hook";
+import { QUIT } from "../input/event";
 
 export default function LeftSide() {
   const { state, leftSideState, characterOne } = useNavigation();
+  const input = useInput();
+
+  useEffect(() => {
+    const onQuit = () => {
+      mainAPI.quit();
+    };
+
+    input.addEventListener(QUIT, onQuit);
+
+    return () => {
+      input.removeEventListener(QUIT, onQuit);
+    };
+  }, [input]);
 
   if (leftSideState === SELECTING_CHARACTER) {
     return <SelectingCharacterByPlayerOne />;

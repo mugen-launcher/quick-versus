@@ -24,6 +24,7 @@ import getSelectableCharactersFromCategory from "../../character/util/getSelecta
 import getRandomCharacter from "../../character/util/getRandomCharacter";
 import RandomCharacterName from "../common/randomCharacterName.presenter";
 import RandomCharacterNameFromCategory from "../common/randomCharacterNameFromCategory.presenter";
+import { A, X } from "../../input/event";
 
 export default function SelectingCharacterByPlayerOne() {
   const navigation = useNavigation();
@@ -59,12 +60,12 @@ export default function SelectingCharacterByPlayerOne() {
       dispatch(switchMode());
     };
 
-    input.addEventListener("a", onConfirm);
-    input.addEventListener("z", onSwitchMode);
+    input.addEventListener(A, onConfirm);
+    input.addEventListener(X, onSwitchMode);
 
     return () => {
-      input.removeEventListener("a", onConfirm);
-      input.removeEventListener("z", onSwitchMode);
+      input.removeEventListener(A, onConfirm);
+      input.removeEventListener(X, onSwitchMode);
     };
   }, [
     input,

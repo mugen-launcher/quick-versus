@@ -142,5 +142,6 @@ async function start() {
   const window = createWindow();
   ipcMain.handle("minimize", () => window.minimize());
   ipcMain.handle("restore", () => window.restore());
+  ipcMain.handle("quit", () => window.close());
 }
 start();

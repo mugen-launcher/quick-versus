@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import useInput from "../../input/useInputPlayerTwo.hook";
+import { A } from "../../input/event";
 import useCategories from "../../configuration/useCategories.hook";
 import useCategoryIndex from "../../category/useCategoryIndex.hook";
 import useCharacterIndex from "../../character/useCharacterIndex.hook";
@@ -55,10 +56,10 @@ export default function SelectingCharacterByPlayerTwo() {
       selectCharacterSound.play();
     };
 
-    input.addEventListener("a", onConfirm);
+    input.addEventListener(A, onConfirm);
 
     return () => {
-      input.removeEventListener("a", onConfirm);
+      input.removeEventListener(A, onConfirm);
     };
   }, [
     input,

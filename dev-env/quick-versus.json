@@ -1,6 +1,7 @@
 {
   "frame": true,
   "characterColumns": 3,
+  "ikemenExecutablePath": "mugen.exe",
   "sound": {
     "volume": 30,
     "background": "sound/title.mp3",
@@ -235,14 +236,13 @@
       "right": "ArrowRight",
       "up": "ArrowUp",
       "down": "ArrowDown",
-      "a": "w",
-      "b": "x",
-      "c": "c",
-      "x": "q",
-      "y": "s",
-      "z": "d",
-      "escape": "Escape",
-      "enter": "Enter"
+      "a": "x",
+      "b": "w",
+      "x": "s",
+      "y": "q",
+      "l1": "d",
+      "r1": "c",
+      "quit": "i"
     },
     "gamepad": {
       "left": "A17",
@@ -251,12 +251,11 @@
       "down": "A20",
       "a": "A0",
       "b": "A1",
-      "c": "A7",
-      "x": "A2",
-      "y": "A3",
-      "z": "A6",
-      "escape": "A8",
-      "enter": "A9"
+      "x": "A7",
+      "y": "A2",
+      "l1": "A3",
+      "r1": "A6",
+      "quit": "A9"
     }
   },
   "playerTwo": {
@@ -266,13 +265,12 @@
       "up": "o",
       "down": "l",
       "a": "g",
-      "b": "h",
-      "c": "j",
+      "b": "f",
       "x": "t",
-      "y": "y",
-      "z": "u",
-      "escape": "i",
-      "enter": "p"
+      "y": "r",
+      "l1": "y",
+      "r1": "h",
+      "quit": "o"
     },
     "gamepad": {
       "left": "B17",
@@ -281,12 +279,11 @@
       "down": "B20",
       "a": "B0",
       "b": "B1",
-      "c": "B7",
-      "x": "B2",
-      "y": "B3",
-      "z": "B6",
-      "escape": "B8",
-      "enter": "B9"
+      "x": "B7",
+      "y": "B2",
+      "l1": "B3",
+      "r1": "B6",
+      "quit": "B9"
     }
   }
 }

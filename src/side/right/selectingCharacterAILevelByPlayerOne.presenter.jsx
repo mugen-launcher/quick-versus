@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import useInput from "../../input/useInputPlayerOne.hook";
+import { A, B } from "../../input/event";
 import useCharacterName from "../../character/useCharacterName.hook";
 import useNavigation from "../../navigation/useData.hook";
 import useNavigationDispatch from "../../navigation/useDispatch.hook";
@@ -36,14 +37,12 @@ export default function SelectingCharacterAILevelByPlayerOne({ character }) {
       selectAILevelSound.play();
     };
 
-    input.addEventListener("a", onConfirm);
-    input.addEventListener("b", onCancel);
-    input.addEventListener("escape", onCancel);
+    input.addEventListener(A, onConfirm);
+    input.addEventListener(B, onCancel);
 
     return () => {
-      input.removeEventListener("a", onConfirm);
-      input.removeEventListener("b", onCancel);
-      input.removeEventListener("escape", onCancel);
+      input.removeEventListener(A, onConfirm);
+      input.removeEventListener(B, onCancel);
     };
   }, [input, characterAILevel, cancelSound, dispatch, selectAILevelSound]);
 

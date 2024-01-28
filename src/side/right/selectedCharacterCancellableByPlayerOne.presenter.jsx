@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import useInput from "../../input/useInputPlayerOne.hook";
+import { B } from "../../input/event";
 import useCharacterName from "../../character/useCharacterName.hook";
 import useNavigationDispatch from "../../navigation/useDispatch.hook";
 import useCancelSound from "../../configuration/useCancelSound.hook";
@@ -23,12 +24,10 @@ export default function SelectedCharacterCancellableByPlayerOne({ character }) {
       cancelSound.play();
     };
 
-    input.addEventListener("b", onCancel);
-    input.addEventListener("escape", onCancel);
+    input.addEventListener(B, onCancel);
 
     return () => {
-      input.removeEventListener("b", onCancel);
-      input.removeEventListener("escape", onCancel);
+      input.removeEventListener(B, onCancel);
     };
   }, [input, cancelSound, dispatch]);
 

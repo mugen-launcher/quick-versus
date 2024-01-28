@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import getCharactersMatrix from "./getCharactersMatrix";
 import useCharacterColumns from "../configuration/useCharacterColumns.hook";
 import useMoveCursorSound from "../configuration/useMoveCursorSound.hook";
+import { DOWN, UP, LEFT, RIGHT } from "../input/event";
 
 export default function useCharacterIndex(characters, input, initialIndex = 0) {
   const moveCursorSound = useMoveCursorSound();
@@ -79,16 +80,16 @@ export default function useCharacterIndex(characters, input, initialIndex = 0) {
       moveCursorSound.play();
     };
 
-    input.addEventListener("left", decreaseColumnIndex);
-    input.addEventListener("right", increaseColumnIndex);
-    input.addEventListener("up", decreaseRowIndex);
-    input.addEventListener("down", increaseRowIndex);
+    input.addEventListener(LEFT, decreaseColumnIndex);
+    input.addEventListener(RIGHT, increaseColumnIndex);
+    input.addEventListener(UP, decreaseRowIndex);
+    input.addEventListener(DOWN, increaseRowIndex);
 
     return () => {
-      input.removeEventListener("left", decreaseColumnIndex);
-      input.removeEventListener("right", increaseColumnIndex);
-      input.removeEventListener("up", decreaseRowIndex);
-      input.removeEventListener("down", increaseRowIndex);
+      input.removeEventListener(LEFT, decreaseColumnIndex);
+      input.removeEventListener(RIGHT, increaseColumnIndex);
+      input.removeEventListener(UP, decreaseRowIndex);
+      input.removeEventListener(DOWN, increaseRowIndex);
     };
   }, [input, characters, columnCount, initialIndex, moveCursorSound]);
 

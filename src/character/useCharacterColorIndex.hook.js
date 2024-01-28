@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import useMoveCursorSound from "../configuration/useMoveCursorSound.hook";
+import { DOWN, UP } from "../input/event";
 
 export default function useCharacterColorIndex(input, total, initialIndex = 1) {
   const moveCursorSound = useMoveCursorSound();
@@ -24,12 +25,12 @@ export default function useCharacterColorIndex(input, total, initialIndex = 1) {
       moveCursorSound.play();
     };
 
-    input.addEventListener("up", decreaseIndex);
-    input.addEventListener("down", increaseIndex);
+    input.addEventListener(UP, decreaseIndex);
+    input.addEventListener(DOWN, increaseIndex);
 
     return () => {
-      input.removeEventListener("up", decreaseIndex);
-      input.removeEventListener("down", increaseIndex);
+      input.removeEventListener(UP, decreaseIndex);
+      input.removeEventListener(DOWN, increaseIndex);
     };
   }, [input, total, currentIndex, moveCursorSound]);
 

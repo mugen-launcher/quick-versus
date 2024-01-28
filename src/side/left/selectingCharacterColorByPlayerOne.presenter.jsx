@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import useInput from "../../input/useInputPlayerOne.hook";
+import { A, B, X } from "../../input/event";
 import useCharacterName from "../../character/useCharacterName.hook";
 import useCharacterColorCount from "../../character/useCharacterColorCount.hook";
 import useCharacterColorIndex from "../../character/useCharacterColorIndex.hook";
@@ -40,16 +41,14 @@ export default function SelectingCharacterColorByPlayerOne({ character }) {
       dispatch(switchMode());
     };
 
-    input.addEventListener("a", onConfirm);
-    input.addEventListener("b", onCancel);
-    input.addEventListener("escape", onCancel);
-    input.addEventListener("z", onSwitchMode);
+    input.addEventListener(A, onConfirm);
+    input.addEventListener(B, onCancel);
+    input.addEventListener(X, onSwitchMode);
 
     return () => {
-      input.removeEventListener("a", onConfirm);
-      input.removeEventListener("b", onCancel);
-      input.removeEventListener("escape", onCancel);
-      input.removeEventListener("z", onSwitchMode);
+      input.removeEventListener(A, onConfirm);
+      input.removeEventListener(B, onCancel);
+      input.removeEventListener(X, onSwitchMode);
     };
   }, [input, characterColorIndex, cancelSound, colorSound, dispatch]);
 
