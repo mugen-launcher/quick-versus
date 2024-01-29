@@ -1,0 +1,76 @@
+[Info]
+name = Quick Versus
+author = neolao
+versiondate = 01,26,2024
+mugenversion = 1.1
+localcoord = 1280,720
+;localcoord = 1920,1080
+
+[Files]
+spr = system.sff          ;Filename of sprite data
+snd = system.snd          ;Filename of sound data
+select = select.def       ;Character and stage selection list
+fight = fight.def         ;Fight definition filename
+font1 = f-4x6.def         ;System fonts
+font2 = f-6x9.def         ;System fonts
+font3 = jg.fnt            ;System fonts
+font4 = Open_Sans.def
+font5 = default-3x5-bold.def
+font6 = default-3x5.def
+module =                  ;Ikemen feature: External Lua code
+
+[Music]
+
+[Title Info]
+
+[TitleBGdef]
+
+[TitleBG]
+type  = normal
+spriteno = 0,0
+
+[Select Info]
+
+[SelectBGdef]
+
+[SelectBG]
+type  = normal
+spriteno = 0,0
+
+[VS Screen]
+
+[VersusBGdef] 
+
+[VersusBG]
+type  = normal
+spriteno = 0,0
+
+[Demo Mode]
+[Continue Screen]
+
+[Game Over Screen]
+
+[Victory Screen]
+
+[VictoryBGdef] 
+
+[VictoryBG]
+type  = normal
+spriteno = 0,0
+
+[Win Screen]
+
+[Default Ending]
+
+[End Credits]
+
+[Survival Results Screen]
+
+[Option Info]
+
+[OptionBGdef]
+
+[OptionBG]
+type = normal
+spriteno = 0,0
+

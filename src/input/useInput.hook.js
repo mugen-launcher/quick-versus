@@ -67,6 +67,7 @@ export default function useInput(keyboardMapping, gamepadMapping) {
     keyboard.addEventListener(keyboardMapping.l1, onPressL1);
     keyboard.addEventListener(keyboardMapping.r1, onPressR1);
     keyboard.addEventListener(keyboardMapping.quit, onPressQuit);
+    /*
     gamepad.addEventListener(gamepadMapping.left, onPressLeft);
     gamepad.addEventListener(gamepadMapping.right, onPressRight);
     gamepad.addEventListener(gamepadMapping.up, onPressUp);
@@ -78,6 +79,7 @@ export default function useInput(keyboardMapping, gamepadMapping) {
     gamepad.addEventListener(gamepadMapping.l1, onPressL1);
     gamepad.addEventListener(gamepadMapping.r1, onPressR1);
     gamepad.addEventListener(gamepadMapping.quit, onPressQuit);
+    */
 
     return () => {
       keyboard.removeEventListener(keyboardMapping.left, onPressLeft);
@@ -91,6 +93,7 @@ export default function useInput(keyboardMapping, gamepadMapping) {
       keyboard.removeEventListener(keyboardMapping.l1, onPressL1);
       keyboard.removeEventListener(keyboardMapping.r1, onPressR1);
       keyboard.removeEventListener(keyboardMapping.quit, onPressQuit);
+      /*
       gamepad.removeEventListener(gamepadMapping.left, onPressLeft);
       gamepad.removeEventListener(gamepadMapping.right, onPressRight);
       gamepad.removeEventListener(gamepadMapping.up, onPressUp);
@@ -102,6 +105,7 @@ export default function useInput(keyboardMapping, gamepadMapping) {
       gamepad.removeEventListener(gamepadMapping.l1, onPressL1);
       gamepad.removeEventListener(gamepadMapping.r1, onPressR1);
       gamepad.removeEventListener(gamepadMapping.quit, onPressQuit);
+      */
     };
   }, [emitter, keyboardMapping, gamepadMapping, keyboard, gamepad]);
 

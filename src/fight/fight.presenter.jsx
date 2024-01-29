@@ -29,48 +29,34 @@ const BlackScreen = styled.div`
 export default function Fight() {
   const configuration = useConfiguration();
   const navigation = useNavigation();
-  const environment = useEnvironment();
   const dispatch = useNavigationDispatch();
   const backgroundSound = useBackgroundSound();
 
   if (navigation.state === TRAINING_FIGHTING || navigation.state === VERSUS_FIGHTING) {
-    const options = [
-      "-p1",
-      navigation.characterOne.definition,
-      "-p2",
-      navigation.characterTwo.definition,
-      "-s",
-      navigation.stage.definition,
-      "-rounds",
-      2
-    ];
-    if (configuration.motif) {
-      options.push("-r", configuration.motif);
-    }
+    const options = {
+      characterOne: navigation.characterOne.definition,
+      characterTwo: navigation.characterTwo.definition,
+      stage: navigation.stage.definition
+    };
+
     if (navigation.characterOneColorIndex) {
-      options.push("-p1.color", navigation.characterOneColorIndex);
+      options.characterOneColorIndex = navigation.characterOneColorIndex;
     }
     if (navigation.characterTwoColorIndex) {
-      options.push("-p2.color", navigation.characterTwoColorIndex);
+      options.characterTwoColorIndex = navigation.characterTwoColorIndex;
     }
     if (navigation.characterTwoAILevel > 0) {
-      options.push("-p2.ai", navigation.characterTwoAILevel);
+      options.characterTwoAILevel = navigation.characterTwoAILevel;
     }
 
     backgroundSound.pause();
     mainAPI.minimize();
-    mainAPI.execFile(
-      environment.ikemenPath,
-      options,
-      {
-        cwd: environment.currentDirectory
-      }
-    ).then(() => {
+    mainAPI.launchGame(options).then(() => {
       dispatch(endFight());
       backgroundSound.play();
       mainAPI.restore();
     });
-    console.log(environment.ikemenPath, options);
+    console.log("launchGame", options);
 
     return <BlackScreen>Fighting ...</BlackScreen>;
   }

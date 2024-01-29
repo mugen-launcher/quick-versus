@@ -95,21 +95,8 @@ export default function App() {
     }
   }
 
-  const ikemenPath = mainAPI.resolve(currentDirectory, configuration.ikemenExecutablePath);
-  if (!mainAPI.existsSync(ikemenPath)) {
-    return (
-      <Requirement>
-        <p>
-          Ikemen executable file is missing:
-          {ikemenPath}
-        </p>
-      </Requirement>
-    );
-  }
-
   const environment = {
     currentDirectory,
-    ikemenPath,
     configurationFilePath
   };
 

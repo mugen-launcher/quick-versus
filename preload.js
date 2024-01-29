@@ -1,7 +1,7 @@
 const { contextBridge, ipcRenderer } = require("electron/renderer");
 
 contextBridge.exposeInMainWorld("mainAPI", {
-  execFile: async (filePath, args, options) => ipcRenderer.send("execFile", filePath, args, options),
+  launchGame: (args) => ipcRenderer.invoke("launchGame", args),
   existsSync: (filePath) => ipcRenderer.sendSync("existsSync", filePath),
   readFileSync: (filePath) => ipcRenderer.sendSync("readFileSync", filePath),
   resolve: (...args) => ipcRenderer.sendSync("resolve", args),

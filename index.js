@@ -1,4 +1,5 @@
-const { execFile } = require("node:child_process");
+const util = require("node:util");
+const exec = util.promisify(require("node:child_process").exec);
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 const fs = require("fs");
@@ -14,6 +15,7 @@ try {
 function getCurrentDirectory() {
   let currentDirectory;
   if (process.argv.length >= 3) {
+    // TODO use a named option
     currentDirectory = path.normalize(process.argv[2]);
   } else if (isDev) {
     currentDirectory = path.resolve(app.getAppPath(), "dev-env");
@@ -33,6 +35,20 @@ function getCurrentDirectory() {
   return currentDirectory;
 }
 
+function getConfiguration() {
+  const currentDirectory = getCurrentDirectory();
+  const jsonFilePath = path.resolve(currentDirectory, "quick-versus.json");
+  const yamlFilePath = path.resolve(currentDirectory, "quick-versus.yml");
+  let config;
+  if (fs.existsSync(jsonFilePath)) {
+    config = require(jsonFilePath);
+  } else if (fs.existsSync(yamlFilePath)) {
+    config = configYaml(yamlFilePath);
+  }
+
+  return config;
+}
+
 function createWindow() {
   let width = 1024;
   let height = 576;
@@ -40,15 +56,7 @@ function createWindow() {
   let frame = false;
 
   try {
-    const currentDirectory = getCurrentDirectory();
-    const jsonFilePath = path.resolve(currentDirectory, "quick-versus.json");
-    const yamlFilePath = path.resolve(currentDirectory, "quick-versus.yml");
-    let config;
-    if (fs.existsSync(jsonFilePath)) {
-      config = require(jsonFilePath);
-    } else if (fs.existsSync(yamlFilePath)) {
-      config = configYaml(yamlFilePath);
-    }
+    const config = getConfiguration();
 
     if (config) {
       if (config.hasOwnProperty("width")) {
@@ -99,10 +107,42 @@ function getVersion(event) {
   event.returnValue = version;
 }
 
-async function executeFile (event, filePath, args, options) {
-  execFile(filePath, args, options, () => {
-    event.returnValue = true;
-  });
+async function launchGame(event, options) {
+  const directoryPath = getCurrentDirectory();
+  const filePath = `${directoryPath}/.engine/run-ikemen.sh`;
+  const config = getConfiguration();
+
+  let command = `"${filePath}"`;
+  if (config.rounds) {
+    command += ` -rounds="${config.rounds}"`;
+  }
+  if (config.motif) {
+    command += ` -motif="${config.motif}"`;
+  }
+  if (config.lifebar) {
+    command += ` -lifebar="${config.lifebar}"`;
+  }
+  if (options.characterOne) {
+    command += ` -p1="${options.characterOne}"`;
+  }
+  if (options.characterOneColorIndex) {
+    command += ` -p1.color="${options.characterOneColorIndex}"`;
+  }
+  if (options.characterTwo) {
+    command += ` -p2="${options.characterTwo}"`;
+  }
+  if (options.characterTwoColorIndex) {
+    command += ` -p2.color="${options.characterTwoColorIndex}"`;
+  }
+  if (options.characterTwoAILevel) {
+    command += ` -p2.ai="${options.characterTwoAILevel}"`;
+  }
+  if (options.stage) {
+    command += ` -s="${options.stage}"`;
+  }
+  console.log(command);
+  await exec(command, { cwd: directoryPath });
+  return true;
 }
 
 function getConfigYaml(event, filePath) {
@@ -132,7 +172,7 @@ function getCurrentDirectoryExported(event) {
 async function start() {
   await app.whenReady();
   ipcMain.on("getVersion", getVersion);
-  ipcMain.on("execFile", executeFile);
+  ipcMain.handle("launchGame", launchGame);
   ipcMain.on("existsSync", existsSync);
   ipcMain.on("readFileSync", readFileSync);
   ipcMain.on("resolve", resolve);

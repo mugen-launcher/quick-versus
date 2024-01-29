@@ -1,7 +1,9 @@
 {
   "frame": true,
+  "motif": "system.def",
+  "lifebar": "01/fight.def",
+  "rounds": 2,
   "characterColumns": 3,
-  "ikemenExecutablePath": "mugen.exe",
   "sound": {
     "volume": 30,
     "background": "sound/title.mp3",
@@ -11,7 +13,7 @@
     "selectAILevel": "sound/confirm.wav",
     "moveCursor": "sound/move-cursor.wav",
     "cancel": "sound/cancel.wav"
-},
+  },
   "categories": [
     {
       "name": "Capcom",
@@ -242,7 +244,7 @@
       "y": "q",
       "l1": "d",
       "r1": "c",
-      "quit": "i"
+      "quit": "escape"
     },
     "gamepad": {
       "left": "A17",
